@@ -12,7 +12,7 @@
 development:
   adapter: postgresql
   database: library  
-  username: postgres
+  username: example
   password: oks
   host: localhost
   encoding: UTF8
@@ -31,7 +31,7 @@ development:
 test: &test
   adapter: postgresql
   database: library  
-  username: postgres
+  username: example
   password: oks
   host: localhost
   encoding: UTF8
@@ -44,7 +44,7 @@ test: &test
 production:
   adapter: postgresql
   database: library  
-  username: postgres
+  username: example
   password: oks
   host: localhost
   encoding: UTF8
