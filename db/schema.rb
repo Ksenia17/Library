@@ -17,12 +17,12 @@ ActiveRecord::Schema.define(version: 20170727092007) do
 
   create_table "books", force: :cascade do |t|
     t.string "name"
-    t.string "picture"
     t.integer "book_type_id"
     t.integer "user_id"
     t.date "year_book"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.oid "picture"
   end
 
   create_table "users", force: :cascade do |t|
