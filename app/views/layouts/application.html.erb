@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Lib</title>
+    <title>Library</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,7 +9,8 @@
   </head>
 
   <body>
-
+	<a href="/users/sign_in">Sign In</a> | <a href="/users/sign_out" data-method="delete" >Sign Out</a>
+	
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 
