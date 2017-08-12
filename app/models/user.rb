@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  
   has_many :users_roles
   has_many :roles, :through => :users_roles
   # Include default devise modules. Others available are:
@@ -7,7 +8,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
 #  validates :login, presence:true, length: { maximum: 10 }
-  validates :reset_password_token,  presence: true, length: { maximum: 8 }
+#  validates :encrypted_password,  presence: true, length: { maximum: 8 }
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
     validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
