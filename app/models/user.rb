@@ -23,7 +23,8 @@ class User < ApplicationRecord
 
   private
     def set_role
-#      self.signed_up_on = Date.today  # присвоить значение user - по умолчанию
+      self.role_id = 2 # присвоить значение user - по умолчанию
+      
     end
 end
 
