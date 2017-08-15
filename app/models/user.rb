@@ -13,10 +13,20 @@ class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
     validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
-#    validates :birthdate  ,  presence: true 
-#    validates :first_name ,  presence: true
-#    validates :last_name  ,  presence: true
+    validates :birthdate  ,  presence: true 
+    validates :first_name ,  presence: true
+    validates :last_name  ,  presence: true
 #    validates :role_id    ,  presence: true 
-#    validates :level      ,  presence: true              
+#    validates :level      ,  presence: true   
+
+ before_create :set_role
+
+  private
+    def set_role
+#      self.signed_up_on = Date.today  # присвоить значение user - по умолчанию
+    end
+end
+
+
        
 end
