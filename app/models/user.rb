@@ -19,12 +19,14 @@ class User < ApplicationRecord
 #    validates :role_id    ,  presence: true 
 #    validates :level      ,  presence: true   
 
- before_create :set_role
+ before_create :create_role
 
   private
-    def set_role
-      self.role_id = Role.find_by_name('user') # ? присвоить значение user - по умолчанию
-       
+    def create_role
+      self.roles << Role.find_by_name(:user) 
+      
+  #    self.Role = Role.find_by_name('user') # ? присвоить значение user - по умолчанию
+      
     end
 
 
