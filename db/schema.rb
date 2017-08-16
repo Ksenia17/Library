@@ -47,12 +47,12 @@ ActiveRecord::Schema.define(version: 20170806194250) do
 
   create_table "books", force: :cascade do |t|
     t.string "name"
+    t.oid "picture"
     t.integer "book_type_id"
     t.integer "user_id"
     t.date "year_book"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.oid "picture"
   end
 
   create_table "fines", force: :cascade do |t|
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 20170806194250) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "username", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -79,16 +80,15 @@ ActiveRecord::Schema.define(version: 20170806194250) do
     t.datetime "last_sign_in_at"
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
-    t.string "login"
-    t.date "birthdate"
-    t.string "first_name"
-    t.string "last_name"
-    t.datetime "confirmation_time", null: false
-    t.integer "role_id"
+    t.date "birthdate", null: false
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.datetime "confirmation_time"
+    t.integer "role_id", default: 0, null: false
     t.integer "confirmation_by_admin_id"
     t.integer "level"
-    t.datetime "end_time", null: false
-    t.datetime "penalty_time", null: false
+    t.datetime "end_time"
+    t.datetime "penalty_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

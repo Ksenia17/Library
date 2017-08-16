@@ -23,10 +23,9 @@ class User < ApplicationRecord
 
   private
     def set_role
-      self.role_id = 2 # присвоить значение user - по умолчанию
-      
+      self.role_id = Role.find_by_name('user') # ? присвоить значение user - по умолчанию
+       
     end
-end
 
 
        

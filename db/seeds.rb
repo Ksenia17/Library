@@ -12,6 +12,13 @@
 User.create!( first_name:  "ivan",
               last_name: "ivanov",
              email: "iv@ukr.net",
-             encrypted_password: "admin123",
-             password_confirmation: "admin123",
-             role_id:  2 )
+             birthdate: "01.08.2017",
+             role_id: "2",
+             password: "admin123")
+User.create!( first_name:  "petya",
+              last_name: "petrov",
+             email: "pe@ukr.net",
+             role_id: "2",
+             birthdate: "01.08.2017",
+             password: "12345678")
+             
