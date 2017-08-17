@@ -2,7 +2,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
   def change
     create_table :users do |t|
       ## Database authenticatable
-      t.string :username,           null: false, default: ""
+      
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
 
@@ -38,7 +38,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.string :first_name, null: false  
       t.string :last_name, null: false
       t.datetime :confirmation_time
-      t.integer :role_id, null: false, default: 0 
       t.integer :confirmation_by_admin_id
       t.integer :level
       t.datetime :end_time

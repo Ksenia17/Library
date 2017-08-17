@@ -9,16 +9,25 @@
   Role.create(:name => :user)
 
   # Users
-User.create!( first_name:  "ivan",
+user = User.new( first_name:  "ivan",
               last_name: "ivanov",
               username: "i890",
               email: "iv1@ukr.net",
               birthdate: "01.08.2017",
               password: "admin123")
-User.create!( first_name:  "petya",
+user.roles << Role.find_by_name(:admin)
+user.save!
+
+
+
+user = User.new( first_name:  "petya",
               last_name: "petrov",
               username: "petr",
               email: "pe1@ukr.net",
               birthdate: "01.08.2017",
               password: "12345678")
+
+
+user.roles << Role.find_by_name(:admin)
+user.save!
              

@@ -23,7 +23,7 @@ class User < ApplicationRecord
 
   private
     def create_role
-      self.roles << Role.find_by_name(:user) 
+      self.roles << Role.find_by_name(:user) if self.roles.blank?
       
   #    self.Role = Role.find_by_name('user') # ? присвоить значение user - по умолчанию
       
