@@ -2,10 +2,11 @@ class User < ApplicationRecord
   has_many :users_roles
   has_many :roles, :through => :users_roles
   has_one  :book
-  has_many :book_history
-  has_many :fine
-  has_many :book_item
+  has_many :book_histories
+  has_many :fines
+  has_many :book_items
   has_one  :book_request
+
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
