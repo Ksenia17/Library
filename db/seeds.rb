@@ -10,8 +10,7 @@
 
   # Users
 user = User.new( first_name:  "ivan",
-              last_name: "ivanov",
-              username: "i890",
+              last_name: "ivanov",              
               email: "iv1@ukr.net",
               birthdate: "01.08.2017",
               password: "admin123")
@@ -21,8 +20,7 @@ user.save!
 
 
 user = User.new( first_name:  "petya",
-              last_name: "petrov",
-              username: "petr",
+              last_name: "petrov",              
               email: "pe1@ukr.net",
               birthdate: "01.08.2017",
               password: "12345678")

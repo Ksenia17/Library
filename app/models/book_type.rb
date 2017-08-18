@@ -1,3 +1,5 @@
 class BookType < ApplicationRecord
-	validates :name  , presence: true
+  belongs_to :book
+  
+  validates  :name  , presence: true
 end

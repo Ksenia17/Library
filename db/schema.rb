@@ -69,7 +69,6 @@ ActiveRecord::Schema.define(version: 20170806194250) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "username", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -84,7 +83,6 @@ ActiveRecord::Schema.define(version: 20170806194250) do
     t.string "first_name", null: false
     t.string "last_name", null: false
     t.datetime "confirmation_time"
-    t.integer "role_id", default: 0, null: false
     t.integer "confirmation_by_admin_id"
     t.integer "level"
     t.datetime "end_time"

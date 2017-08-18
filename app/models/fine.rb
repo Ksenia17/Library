@@ -1,5 +1,8 @@
 class Fine < ApplicationRecord
-	validates :user_id  ,		presence: true
-	validates :book_history_id, presence: true
+	belongs_to : user
+  belongs_to :book_history
+  
+  validates  :user_id  ,		presence: true
+	validates  :book_history_id, presence: true
 
 end
