@@ -7,6 +7,8 @@ class CreateBooks < ActiveRecord::Migration[5.1]
       t.integer :user_id
       t.date :year_book
 
+      t.references :user, index: true
+      t.references :book_type, index: true  
       t.timestamps
     end
   end

@@ -9,6 +9,6 @@ class Book < ApplicationRecord
    validates :user_id  ,     presence: true
    validates :year_book,     presence: true  
 
-   attr_accesible :user, :user_id
-   attr_accesible :book_type, :book_type_id
+#   attr_accesible :user, :user_id
+#   attr_accesible :book_type, :book_type_id
 end

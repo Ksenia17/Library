@@ -7,6 +7,9 @@ class CreateBookHistories < ActiveRecord::Migration[5.1]
       t.datetime :owned_from
       t.datetime :owned_to, null: true
      
+      t.references :user, index: true
+      t.references :book_item, index: true  
+      t.references :book_request, index: true  
     end
   end
 end

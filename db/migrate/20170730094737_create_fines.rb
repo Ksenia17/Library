@@ -6,6 +6,8 @@ class CreateFines < ActiveRecord::Migration[5.1]
       t.integer :book_history_id
       t.integer :admin_user_id, null: true
 
+      t.references :user, index: true
+      t.references :book_history, index: true
       t.timestamps
     end
   end

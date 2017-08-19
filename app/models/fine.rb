@@ -5,6 +5,6 @@ class Fine < ApplicationRecord
   validates  :user_id  ,		presence: true
 	validates  :book_history_id, presence: true
 
-  attr_accessible :user, :user_id
+#  attr_accessible :user, :user_id
 
 end

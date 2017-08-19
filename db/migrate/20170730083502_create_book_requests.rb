@@ -7,6 +7,8 @@ class CreateBookRequests < ActiveRecord::Migration[5.1]
       t.boolean :approved_flg
       t.integer :admin_user_id, null: true
 
+      t.references :book, index: true  
+      t.references :user, index: true  
       t.timestamps
     end
   end
