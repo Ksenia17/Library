@@ -5,8 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-  Role.create(:name => :admin)
-  Role.create(:name => :user)
+  Role.create(:name => :admin) if not Role.find_by_name(:admin)
+  Role.create(:name => :user) if not Role.find_by_name(:user)
 
   # Users
 user = User.new( first_name:  "ivan",

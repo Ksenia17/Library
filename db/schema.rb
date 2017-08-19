@@ -17,28 +17,36 @@ ActiveRecord::Schema.define(version: 20170806194250) do
 
   create_table "book_histories", force: :cascade do |t|
     t.integer "request_id"
-    t.integer "book_item_id"
-    t.integer "user_id"
+    t.bigint "book_item_id"
+    t.bigint "user_id"
     t.datetime "owned_from"
     t.datetime "owned_to"
+    t.bigint "book_request_id"
+    t.index ["book_item_id"], name: "index_book_histories_on_book_item_id"
+    t.index ["book_request_id"], name: "index_book_histories_on_book_request_id"
+    t.index ["user_id"], name: "index_book_histories_on_user_id"
   end
 
   create_table "book_items", force: :cascade do |t|
-    t.integer "book_id"
-    t.integer "user_id"
+    t.bigint "book_id"
+    t.bigint "user_id"
     t.datetime "archived_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_book_items_on_book_id"
+    t.index ["user_id"], name: "index_book_items_on_user_id"
   end
 
   create_table "book_requests", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "book_id"
+    t.bigint "user_id"
+    t.bigint "book_id"
     t.datetime "complete_time"
     t.boolean "approved_flg"
     t.integer "admin_user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_book_requests_on_book_id"
+    t.index ["user_id"], name: "index_book_requests_on_user_id"
   end
 
   create_table "book_types", force: :cascade do |t|
@@ -48,20 +56,24 @@ ActiveRecord::Schema.define(version: 20170806194250) do
   create_table "books", force: :cascade do |t|
     t.string "name"
     t.oid "picture"
-    t.integer "book_type_id"
-    t.integer "user_id"
+    t.bigint "book_type_id"
+    t.bigint "user_id"
     t.date "year_book"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["book_type_id"], name: "index_books_on_book_type_id"
+    t.index ["user_id"], name: "index_books_on_user_id"
   end
 
   create_table "fines", force: :cascade do |t|
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "end_time"
-    t.integer "book_history_id"
+    t.bigint "book_history_id"
     t.integer "admin_user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["book_history_id"], name: "index_fines_on_book_history_id"
+    t.index ["user_id"], name: "index_fines_on_user_id"
   end
 
   create_table "roles", force: :cascade do |t|
