@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
   
   
+  root to: "home#index"
+
+  devise_for :users #, controllers: {registrations: "registrations"}
+  
+  
   get 'admins/index'
 
-  devise_for :users
-  root to: "home#index"
-  
   get 'home/index'
 
   resources :users do

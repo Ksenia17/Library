@@ -36,7 +36,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+   protected
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
@@ -49,12 +49,27 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+   def after_sign_up_path_for(resource)
+  #  super(resource)
+   @user = User.find(configure_permitted_parameters)
+
+    if @user.roles = :admin
+       '/admins/index'
+    elsif @user.roles = :user
+        super(resource)    
+    end   
+   end
+
+
+   def configure_permitted_parameters
+    # Permit the `subscribe_newsletter` parameter along with the other
+    # sign up parameters.
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :birthdate])
+  end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
+  #'/admins/index'
   # end
 end
