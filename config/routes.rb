@@ -2,16 +2,17 @@ Rails.application.routes.draw do
   
   get 'books/index'
 
-  devise_for :users
+  devise_for :users,
+              controllers: {
+                sessions: 'users/sessions' #,
+              #  registrations: 'users/registrations'
+             }
  
   get 'admins/index' #, as: 'user_root'
 
   root to: "home#index"
   get 'home/index'
 
-#  devise_for :users , controllers: {registrations: "registrations"}
-    
-  
 
   resources :users do
     resources :books
