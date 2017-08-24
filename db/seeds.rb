@@ -26,6 +26,6 @@ user = User.new( first_name:  "petya",
               password: "12345678")
 
 
-user.roles << Role.find_by_name(:admin)
+user.roles << Role.find_by_name(:user)
 user.save!
              
