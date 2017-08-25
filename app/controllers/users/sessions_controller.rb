@@ -6,7 +6,7 @@ class Users::SessionsController < Devise::SessionsController
     set_flash_message(:notice, :signed_in) if is_navigational_format?
     sign_in(resource_name, resource)
    # respond_with resource, :location => after_sign_in_path_for(resource)
-    binding.pry  
+#    binding.pry  
     if current_user.roles.include?(Role.find_by_name(:admin))  
       redirect_to admins_index_path
     elsif current_user.roles.include?(Role.find_by_name(:user)) 

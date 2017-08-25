@@ -23,6 +23,10 @@ class User < ApplicationRecord
 
  before_create :create_role
 
+ def has_role?(role) # ждет на вход символ, например :admin
+    roles.include?(role)
+  end
+
   private
     def create_role
       self.roles << Role.find_by_name(:user) if self.roles.blank?      
