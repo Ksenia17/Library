@@ -18,6 +18,11 @@ Rails.application.routes.draw do
   resources :users do
     resources :books
   end
+  resources :books do
+    resources :book_items
+    resources :book_requests
+  end 
+
 
 #  resources :users do
 #    resources :books
