@@ -8,7 +8,9 @@
     	<th>Last name </th>
     	<th>Email </th>
     	<th>Birthdate </th>
+    	<th>Confirmation by admin </th>
     </tr>
+  
     <% @users.each do |user| %>
     <tr>
 		<td><%= user.id %></td>
@@ -16,7 +18,10 @@
 		<td><%= user.last_name%></td>
 		<td><%= user.email%></td>
 		<td><%= user.birthdate%></td>
+		<td><%= user.confirmation_by_admin_id%></td>
+		<td><%= link_to "Edit", '#' %> </td>
     </tr>		  		
    <% end %>
+ 
 </table>
 </div>
