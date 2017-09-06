@@ -8,6 +8,8 @@ Rails.application.routes.draw do
                           }
  namespace :admins do
   get 'index'
+  get 'show'
+  #  resources :users
  end
 
 #  get 'admins/index' 

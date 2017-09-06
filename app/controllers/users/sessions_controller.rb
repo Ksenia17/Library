@@ -9,6 +9,7 @@ class Users::SessionsController < Devise::SessionsController
 #    binding.pry  
     if current_user.roles.include?(Role.find_by_name(:admin))  
       redirect_to admins_index_path
+      # redirect_to admins_users_path
     elsif current_user.roles.include?(Role.find_by_name(:user)) 
       redirect_to books_path 
     end
