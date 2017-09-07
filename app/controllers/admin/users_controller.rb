@@ -1,4 +1,4 @@
-class AdminsController < ApplicationController
+class Admin::UsersController < ApplicationController  # AdminController
   
   layout "admin"
 
@@ -24,5 +24,10 @@ class AdminsController < ApplicationController
    # if params[:confirmation_by_admin_id]  
    # @users = User.where(["confirmation_by_admin_id = ?", nil]) 
   end  
+
+  def list_fines
+    
+  end
+
     
 end
