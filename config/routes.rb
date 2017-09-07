@@ -5,25 +5,32 @@ Rails.application.routes.draw do
   devise_for :users,
               controllers: {
                 sessions: 'users/sessions' 
-                          }
+                           }
+ root to: "home#index"
+ get 'home/index'
+
  namespace :admins do
-  get 'index'
-  get 'show'
-  #  resources :users
+ # get 'index'
+ # get 'show'
+    resources :users , only: [:index, :show] do
+          
+      get 'list_wait', on: :collection
+      get 'list_fines',on: :collection
+    end  
+
  end
 
 #  get 'admins/index' 
 
-  root to: "home#index"
-  get 'home/index'
+  
 
-  resources :users do
-    resources :books
-  end
-  resources :books do
-    resources :book_items
-    resources :book_requests
-  end 
+#  resources :users do
+#    resources :books
+#  end
+#  resources :books do
+#    resources :book_items
+#    resources :book_requests
+#  end 
 
 
 #  resources :users do

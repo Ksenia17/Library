@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :book_items
   has_one  :book_request
 
+  scope :confirmed, -> { where("confirmation_time is not null") }
+  scope :registed , -> { where("confirmation_by_admin_id is null") }
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
