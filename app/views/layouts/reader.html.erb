@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Library</title>
+  <link data-require="bootstrap-css@*" data-semver="4.0.0-alpha.4" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" />
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<h3>Информация только для читателей </h3>
+ 												
+ <%= link_to 'Личные данные', '#' %>|
+ <%= link_to 'Мои книги', '#'  %>|
+ <%= link_to 'Архив', '#'  %>	|
+ 
+
+
+<%= yield %>
+ 
+</body>
+</html>

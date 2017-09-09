@@ -10,6 +10,7 @@ class User < ApplicationRecord
 
   scope :confirmed, -> { where("confirmation_time is not null") }
   scope :registed , -> { where("confirmation_by_admin_id is null") }
+  scope :penalized, -> { where ("penalty_time is not null")}
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -25,7 +26,7 @@ class User < ApplicationRecord
 #    validates :level      ,  presence: true   
 
  before_create :create_role
-
+ 
  def has_role?(role) # ждет на вход символ, например :admin
     roles.include?(role)
   end
@@ -33,5 +34,7 @@ class User < ApplicationRecord
   private
     def create_role
       self.roles << Role.find_by_name(:user) if self.roles.blank?      
-    end       
+    end 
+  
+
 end

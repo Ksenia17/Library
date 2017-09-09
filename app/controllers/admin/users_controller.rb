@@ -1,6 +1,11 @@
 class Admin::UsersController < ApplicationController  # AdminController
   
+
   layout "admin"
+
+  def show
+    @user = User.find(params[:id])
+  end
 
   def index
   #  @users = User.all
@@ -19,15 +24,16 @@ class Admin::UsersController < ApplicationController  # AdminController
    
 
   def list_wait
-    @users = User.registed
-
-   # if params[:confirmation_by_admin_id]  
-   # @users = User.where(["confirmation_by_admin_id = ?", nil]) 
+    @users = User.registed 
   end  
 
   def list_fines
-    
+    @users = User.penalized
   end
 
-    
+  protected
+
+  # If you have extra params to permit, append them to the sanitizer.
+  
+       
 end
