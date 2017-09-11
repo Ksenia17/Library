@@ -1,14 +1,12 @@
 Rails.application.routes.draw do
   
-#  get 'books/index'
 
   devise_for :users,
               controllers: {
                 sessions: 'users/sessions' 
                            }
  root to: "home#index"
- get 'home/index'
-
+ 
  namespace :admin do
     resources :users , only: [:index] do
       get 'list_wait', on: :collection
@@ -17,8 +15,11 @@ Rails.application.routes.draw do
  end
 
  namespace :reader do
-    resources :users , only: [:show] do
+    resources :users , only: [:show, :edit] do   
     end  
+    resources :books , only: [:index] do   
+    end 
+
  end 
 
 

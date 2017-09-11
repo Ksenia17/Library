@@ -1,5 +1,7 @@
 class Admin::UsersController < ApplicationController  # AdminController
-  
+ before_action :authenticate_user! # for devise
+ #load_and_authorise_resource # for cancancan
+
 
   layout "admin"
 
@@ -8,15 +10,6 @@ class Admin::UsersController < ApplicationController  # AdminController
   end
 
   def index
-  #  @users = User.all
-  #  @users = User.order("first_name")
-  #  binding.pry
-
-  # if params[:confirmation_time]  # confirmation_by_admin_id
-    
-  #  @users = User.where(["confirmation_time != ?", nil]).order("first_name") 
-
-   #  @users = User.where(:confirmation_by_admin_id => (params[:confirmation_by_admin_id] != 0))   
   
     @users = User.confirmed
 
@@ -30,10 +23,6 @@ class Admin::UsersController < ApplicationController  # AdminController
   def list_fines
     @users = User.penalized
   end
-
-  protected
-
-  # If you have extra params to permit, append them to the sanitizer.
-  
+    
        
 end
