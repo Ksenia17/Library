@@ -1,5 +1,5 @@
 class BookType < ApplicationRecord
- # has_one :book
+  has_one :book
   
- # validates  :name, presence: true
+  validates  :name, presence: true
 end

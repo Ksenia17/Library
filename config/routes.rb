@@ -9,16 +9,22 @@ Rails.application.routes.draw do
  
  namespace :admin do
     resources :users , only: [:index] do
+      resources :books , only: [:index] do   
+      end 
       get 'list_wait', on: :collection
       get 'list_fines',on: :collection
     end  
+    resources :book_types , only: [:index] do   
+    end 
+
  end
 
  namespace :reader do
-    resources :users , only: [:show,:edit] do   
+    resources :users , only: [:show,:edit] do 
+      resources :books , only: [:index] do   
+      end   
     end  
-    resources :books , only: [:index] do   
-    end 
+    
     resources :book_types , only: [:index] do   
     end 
 
