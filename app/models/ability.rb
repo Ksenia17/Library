@@ -8,7 +8,7 @@ class Ability
     if user.has_role? :admin
        can :manage, :all  # for RESTful controllers
     elsif user.has_role? :user
-        can [:read], [User] # for RESTful controllers
+     #   can [:read], [User] # for RESTful controllers
         can [:read], [Book]
         can [:read], [Book_type]
         can [:read], [Fine]

@@ -1,6 +1,6 @@
-<h2>Редактирование данных читателя: </h2>
+<h4>Редактирование данных читателя: </h4>
 
-<%= form_for :users , url: edit_reader_user_path do |f| %>
+<%= form_for :user, url: reader_user_path(current_user), method: :put  do |f| %>
   <div class="field">
     <%= f.label :first_name %><br />
     <%= f.text_field :first_name, autofocus: true %>
@@ -20,7 +20,7 @@
     <%= f.date_field :birthdate %>
   </div>
   
-
+  <p></p>
   <div class="actions">
     <%= f.submit "Save" %>
   </div>

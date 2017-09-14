@@ -15,9 +15,11 @@ Rails.application.routes.draw do
  end
 
  namespace :reader do
-    resources :users , only: [:show, :edit] do   
+    resources :users , only: [:show,:edit] do   
     end  
     resources :books , only: [:index] do   
+    end 
+    resources :book_types , only: [:index] do   
     end 
 
  end 

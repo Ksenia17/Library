@@ -16,8 +16,9 @@
 
 <h3>Информация только для читателей </h3>
  												
- <%= link_to 'Личные данные', reader_user_path(current_user) %>|
- <%= link_to 'Мои книги', reader_books_path  %>|
+ 
+ <%= link_to 'Мои книги', reader_books_path  %>|  
+ <%= link_to 'Личные данные', edit_reader_user_path(current_user) %>| 
  <%= link_to 'Архив', '#'  %>	|
  
 

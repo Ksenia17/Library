@@ -9,7 +9,8 @@ class User < ApplicationRecord
   has_one  :book_request
 
   scope :confirmed, -> { where("confirmation_time is not null") }
-  scope :registed , -> { where("confirmation_by_admin_id is null") }
+  scope :none_registed , -> { where("confirmation_by_admin_id is null") }
+#  scope :user_yes, -> {where("roles.include?(Role.find_by_name(:user)") }
   scope :penalized, -> { where ("penalty_time is not null")}
 
   # Include default devise modules. Others available are:
