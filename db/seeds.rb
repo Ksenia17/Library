@@ -46,10 +46,6 @@ user = User.new( first_name:  "mari",
 user.roles << Role.find_by_name(:user)
 user.save!
 
- 
-
-# это не проходит!
-
 # Book_types
 booktype = BookType.new( name:  "История" ) #1
 booktype.save!

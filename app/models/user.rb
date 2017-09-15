@@ -10,7 +10,7 @@ class User < ApplicationRecord
 
   scope :confirmed, -> { where("confirmation_time is not null") }
   scope :none_registed , -> { where("confirmation_by_admin_id is null") }       
-  scope :user_yes, -> {INNER JOIN "users_roles" ON  "roles"."id" = "users_roles"."role_id" where "users"."roles".include?(Role.find_by_name(:user)) }
+#  scope :user_yes, -> {INNER JOIN "users_roles" ON  "roles"."id" = "users_roles"."role_id" where "users"."roles".include?(Role.find_by_name(:user)) }
   
 #Author.joins("INNER JOIN posts ON posts.author_id = authors.id AND posts.published = 't'")
 
