@@ -10,10 +10,7 @@ class Users::SessionsController < Devise::SessionsController
     if current_user.roles.include?(Role.find_by_name(:admin))  
       redirect_to admin_users_path
     elsif current_user.roles.include?(Role.find_by_name(:user)) 
-     # не прошло!
-      if can? :read, Book 
-        redirect_to reader_user_books_path(current_user)
-      end
+       redirect_to reader_user_books_path(current_user)
     end
 
   end
