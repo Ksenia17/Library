@@ -3,16 +3,18 @@ class Ability
 
   def initialize(user)
  
-    user ||= User.new # guest user (not logged in)
+    @user ||= User.new # guest user (not logged in)
 
-    if user.has_role? :admin
+
+    if @user.has_role? :admin
        can :manage, :all  # for RESTful controllers
-    elsif user.has_role? :user
-     #   can [:read], [User] # for RESTful controllers
-        can [:read], [Book]
-        can [:read], [Book_type]
-        can [:read], [Fine]
-        can :index, :catalogs # for NOT RESTFUL controllers !
+    elsif @user.has_role? :user
+         can :update, User   
+         can :read, Book    
+ #       can :read, Reader::User # for RESTful controllers
+ #       can :read, Reader::Books
+ #       can :read, Reader::Book_type
+ #       can :list_wait, :list_fines # for NOT RESTFUL controllers !
     end    
 
 

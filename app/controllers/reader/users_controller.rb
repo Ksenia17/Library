@@ -1,6 +1,6 @@
 class Reader::UsersController < ApplicationController  # AdminController
   before_action :authenticate_user! # for devise
-#  load_and_authorize_resource # for cancancan
+  load_and_authorize_resource # for cancancan - не вышло
 
   layout "reader"
   

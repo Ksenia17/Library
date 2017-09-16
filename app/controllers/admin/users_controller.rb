@@ -17,7 +17,7 @@ class Admin::UsersController < ApplicationController  # AdminController
    
 
   def list_wait
-    @users = User.none_registed #  .user_yes  #Список, ожидающих регистрацию
+    @users = User.none_registed.user_yes  #Список, ожидающих регистрацию
   end  
 
   def list_fines
