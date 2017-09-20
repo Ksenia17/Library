@@ -5,4 +5,13 @@ class Role < ApplicationRecord
 #  attr_accesible :user
   validates :name , presence: true
 
+  def self.user_role
+    Role.find_by_name(:user)
+  end
+
+  def self.adm_role
+    Role.find_by_name(:admin)    
+  end
+
+
 end

@@ -23,6 +23,8 @@ class Admin::UsersController < ApplicationController  # AdminController
   def list_fines
     @users = User.penalized
   end
-    
+   def list_admin
+      @users = User.administrated
+    end 
        
 end

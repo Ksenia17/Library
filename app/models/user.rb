@@ -10,8 +10,8 @@ class User < ApplicationRecord
 
   scope :confirmed, -> { where("confirmation_time is not null") }
   scope :none_registed , -> { where("confirmation_by_admin_id is null") } 
-  scope :user_yes, ->{ includes(:users_roles).where(users_roles: {role_id: "2"}) }  #проверитьт   
-
+  scope :user_yes, ->{ includes(:users_roles).where(users_roles: {role_id: Role.user_role.id}) }  #проверитьт   
+  scope :administrated, -> {includes(:users_roles).where(users_roles: {role_id: Role.adm_role.id}) } 
   scope :penalized, -> { where ("penalty_time is not null")}
 
   # Include default devise modules. Others available are:
@@ -30,7 +30,9 @@ class User < ApplicationRecord
  before_create :create_role
  
  def has_role?(role) # ждет на вход символ, например :admin
-    roles.include?(role)
+   # roles.include?(role)
+ #  binding.pry
+   roles.map{|role| role.name.to_sym }.include?(role)
   end
 
   private

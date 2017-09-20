@@ -1,0 +1,22 @@
+<h4>Список администраторов : </h4>
+<div class="table-responsive">
+ <table class="table table-striped">
+    
+    <tr>
+      <th>N n/n</th>
+      <th>First name </th>
+      <th>Last name </th>
+      <th>Email </th>      
+    </tr>   
+  
+    <% @users.each do |user| %>
+    <tr>
+      <td><%= user.id %></td>
+      <td><%= user.first_name%></td>
+      <td><%= user.last_name%></td>
+      <td><%= user.email%></td> 
+    </tr>         
+   <% end %>
+ 
+</table>
+</div>
