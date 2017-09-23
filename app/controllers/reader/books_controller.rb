@@ -4,8 +4,12 @@ class Reader::BooksController < ApplicationController
 
   layout "reader"
 
+
+
   def index
-    @books = Book.all 
+   # binding.pry
+    @book = Book.readered  # не прошло!
+   # @books = Book.all
     
   end
 

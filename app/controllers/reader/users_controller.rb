@@ -17,15 +17,15 @@ class Reader::UsersController < ApplicationController  # AdminController
   
 def update
    @user = User.find(params[:id])
-    respond_to do |format| 
-  #  @user = User.find(params[:id])
-   # binding.pry
+      
      if @user.update(user_params)
-         format.html { redirect_to action: :update, notice: 'User was successfully updated.' }
-      else
-      format.html { render action: :edit }
-    end  
-  end
+       if @user.errors.empty?
+        
+        redirect_to reader_user_path(current_user), :notice => "User was successfully updated" 
+        end
+     else
+       render 'edit'   
+     end
 end 
  
 private

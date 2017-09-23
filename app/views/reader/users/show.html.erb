@@ -1,28 +1,12 @@
 <h4>Личные данные читателя: </h4>
+<p></p>
 
-<div class="table-responsive">
- <table class="table table-striped">
-		
-    <tr>
-    	<th>N n/n</th>
-    	<th>First name </th>
-    	<th>Last name </th>
-    	<th>Email </th>
-    	<th>Birthdate </th>
-    	<th></th>
-    </tr>
-     
-    
-    <tr>
-		<td><%= @user.id %></td>
-		<td><%= @user.first_name%></td>
-		<td><%= @user.last_name%></td>
-		<td><%= @user.email%></td>
-		<td><%= @user.birthdate%></td>
-		
-		<td><%= link_to "Edit", edit_reader_user_path %> </td>
-    </tr>		  		
+<p id="notice"><%= notice %></p>
+<p>Nn/n : <%= @user.id %></p>
+<p>Имя  : <%= @user.first_name%> </p>
+<p>Фамилия  : <%= @user.last_name%> </p>
+<p>Эл.почта : <%= @user.email%></p>		
+<p>Дата рождения : <%= @user.birthdate%> </p>		
+<p></p>				
+<%= link_to "Edit", edit_reader_user_path %>
    
- 
-</table>
-</div>

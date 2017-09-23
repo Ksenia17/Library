@@ -5,22 +5,19 @@ class Ability
  
     user ||= User.new  # guest user (not logged in)
 
-    if user.has_role? :user
-         can [:edit, :show, :update], User # ?
-         can [:edit, :index], Book     
-     elsif user.has_role? :admin
-         can :manage, :all 
-    end             
+    if user.has_role? :admin
+       can :manage, :all  # for RESTful controllers
+    elsif user.has_role? :user
+         can [:edit, :show,:update], User
+       # binding.pry
+        # can :manage, User, :user_id => user.id
+        # can :update, User do |user|
+        #    !user.lock!           
+        # end   
 
-
-
-#    if user.has_role? :admin
-#       can :manage, :all  # for RESTful controllers
-#    elsif user.has_role? :user
-#         can [:edit, :show, :update], User
-#         can [:edit, :index], Book             
+         can [:edit, :index], Book             
  #       can :list_wait, :list_fines # for NOT RESTFUL controllers !
-#    end    
+    end    
 
 
     # Define abilities for the passed in user here. For example:
