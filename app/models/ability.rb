@@ -8,12 +8,25 @@ class Ability
     if user.has_role? :admin
        can :manage, :all  # for RESTful controllers
     elsif user.has_role? :user
-         can [:edit, :show,:update], User
+         can [:edit, :show], User
        # binding.pry
         # can :manage, User, :user_id => user.id
-        # can :update, User do |user|
-        #    !user.lock!           
-        # end   
+        can :edit, User do |u|
+            if user == u   # запрет на редактирование , только есть переход по командной строке
+              true 
+            else
+            false
+            end           
+         end   
+
+
+         can :update, User do |u|
+            if user == u   # запрет на обновление
+              true 
+            else
+            false
+            end           
+         end   
 
          can [:edit, :index], Book             
  #       can :list_wait, :list_fines # for NOT RESTFUL controllers !

@@ -26,7 +26,7 @@
     <td><%= user.birthdate%></td>
     
     <td><%= link_to "Edit", '#' %> </td>
-    <td> <%= button_to 'Потверждение регистрации','#',method: :put %> </td>
+    <td> <%= button_to 'Потверждение регистрации',confirm_admin_user_path(current_user),method: :post %> </td>
     </tr>         
    <% end %>
  

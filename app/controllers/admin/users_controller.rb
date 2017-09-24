@@ -14,21 +14,27 @@ class Admin::UsersController < ApplicationController  # AdminController
     @users = User.confirmed
 
   end    
-   
+  
+
+  def confirm
+     @user = User.find(params[:id])
+     @user.confirmation_time = Time.now
+
+     if  @user.save
+         # на стр зарегистрированных
+         redirect_to admin_users_path
+      else # на стр. неподтвержденных пользователей 
+          redirect_to list_wait_admin_users_path
+     end
+
+   end 
 
   def list_wait
     @users = User.none_registed.user_yes  #Список, ожидающих регистрацию
   end  
 
   def update
-     @user = User.find(params[:id])
-     @user.confirmation_time == Time.now
-
-     if @user.update(user_params)
-    #    redirect_to list_wait_admin_users_path, :notice => "User was successfully updated" 
-       end
-
-
+     
   end
 
   def list_fines
