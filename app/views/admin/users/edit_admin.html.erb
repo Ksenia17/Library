@@ -1,0 +1,28 @@
+<h4>Редактирование данных администратора: </h4>
+
+<%= form_for :user, url: edit_admin_admin_user_path(current_user), method: :put  do |f| %>
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name, autofocus: true %>
+  </div>
+   <p></p>
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name  %>
+  </div>
+   <p></p>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+   <p></p>
+   <div class="field">
+    <%= f.label :birthdate %><br />
+    <%= f.date_field :birthdate %>
+  </div>
+  
+  <p></p>
+  <div class="actions">
+    <%= f.submit "Save" %>
+  </div>
+<% end %>

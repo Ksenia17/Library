@@ -12,9 +12,16 @@ Rails.application.routes.draw do
       resources :books , only: [:index] do   
       end 
       get 'list_wait', on: :collection
+      get 'edit_wait',on: :member
+      post 'update_wait',on: :member
+
       post 'confirm', on: :member # совпадает с именем def..end в контроллере
+      
       get 'list_fines',on: :collection
+      
       get 'list_admin', on: :collection
+      get 'edit_admin',on: :member
+      post 'update_admin', on: :member
     end  
     resources :book_types , only: [:index] do   
     end 
