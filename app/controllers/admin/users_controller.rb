@@ -4,42 +4,22 @@ class Admin::UsersController < ApplicationController  # AdminController
 
 
   layout "admin"
-
-
-  def edit_wait    
-  end
-  def update_wait    
-  end
-
-
-  def show
-    @user = User.find(params[:id])
-  end
-
-  def update_admin
-    # @user = User.find(params[:id]) не знаю нового параметра id
-  end
-
-  def edit_admin
-   # @user = User.find(params[:id]) не знаю нового параметра id
-   # if @user.save
-   #  redirect_to list_admin_admin_users_path
-   #  else
-   #  render 'edit'
-   #  end
-  end
+ 
 
   def index   #Список уже зарегистрированных
   
-    @users = User.confirmed
+   # @users = User.confirmed
+      
+      @users = User.where("confirmation_time is not null") # lfor find
+    #  @users = User.find_all_by_confirmation_time!("nil")
 
   end    
   
 
   def confirm
      # здесь надо подхватить параметр: id из текущего scope? как?
-     
-    # @user = User.none_registed.user_yes.find(new_parametr)  #params[:id] #  в тупике!
+        
+     binding.pry
      @user = User.find(params[:id]) # это индекс имени,под которым я заходила,а не выбранный индекс в отфильтрованном scope
      @user.confirmation_time = Time.now
     # binding.pry 
@@ -63,16 +43,19 @@ class Admin::UsersController < ApplicationController  # AdminController
   end
 
   def list_fines
-    @users = User.penalized
+   # @users = User.penalized
+   @users = User.where ("penalty_time is not null")
   end
+   
    def list_admin
-      @users = User.administrated
+    #  @users = User.administrated
+      @users = User.includes(:users_roles).where(users_roles: {role_id: Role.adm_role.id})
     end 
   
 
     private
     def new_parametr
-     # params.require(:user).permit
+     
     end
 
 end
