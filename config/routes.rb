@@ -9,14 +9,14 @@ Rails.application.routes.draw do
  
  namespace :admin do
 
-    resources :info, only: [:show,:edit, :update] do
+    resources :info, only: [:show,:edit, :update] do  # пока отставила
     end
       
     resources :users , only: [:index] do
       resources :books , only: [:index] do   
       end 
-      get 'list_wait', on: :collection
-    
+      get 'list_wait', on: :collection  #
+      get 'wait',  on: :member
       post 'confirm', on: :member # совпадает с именем def..end в контроллере
       
       get 'list_fines',on: :collection

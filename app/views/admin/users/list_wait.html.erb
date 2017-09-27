@@ -1,6 +1,8 @@
-<h4>Список, ожидающих регистрацию : </h4>
-
+<% if notice %>
 <p id="notice"><%= notice %></p>
+<% end %>
+
+<h4>Список, ожидающих регистрацию : </h4>
 
 <div class="table-responsive">
  <table class="table table-striped">
@@ -26,7 +28,8 @@
     <td><%= user.birthdate%></td>
     
     <td><%= link_to "Edit", '#' %> </td>
-    <td> <%= button_to 'Потверждение регистрации',confirm_admin_user_path(current_user),method: :post %> </td>
+    
+    <td> <%= button_to 'Регистрация',wait_admin_user_path(current_user) %> </td>
     </tr>         
    <% end %>
  
