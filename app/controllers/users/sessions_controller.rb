@@ -30,6 +30,8 @@ class Users::SessionsController < Devise::SessionsController
   #   super
   # end
 
+    
+
    protected
 
   # If you have extra params to permit, append them to the sanitizer.

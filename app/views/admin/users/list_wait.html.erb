@@ -28,8 +28,8 @@
     <td><%= user.birthdate%></td>
     
     <td><%= link_to "Edit", '#' %> </td>
+    <td><%= link_to "Регистрация", wait_admin_user_path(user) %> </td>
     
-    <td> <%= button_to 'Регистрация',wait_admin_user_path(current_user) %> </td>
     </tr>         
    <% end %>
  

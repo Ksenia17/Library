@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+#  cattr_accessor :current_user
 
   has_many :users_roles
   has_many :roles, :through => :users_roles
@@ -34,6 +35,16 @@ class User < ApplicationRecord
  #  binding.pry
    roles.map{|role| role.name.to_sym }.include?(role)
   end
+
+  def self.current=(user)
+    Thread.current[:current_user] = user
+  end
+
+  def self.current
+    Thread.current[:current_user]
+  end
+
+
 
   private
     def create_role
