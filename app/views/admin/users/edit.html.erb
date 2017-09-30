@@ -1,0 +1,35 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+<h4>Редактирование данных зарегистрированного читателя: </h4>
+
+<%= form_for :user, url: admin_user_path(@user), method: :put  do |f| %>
+  <div class="field">
+    <%= f.label 'Имя:' %><br />
+    <%= f.text_field :first_name, autofocus: true %>
+  </div>
+   <p></p>
+  <div class="field">
+    <%= f.label 'Фамилия:' %><br />
+    <%= f.text_field :last_name  %>
+  </div>
+   <p></p>
+  <div class="field">
+    <%= f.label 'Электронная почта:' %><br />
+    <%= f.text_field :email %>
+  </div>
+   <p></p>
+   <div class="field">
+    <%= f.label 'Дата рождения' %><br />
+    <%= f.date_field :birthdate %>
+  </div>
+  <div class="field">
+    <%= f.label 'Уровень читателя' %><br />
+    <%= f.number_field :level %>
+  </div>
+
+  <p></p>
+  <div class="actions">
+    <%= f.submit "Сохранить изменения" %>
+  </div>
+<% end %>

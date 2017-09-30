@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :info, only: [:show,:edit, :update] do  # пока отставила
     end
       
-    resources :users , only: [:index] do
+    resources :users , only: [:index,:show,:edit, :update] do
       resources :books , only: [:index] do   
       end 
       get 'list_wait', on: :collection  #
