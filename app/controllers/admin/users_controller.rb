@@ -62,10 +62,10 @@ class Admin::UsersController < ApplicationController  # AdminController
    @users = User.where ("penalty_time is not null")
   end
    
-   def list_admin
+ #  def list_admin
     #  @users = User.administrated
-      @users = User.includes(:users_roles).where(users_roles: {role_id: Role.adm_role.id})
-    end 
+ #     @users = User.includes(:users_roles).where(users_roles: {role_id: Role.adm_role.id})
+ #   end 
  
 
  private

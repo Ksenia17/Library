@@ -9,7 +9,7 @@ Rails.application.routes.draw do
  
  namespace :admin do
 
-    resources :info, only: [:show,:edit, :update] do  # пока отставила
+    resources :info, only: [:index,:show,:edit, :update] do  # пока отставила
     end
       
     resources :users , only: [:index,:show,:edit, :update] do
