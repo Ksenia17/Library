@@ -1,6 +1,7 @@
 class Admin::UsersController < ApplicationController  # AdminController
  before_action :authenticate_user! # for devise
  load_and_authorize_resource :user
+ before_action :find_user,only: [:show,:edit,:update,:destroy] #
  
   layout "admin"
   
@@ -9,24 +10,28 @@ class Admin::UsersController < ApplicationController  # AdminController
    end 
 
    def show
-     @user = User.find(params[:id])
-   end 
+   #  @user = User.find(params[:id])
+     unless @user
+     render text: "User not found", status: 404
+     end 
+   end  
+
 
   def index   #Список уже зарегистрированных
      @users = User.where("confirmation_time is not null")  # @users = User.confirmed
   end    
   
   def edit #редактирование уже зарегистрированных
-     @user = User.find(params[:id])
+   #  @user = User.find(params[:id])
   end
 
   def update # обновление уже зарегистрированных
-     @user = User.find(params[:id])
+   #  @user = User.find(params[:id])
      
      if  @user.update(user_params)
-        if @user.errors.empty?
+       # if @user.errors.empty?
           redirect_to admin_user_path(@user), :notice => "User was successfully updated"       
-        end
+       # end
      else
        render 'edit'
     end 
@@ -70,9 +75,9 @@ class Admin::UsersController < ApplicationController  # AdminController
 
  private
 
- # def load_user
- #     @user = User.find(current_user.id)
- #   end
+  def find_user
+      @user = User.find(params[:id])
+    end
 
     def user_params
       params.require(:user).permit(:first_name, :last_name, :birthdate,:email)

@@ -1,24 +1,30 @@
 class Admin::InfoController < ApplicationController
  before_action :authenticate_user! # for devise
+ before_action :find_user,only: [:show,:edit,:update,:destroy]
  load_and_authorize_resource :user
  
+
  layout "admin"
 
 
   def index
-    @users = User.administrated
+   @users = User.administrated
+   # @users = User.where(includes(:users_roles).where(users_roles: {role_id: Role.adm_role.id}))  
   end
 
   def show
-    @user = User.find(params[:id])
-  end
+   # @user = User.find(params[:id])
+   unless @user
+   render text: "User not found", status: 404
+   end
+  end 
 
   def edit
-     @user = User.find(params[:id])
+   #  @user = User.find(params[:id])
   end
 
   def update
-     @user = User.find(params[:id])
+   #  @user = User.find(params[:id])
      
      if  @user.update(user_params)
         if @user.errors.empty?
@@ -31,6 +37,9 @@ class Admin::InfoController < ApplicationController
 
 
 private
+    def find_user
+      @user = User.find(params[:id])
+    end
 
     def user_params
       params.require(:user).permit(:first_name, :last_name, :birthdate,:email)

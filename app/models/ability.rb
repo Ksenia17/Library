@@ -10,12 +10,33 @@ class Ability
 
     elsif user.has_role? :user
         can :read, :all
+        can :create, :all
+       
+       can :show, User do |u|
+         if  u = user
+            true
+         else
+            redirect_to reader_user_books_path(current_user)
+         end        
+        end 
+
+       can :edit, User do |u|
+         if  u = user
+            true
+         else
+            redirect_to reader_user_books_path(current_user)
+         end        
+        end 
 
         can :update, User do |u|
-            u.try(:user) == user
+         if  u = user
+            true
+         else
+            redirect_to  redirect_to reader_user_books_path(current_user)
+         end        
         end 
                         
-         can [:edit, :index], Book             
+        #  can [:edit, :update], Book, :user_id => user.id            
  #       can :list_wait, :list_fines # for NOT RESTFUL controllers !
     else 
           can :read, :all

@@ -24,7 +24,8 @@
 		<td><%= user.email%></td>
 		<td><%= user.birthdate%></td>
 		
-		<td><%= link_to "Edit",   'edit_admin_info_path(@user)' %> </td>
+		<td><%= link_to "Edit", edit_admin_info_path(user) %> </td>
+								
     </tr>		  		
    <% end %>
  
