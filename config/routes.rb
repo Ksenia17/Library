@@ -9,9 +9,12 @@ Rails.application.routes.draw do
  
  namespace :admin do
 
-    resources :info, only: [:index,:show,:edit, :update] do  # пока отставила
+    resources :info, only: [:index,:show,:edit, :update] do  
     end
-      
+    
+    resources :person, only: [:show,:edit, :update] do
+    end  
+
     resources :users , only: [:index,:show,:edit, :update] do
       resources :books , only: [:index] do   
       end 
@@ -20,6 +23,10 @@ Rails.application.routes.draw do
       post 'confirm', on: :member # совпадает с именем def..end в контроллере
       
       get 'list_fines',on: :collection
+
+
+      get 'person', on: :member
+      post 'save_person', on: :member
     
     
     end  

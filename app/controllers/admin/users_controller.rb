@@ -5,8 +5,28 @@ class Admin::UsersController < ApplicationController  # AdminController
  
   layout "admin"
   
+  def edit_person
+    
+  end
+
+  def person 
+   # @user = User.find(params[:id])
+  end
+
+  def save_person
+    # @user = User.find(params[:id])
+     if @user.save
+      if @user.errors.empty?
+        # на show ,:notice => "User was successfully updated"
+      end  
+     else
+        render 'edit'
+     end 
+
+  end
+
    def wait
-      @user = User.find(params[:id])
+    #  @user = User.find(params[:id])
    end 
 
    def show

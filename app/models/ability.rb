@@ -4,38 +4,19 @@ class Ability
   def initialize(user)
  
     user ||= User.new  # guest user (not logged in)
-
+    
     if user.has_role? :admin
-       can :manage, :all  # for RESTful controllers
-
+       can :manage, :all # for RESTful controllers :all                
     elsif user.has_role? :user
         can :read, :all
         can :create, :all
-       
-       can :show, User do |u|
-         if  u = user
-            true
-         else
-            redirect_to reader_user_books_path(current_user)
-         end        
-        end 
+           
+     #  can [:edit,:show,:update], User, user_id: user.id 
+      can [:update], User do |u|
+        u == user
+      end
 
-       can :edit, User do |u|
-         if  u = user
-            true
-         else
-            redirect_to reader_user_books_path(current_user)
-         end        
-        end 
-
-        can :update, User do |u|
-         if  u = user
-            true
-         else
-            redirect_to  redirect_to reader_user_books_path(current_user)
-         end        
-        end 
-                        
+        cannot :destroy, User                
         #  can [:edit, :update], Book, :user_id => user.id            
  #       can :list_wait, :list_fines # for NOT RESTFUL controllers !
     else 
