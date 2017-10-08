@@ -5,9 +5,8 @@ class Users::SessionsController < Devise::SessionsController
     self.resource = warden.authenticate!(auth_options)
     set_flash_message(:notice, :signed_in) if is_navigational_format?
     sign_in(resource_name, resource)
-   # respond_with resource, :location => after_sign_in_path_for(resource)
-  #  binding.pry  
-    if current_user.roles.include?(Role.find_by_name(:admin))  
+  
+      if current_user.roles.include?(Role.find_by_name(:admin))  
       redirect_to admin_users_path
     elsif current_user.roles.include?(Role.find_by_name(:user)) 
        redirect_to reader_user_books_path(current_user)
@@ -16,19 +15,15 @@ class Users::SessionsController < Devise::SessionsController
   end
 
   # GET /resource/sign_in
-  # def new
-  #   super
-  # end
+   def new
+     super
+   end
 
-  # POST /resource/sign_in
-  # def create
-  #   super
-  # end
-
+  
   # DELETE /resource/sign_out
-  # def destroy
-  #   super
-  # end
+   def destroy
+     super
+   end
 
     
 

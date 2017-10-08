@@ -10,10 +10,7 @@ Rails.application.routes.draw do
  namespace :admin do
 
     resources :info, only: [:index,:show,:edit, :update] do  
-    end
-    
-    resources :person, only: [:show,:edit, :update] do
-    end  
+    end    
 
     resources :users , only: [:index,:show,:edit, :update] do
       resources :books , only: [:index] do   

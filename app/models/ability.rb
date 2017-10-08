@@ -12,7 +12,7 @@ class Ability
         can :create, :all
            
      #  can [:edit,:show,:update], User, user_id: user.id 
-      can [:update], User do |u|
+      can [:show,:edit,:update], User do |u|
         u == user
       end
 
