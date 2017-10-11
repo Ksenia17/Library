@@ -25,7 +25,7 @@ class User < ApplicationRecord
     validates :birthdate  ,  presence: true 
     validates :first_name ,  presence: true
     validates :last_name  ,  presence: true
-#    validates :level      ,  presence: true   
+  #  validates :level      ,  presence: true   
 
  before_create :create_role
  

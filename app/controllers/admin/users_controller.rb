@@ -5,26 +5,7 @@ class Admin::UsersController < ApplicationController  # AdminController
  
   layout "admin"
   
-  def edit_person
-    
-  end
-
-  def person 
-   # @user = User.find(params[:id])
-  end
-
-  def save_person
-    # @user = User.find(params[:id])
-     if @user.save
-      if @user.errors.empty?
-        # на show ,:notice => "User was successfully updated"
-      end  
-     else
-        render 'edit'
-     end 
-
-  end
-
+  
    def wait
     #  @user = User.find(params[:id])
    end 
@@ -49,9 +30,9 @@ class Admin::UsersController < ApplicationController  # AdminController
    #  @user = User.find(params[:id])
      
      if  @user.update(user_params)
-       # if @user.errors.empty?
+        if @user.errors.empty?
           redirect_to admin_user_path(@user), :notice => "User was successfully updated"       
-       # end
+        end
      else
        render 'edit'
     end 
@@ -100,7 +81,7 @@ class Admin::UsersController < ApplicationController  # AdminController
     end
 
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :birthdate,:email)
+      params.require(:user).permit(:first_name, :last_name, :birthdate,:email,:level)
     end
 
 end

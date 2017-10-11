@@ -4,6 +4,8 @@
 <h4>Редактирование данных зарегистрированного читателя: </h4>
 
 <%= form_for :user, url: admin_user_path(@user), method: :put  do |f| %>
+  <%= f.error_messages %>
+  <p>
   <div class="field">
     <%= f.label 'Имя:' %><br />
     <%= f.text_field :first_name, autofocus: true %>
@@ -25,11 +27,13 @@
   </div>
   <div class="field">
     <%= f.label 'Уровень читателя' %><br />
-    <%= f.number_field :level %>
+    <%= f.number_field :level,:class => 'text_field' %>
   </div>
 
   <p></p>
   <div class="actions">
     <%= f.submit "Сохранить изменения" %>
   </div>
+
+  </p>
 <% end %>
