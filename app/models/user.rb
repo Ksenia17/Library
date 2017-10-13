@@ -1,11 +1,20 @@
 class User < ApplicationRecord
 
   has_many :users_roles
+  validates_associated :users_roles
+
   has_many :roles, :through => :users_roles
+  validates_associated :roles 
+
   has_one  :book
   has_many :book_histories
+  validates_associated :book_histories
+
   has_many :fines
+  validates_associated :fines
+
   has_many :book_items
+  validates_associated :book_items
   has_one  :book_request
 
   scope :confirmed, -> { where("confirmation_time is not null") }
@@ -22,10 +31,10 @@ class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
     validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
-    validates :birthdate  ,  presence: true 
+    validates :birthdate  ,  presence: true #{ message: "не заполнено" }
     validates :first_name ,  presence: true
     validates :last_name  ,  presence: true
-  #  validates :level      ,  presence: true   
+    validates :level      ,  presence: true, allow_nil: true  
 
  before_create :create_role
  

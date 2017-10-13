@@ -1,7 +1,7 @@
 <h4>Редактирование данных администратора: </h4>
 
 <%= form_for :user, url: admin_info_path(@user), method: :put  do |f| %>
-  <%= f.error_messages %>
+   <%= render 'shared/error_messages' %>
   <p>
   <div class="field">
     <%= f.label 'Имя:' %><br />

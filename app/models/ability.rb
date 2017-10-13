@@ -20,7 +20,7 @@ class Ability
         #  can [:edit, :update], Book, :user_id => user.id            
  #       can :list_wait, :list_fines # for NOT RESTFUL controllers !
     else 
-          can :read, :all
+        #  can :read, :all
            
     end    
 
