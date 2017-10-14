@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   
 
+ # namespace :admin do
+ #   get 'uchet/index'
+ # end
+
   devise_for :users,
               controllers: {
                 sessions: 'users/sessions' 
@@ -9,6 +13,7 @@ Rails.application.routes.draw do
  
  namespace :admin do
 
+    
     resources :info, only: [:index,:show,:edit, :update] do  
     end    
 
@@ -30,7 +35,8 @@ Rails.application.routes.draw do
     resources :book_types , only: [:index] do   
     end 
     
-
+    resources :uchet, only: [:index,:show,:edit,:update,:destroy] do
+    end
 
  end
 
