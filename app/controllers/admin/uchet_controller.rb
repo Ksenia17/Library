@@ -15,17 +15,17 @@ class Admin::UchetController < ApplicationController
 
   def create
     @book = Book.new(book_params)
-  #  @book.book_type_id = 
-    @book.user_id = current_user.id
+  
+  #  @book.user_id = current_user.id
 
-    if @book.save
-       if @user.errors.empty?
+  # if @book.errors.empty?
+      if @book.save       
         redirect_to admin_uchet_path(@book), :notice => "New book was successfully created!"        
        else
         render 'new' 
        end 
       
-    end
+  #  end
 
   end
 
@@ -38,7 +38,7 @@ class Admin::UchetController < ApplicationController
   def update   
    if  @book.update(book_params)
         if @book.errors.empty?
-          redirect_to edit_admin_uchet_path(@user), :notice => "Book was successfully updated"       
+          redirect_to admin_uchet_path(@book), :notice => "Book was successfully updated"       
         end
      else
        render 'edit'
@@ -54,7 +54,8 @@ private
   end
 
   def book_params
-    params.require(:book).permit(:name,:author,:year_book,:book_type_id)
+    params.require(:book).permit(:name, :book_type_id, :author, :year_book)   
+
   end
 
 

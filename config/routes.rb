@@ -26,17 +26,13 @@ Rails.application.routes.draw do
       
       get 'list_fines',on: :collection
 
-
-      get 'person', on: :member
-      post 'save_person', on: :member
-    
     
     end  
     resources :book_types , only: [:index] do   
     end 
     
-    resources :uchet  do
-      post 'create', on: :member
+    resources :uchet  do       
+
     end
 
  end
