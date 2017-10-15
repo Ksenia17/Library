@@ -35,7 +35,8 @@ Rails.application.routes.draw do
     resources :book_types , only: [:index] do   
     end 
     
-    resources :uchet, only: [:index,:show,:edit,:update,:destroy] do
+    resources :uchet  do
+      post 'create', on: :member
     end
 
  end

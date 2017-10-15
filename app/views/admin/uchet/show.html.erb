@@ -1,0 +1,15 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+<h4>Добавление новой книги: </h4>
+<p></p>
+
+<p>Nn/n : <%= @book.id %></p>
+<p>Название  : <%= @book.name%> </p>
+<p>Категория  : <%= @book.book_type%> </p>
+<p>Автор : <%= @book.author%></p>		
+<p>Дата издания : <%= @book.year_book%> </p>		
+<p></p>	
+
+	
+<%= link_to "Edit", edit_admin_uchet_path(@user) %>

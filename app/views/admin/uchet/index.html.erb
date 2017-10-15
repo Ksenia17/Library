@@ -24,7 +24,7 @@
 				<td><%= book.year_book %></td>
 
 				<td><%= link_to "Добавить новый экземпляр", '#' %> </td>
-				<td><%= link_to "Редактирование", '#' %> </td>
+				<td><%= link_to "Редактирование", edit_admin_uchet_path(book) %> </td>
 				<td><%= link_to "Удаление", '#' %> </td>
 
 			</tr>
@@ -34,5 +34,4 @@
 </table>
 
 </div>
-
-<button type="button" class="btn btn-primary">Добавить новую книгу</button>
+<%= button_to 'Добавить новую книгу',admin_uchet_index_path(@book) %>
