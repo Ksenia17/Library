@@ -4,8 +4,7 @@
 <h4>Редактирование данных зарегистрированного читателя: </h4>
 
 <%= form_for :user, url: admin_user_path(@user), method: :put  do |f| %>
-  <%= render 'shared/error_messages' %>
-    
+      
   <p>
   <div class="field">
     <%= f.label 'Имя:' %><br />

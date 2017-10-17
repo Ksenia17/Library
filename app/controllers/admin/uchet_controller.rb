@@ -10,13 +10,13 @@ class Admin::UchetController < ApplicationController
   end
 
   def new
-  @book = Book.new  
+#  @book = Book.new  
   end
 
   def create
     @book = Book.new(book_params)
   
-  #  @book.user_id = current_user.id
+    @book.user = current_user
 
   # if @book.errors.empty?
       if @book.save       
@@ -41,6 +41,7 @@ class Admin::UchetController < ApplicationController
           redirect_to admin_uchet_path(@book), :notice => "Book was successfully updated"       
         end
      else
+     #  @errors = @user.errors
        render 'edit'
     end 
   end

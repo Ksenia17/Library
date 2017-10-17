@@ -32,12 +32,13 @@ class Admin::UsersController < ApplicationController  # AdminController
      if  @user.update(user_params)
         if @user.errors.empty?
           redirect_to admin_user_path(@user), :notice => "User was successfully updated"       
-        end
-     else
+        end  
+        else
+       @errors = @user.errors
        render 'edit'
-    end 
-    
-
+      
+    end
+  
   end
 
   def confirm
@@ -48,10 +49,10 @@ class Admin::UsersController < ApplicationController  # AdminController
        
      if  @user.save
          # на стр зарегистрированных
-         redirect_to admin_users_path , :notice => "User was successfully registered" 
-      else # на стр. неподтвержденных пользователей 
-          redirect_to list_wait_admin_users_path
-     end
+        redirect_to admin_users_path , :notice => "User was successfully registered" 
+       else # на стр. неподтвержденных пользователей 
+        redirect_to list_wait_admin_users_path
+     end   
 
    end 
 

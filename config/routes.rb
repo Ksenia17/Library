@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
   
 
- # namespace :admin do
- #   get 'uchet/index'
- # end
-
   devise_for :users,
               controllers: {
                 sessions: 'users/sessions' 
@@ -18,8 +14,7 @@ Rails.application.routes.draw do
     end    
 
     resources :users , only: [:index,:show,:edit, :update] do
-      resources :books , only: [:index] do   
-      end 
+   
       get 'list_wait', on: :collection  #
       get 'wait',  on: :member
       post 'confirm', on: :member # совпадает с именем def..end в контроллере

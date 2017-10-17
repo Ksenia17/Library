@@ -5,10 +5,7 @@
 <h4>Добавление новой книги: </h4>
 
 <%= form_for :book, url: admin_uchet_index_path  do |f| %>
-
- <% if @book %>	
-  <%= render 'shared/error_messages2' %>
-  <% end%>	   
+ 
   <p>
   <div class="field">
     <%= f.label 'Название:' %><br />

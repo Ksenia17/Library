@@ -5,7 +5,7 @@ class Admin::InfoController < ApplicationController
  
 
  layout "admin"
-
+ 
 
   def index
    @users = User.administrated
@@ -28,10 +28,10 @@ class Admin::InfoController < ApplicationController
      
      if  @user.update(user_params)
         if @user.errors.empty?
-          redirect_to admin_info_path(@user), :notice => "Administrator was successfully updated"       
-        end
-     else
-       render 'edit'
+          redirect_to admin_info_path(@user), :notice => "Administrator was successfully updated"               
+       else
+        @errors = @user.errors
+        render 'edit'
     end 
   end
 
