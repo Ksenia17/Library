@@ -29,11 +29,13 @@ class Admin::InfoController < ApplicationController
      if  @user.update(user_params)
         if @user.errors.empty?
           redirect_to admin_info_path(@user), :notice => "Administrator was successfully updated"               
+        end       
        else
         @errors = @user.errors
         render 'edit'
     end 
   end
+ 
 
 
 private

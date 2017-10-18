@@ -24,6 +24,8 @@ def update
         redirect_to reader_user_path(current_user), :notice => "User was successfully updated" 
         end
      else
+       @errors = @user.errors
+       
        render 'edit'   
      end
 end 

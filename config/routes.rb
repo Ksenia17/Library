@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     resources :book_types , only: [:index] do   
     end 
     
-    resources :uchet  do       
+    resources :books, only: [:new,:create,:index,:show,:edit, :update]  do       
 
     end
 

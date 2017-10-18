@@ -1,7 +1,7 @@
 <h4>Редактирование данных читателя: </h4>
 
 <%= form_for :user, url: reader_user_path(current_user), method: :put  do |f| %>
-   <%= render 'shared/error_messages' %>
+   
   <div class="field">
     <%= f.label :first_name %><br />
     <%= f.text_field :first_name, autofocus: true %>
