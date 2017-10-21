@@ -21,7 +21,9 @@
  <%= link_to 'Личные данные', edit_reader_user_path(current_user) %>| 
  <%= link_to 'Архив', '#'  %>	|
  
-
+<% if @errors %>
+ <%= render 'error_messages' %>
+<% end %> 
 
 <%= yield %>
  

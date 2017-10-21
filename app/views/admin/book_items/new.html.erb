@@ -2,11 +2,11 @@
 <p id="notice"><%= notice %></p>
 <% end %>
 
-<h4>Редактирование текущей книги: </h4>
+<h4>Добавить новый экземпляр книги: </h4>
 
-<%= form_for :book, url: admin_book_path(@book), method: :put  do |f| %>
-    
-  <p>
+<%= form_for :book_item, url:  admin_book_book_items_path   do |f| %>
+ 
+  
   <div class="field">
     <%= f.label 'Название:' %><br />
     <%= f.text_field :name, autofocus: true %>
@@ -15,7 +15,8 @@
   <div class="field">
     <%= f.label 'Категория:' %><br />
     <%= f.select(:book_type_id,options_for_select(BookType.all.collect{|p| [ p.name,p.id]}))  %>
-    
+
+      
   </div>
    <p></p>
   <div class="field">
@@ -31,8 +32,8 @@
 
   <p></p>
   <div class="actions">
-    <%= f.submit "Сохранить изменения" %>
+    <%= f.submit "Сохранить новую книгу" %>
   </div>
 
-  </p>
+  
 <% end %>
