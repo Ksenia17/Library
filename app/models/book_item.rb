@@ -8,4 +8,6 @@ class BookItem < ApplicationRecord
   
   validates  :book_id  , presence: true
 	validates  :user_id  , presence: true
+
+  scope :activered, -> { where(book_id:  '8'  ) } 
 end
