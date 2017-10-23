@@ -1,14 +1,14 @@
 <% if notice %>
 <p id="notice"><%= notice %></p>
 <% end %>
-<h4>Создание нового экземпляра текущей книги: </h4>
+
 <p></p>
 
-<p>Уникальный n/n : <%= @book_item.id %></p>
-<p>N книги : <%= @book_item.book_id %></p>
+<p>Уникальный номер : <%= @book_item.id %></p>
+<p>Код книги : <%= @book_item.book_id %></p>
 <p>Дата создания  : <%= @book_item.created_at%> </p>
 <p>Кто добавил  : <%= @book_item.user_id%> </p>
-<p>Когда утилизируется : <%= @book_item.archived %></p>		
+<p>Когда утилизируется : <%= @book_item.archived_at %></p>		
 		
 <p></p>	
 

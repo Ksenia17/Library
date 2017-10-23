@@ -8,36 +8,36 @@ class Admin::BookItemsController < ApplicationController
     @book = Book.find(params[:book_id])
     @book_item =@book.book_items.build
     
-  #  @book_item = Book_item.new
   end
 
   def create
-   # @book_item = Book_item.new(item_params)
+   
+   binding.pry
      @book = Book.find(params[:book_id])
-     @book_item = @book.book_items.build(item_params)
-
-     @book_item.created_at = Time.now
+     @book_item = @book.book_items.build  #(item_params)
+    
      @book_item.user_id = current_user.id
 
 
      if @book_item.save 
-      redirect_to admin_book_book_item_path(@book_item)  # update
+      redirect_to admin_book_book_item_path(@book,@book_item),:notice => "New example was successfully created"  # update  # update
      end
 
 
   end
 
   def show
-    @book_item = Book_item.find(params[:book_id])
+    @book_item = BookItem.find(params[:book_id]) #название модели
   end
   
   def index
-  #  @book_items = Book_item.activered # on book_id
+    @book = Book.find(params[:book_id])
+    @book_items =  @book.book_items
   end  
 
   def update
     if @book_item.update 
-      redirect_to admin_book_book_item_path(@book_item)  # update
+      redirect_to admin_book_book_item_path(@book,@book_item)  # update
      end
   end
 
@@ -45,7 +45,8 @@ class Admin::BookItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:book_item).permit(:book_id)   
+   params.require(:book_item).permit(:book_id,:user_id,:archived_at)  # не получалось с одним параметром!
+  
   end
 
 end

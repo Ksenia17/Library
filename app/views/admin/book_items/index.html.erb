@@ -1,5 +1,10 @@
 <h4>Все экземпляры выбранной книги:</h4>
 <p></p>
+
+<h5>Название:"<%= @book.name   %>" </h5>
+<h5>Автор:<%= @book.author %> </h4>
+
+
 <div class="table-responsive">
 <table class="table table-striped">
   
@@ -14,8 +19,8 @@
   
     <% @book_items.each do |item| %>
       <tr>
-        <td><%= item.book_id %></td>
-        <td><%= item.user.name %> </td>
+        <td><%= item.id %></td>
+        <td><%= item.user.first_name %> <%= item.user.last_name %></td>
         <td><%= item.created_at %></td>
         <td><%= item.user.first_name %></td>
         <td><%= item.archived_at %></td>

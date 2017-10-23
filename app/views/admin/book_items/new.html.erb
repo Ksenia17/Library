@@ -4,13 +4,10 @@
 
 <h4>Добавить новый экземпляр выбранной книги: </h4>
 
-<h4><%= @book.name   %> </h4>
-<h4><%= @book.author %> </h4>
+<h5>Название:"<%= @book.name   %>" </h5>
+<h5>Автор:<%= @book.author %> </h4>
 
-<%= form_for :book_item,  url: admin_book_book_items_path do |f| %>  
-  <%= f.number_field :book_id %><br>
-  
-  <%= f.submit "Создать новый экземпляр" %>
-<% end %>
+
+<%= button_to 'Создать новый экземпляр',admin_book_book_items_path(@book) %>  
 
 
