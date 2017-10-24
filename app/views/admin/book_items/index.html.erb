@@ -2,6 +2,7 @@
 <p></p>
 
 <h5>Название:"<%= @book.name   %>" </h5>
+<h5>Жанр:<%= @book.book_type.name   %> </h5>
 <h5>Автор:<%= @book.author %> </h4>
 
 
@@ -11,19 +12,24 @@
   <tr>
       <th>N n/n</th>
       <th>Кто добавил:</th>
-      <th>Время создания:</th>
-      <th>Текущий владелец:</th>
-      <th>Когда утилизируется: </th>
+     
+     
+     
+      <th>Время добавления:</th>
+      <th></th>
+      
       
   </tr>
   
     <% @book_items.each do |item| %>
       <tr>
         <td><%= item.id %></td>
-        <td><%= item.user.first_name %> <%= item.user.last_name %></td>
-        <td><%= item.created_at %></td>
-        <td><%= item.user.first_name %></td>
-        <td><%= item.archived_at %></td>
+        <td><%= item.user.first_name.capitalize %> <%= item.user.last_name.capitalize %></td>
+        
+        
+       
+        <td><%= item.created_at.to_date %></td>
+        <td><%= link_to 'Утилизировать','#' %></td>
        
       </tr>
     <% end %>
@@ -33,4 +39,4 @@
 
 </div>
 
-<%= link_to "Добавить новый экземпляр", new_admin_book_book_item_path %>
+<%= button_to 'Создать новый экземпляр',admin_book_book_items_path(@book) %>  
