@@ -11,10 +11,7 @@
   
   <tr>
       <th>N n/n</th>
-      <th>Кто добавил:</th>
-     
-     
-     
+      <th>Кто добавил:</th>         
       <th>Время добавления:</th>
       <th></th>
       
@@ -24,13 +21,12 @@
     <% @book_items.each do |item| %>
       <tr>
         <td><%= item.id %></td>
-        <td><%= item.user.first_name.capitalize %> <%= item.user.last_name.capitalize %></td>
-        
-        
+        <td><%= item.user.first_name.capitalize %> <%= item.user.last_name.capitalize %></td>        
        
         <td><%= item.created_at.to_date %></td>
-        <td><%= link_to 'Утилизировать','#' %></td>
-       
+        <td><%= link_to 'Утилизировать',admin_book_book_item_path(@book,item),                        method: :delete,
+                                  data: { confirm: "Are you sure?"} %></td>
+      
       </tr>
     <% end %>
   

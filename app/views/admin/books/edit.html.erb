@@ -14,7 +14,7 @@
    <p></p>
   <div class="field">
     <%= f.label 'Категория:' %><br />
-    <%= options_select_new(BookType.all.collect{|p| [ p.name,p.id]}) %>
+    
     <%= f.select(:book_type_id,options_for_select(BookType.all.collect{|p| [ p.name,p.id]}))  %>
     
   </div>

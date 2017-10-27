@@ -31,5 +31,13 @@ class Admin::BookItemsController < ApplicationController
     @book_items =  @book.book_items
   end  
   
+    def destroy #утилизировать, если не в наличии
+    @book = Book.find(params[:book_id])
+    @book_item = BookItem.find(params[:id])
+    @book_item.destroy 
+    redirect_to admin_book_book_items_path(@book)   
+   
+  end
+
 
 end
