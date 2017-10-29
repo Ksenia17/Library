@@ -22,19 +22,26 @@ class Admin::BookItemsController < ApplicationController
   end
 
   def show
+     @book_item = BookItem.find(params[:id]) #название модели
     
-    @book_item = BookItem.find(params[:id]) #название модели
   end
   
   def index
+    
     @book = Book.find(params[:book_id])
-    @book_items =  @book.book_items
-  end  
+    @book_items =  @book.book_items.archived 
   
+  end  
+
+
     def destroy #утилизировать, если не в наличии
+   
     @book = Book.find(params[:book_id])
     @book_item = BookItem.find(params[:id])
-    @book_item.destroy 
+   # @book_item.destroyM  
+     @book_item.archived_at = Time.now
+     @book_item.save 
+
     redirect_to admin_book_book_items_path(@book)   
    
   end
