@@ -1,0 +1,19 @@
+<% if notice %>
+<p id="notice"><%= notice  %></p>
+<% end %>
+<p></p>
+
+<h4>Создание новой категории книг: </h4>
+<%= form_for :book_type, url: admin_book_types_path do |f|     %>  	
+	<div class="field">
+		<%= f.label "Название:" %> </br>
+		<%= f.text_field :name,autofocus: true %> </br>
+	</div>
+	<p></p>
+	<p></p>
+	<div class="actions">
+		<%=f.submit "Сохранить новую категорию книг"%>
+	</div>	
+
+
+<% end %>

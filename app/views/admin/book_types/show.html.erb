@@ -1,0 +1,10 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+<p></p>
+
+<h4>Редактирование категории книг: </h4>
+<p></p>
+<p>Наименование категории: <%= @book_type.name  %></p>
+<p></p>
+<%= link_to "Редактирование",edit_admin_book_type_path(@book_type)  %>

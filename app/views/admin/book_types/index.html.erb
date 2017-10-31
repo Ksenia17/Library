@@ -1,0 +1,23 @@
+<h4>Категории книг: </h4>
+<p></p>
+<div class="table-responsive">
+	<table class="table table-striped">
+		<tr>
+			<th>Код:</th>
+			<th>Название:</th>
+			<th></th>
+			<th></th>
+		</tr>
+		
+		<%@book_types.each do |type|%>
+			<tr>
+			<td><%= type.id %></td>	
+			<td><%= type.name %></td>
+			<td><%= link_to 'Редактирование',edit_admin_book_type_path(type) %> </td>
+			<td><%= link_to 'Удаление','#' %> </td>
+			</tr>
+			
+		<% end %>		
+	</table>	
+<%= link_to 'Добавить новую категорию',new_admin_book_type_path %>	
+</div>

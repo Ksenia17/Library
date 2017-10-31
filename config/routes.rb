@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   
 
+  namespace :admin do
+    get 'book_types/index'
+  end
+
   devise_for :users,
               controllers: {
                 sessions: 'users/sessions' 
@@ -23,12 +27,13 @@ Rails.application.routes.draw do
 
     
     end  
-    resources :book_types , only: [:index] do   
+    resources :book_types , only: [:new,:create,:index,:show,:edit,:update,:destroy] do   
     end 
     
     resources :books, only: [:new,:create,:index,:show,:edit, :update]  do       
       resources :book_items, only: [:create,:index,:show,:destroy]
     end
+
 
  end
 
