@@ -14,10 +14,12 @@
 			<td><%= type.id %></td>	
 			<td><%= type.name %></td>
 			<td><%= link_to 'Редактирование',edit_admin_book_type_path(type) %> </td>
-			<td><%= link_to 'Удаление','#' %> </td>
+			<td><%= link_to 'Удаление',admin_book_type_path(type),
+									method: :delete,
+                                    data: { confirm: "Are you sure?"} %> </td>
 			</tr>
 			
 		<% end %>		
 	</table>	
-<%= link_to 'Добавить новую категорию',new_admin_book_type_path %>	
+<%= link_to 'Добавить новую категорию',new_admin_book_type_path(@book_type) %>	
 </div>

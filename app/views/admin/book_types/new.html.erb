@@ -7,12 +7,12 @@
 <%= form_for :book_type, url: admin_book_types_path do |f|     %>  	
 	<div class="field">
 		<%= f.label "Название:" %> </br>
-		<%= f.text_field :name,autofocus: true %> </br>
+		<%= f.text_field :name  %> </br>
 	</div>
 	<p></p>
 	<p></p>
 	<div class="actions">
-		<%=f.submit "Сохранить новую категорию книг"%>
+		<%= f.submit "Сохранить новую категорию книг"%>
 	</div>	
 
 

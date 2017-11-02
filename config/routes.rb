@@ -40,6 +40,7 @@ Rails.application.routes.draw do
  namespace :reader do
     resources :users , only: [:show,:edit, :update] do 
       resources :books , only: [:index] do   
+        get 'my_book', on: :collection
       end   
     end  
     

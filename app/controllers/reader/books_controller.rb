@@ -6,12 +6,15 @@ class Reader::BooksController < ApplicationController
 
 
 
-  def index
-   # binding.pry
-    @book = Book.readered  # не прошло!
-   # @books = Book.all
-    
-  end
+   def index
+
+       @books = Book.all  # все книги
+     end
+
+  def my_book
+   
+     @books = Book.readered
+     end
 
   def edit
     @book = Book.find(params[:id])

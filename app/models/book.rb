@@ -11,8 +11,7 @@ class Book < ApplicationRecord
    validates :author,      presence: true
    validates :year_book,     presence: true  
    
-   scope :readered, -> { where(user_id:  '4'  ) }  # '4' # current_user.id  
-                          
-#   attr_accesible :user, :user_id
-#   attr_accesible :book_type, :book_type_id
+  
+   scope :readered, ->  {where(user_id: current_user.id)}         #(user_id)                  
+
 end

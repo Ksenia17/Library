@@ -1,4 +1,4 @@
-<h4>Все книги библиотеки:</h4>
+<h4>Мои книги:</h4>
 <p></p>
 <div class="table-responsive">
 <table class="table table-striped">
@@ -10,7 +10,8 @@
     	<th>Автор: </th>
     	<th>Дата издания: </th>
     	<th>Кто добавил: </th>
-    	
+
+    	<th></th>
 	</tr>
 	
 		<% @books.each do |book| %>
@@ -21,7 +22,7 @@
 				<td><%= book.author %></td>
 				<td><%= book.year_book %></td>
 				<td><%= book.user.first_name%><%= book.user.last_name%></td>
-				
+				<td><%= link_to "Вернуть прочитанную", '#' %> </td>
 			</tr>
 		<% end %>
 	
@@ -29,3 +30,5 @@
 </table>
 
 </div>
+
+<button type="button" class="btn btn-primary">Взять новую книгу</button>

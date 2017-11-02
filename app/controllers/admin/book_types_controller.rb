@@ -1,6 +1,6 @@
 class Admin::BookTypesController < ApplicationController
   before_action :authenticate_user! # for devise
-  before_action :find_type, only: [:show,:edit,:update]
+  before_action :find_type, only: [:show,:edit,:update,:destroy]
   load_and_authorize_resource :book_type
 
   layout "admin"
@@ -10,19 +10,21 @@ class Admin::BookTypesController < ApplicationController
   end
 
   def new
+  #  binding.pry 
   @book_type = BookType.new    
   end
 
   def create
-    @book_type = BookType.new(booktype_params)
-       
+    
+    @book_type = BookType.create(booktype_params)
+    
       if @book_type.save   
-          if @book_type.errors.empty?   
-            redirect_to admin_book_type_path(@book_type), :notice => "New category book was successfully created!"        
-          end
-          else
-          @errors = @book_type.errors       
-          render 'new' 
+        #  if @book_type.errors.empty?   
+            redirect_to admin_book_type_path(name: @book_type), :notice => "New category book was successfully created!"        
+        #  end
+        #  else
+        #  @errors = @book_type.errors       
+        #  render 'new' 
       end    
   end
 
@@ -38,15 +40,20 @@ class Admin::BookTypesController < ApplicationController
     end 
   end
 
-  def destroy    
-  end
+  def destroy
+ # @book_type=BookType.find(params[:id])
+  @book_type.destroy
+ 
+  redirect_to admin_book_types_path, :notice => 'Category book was successfully deleted'
+              
+end
 
 private
    def find_type
       @book_type=BookType.find(params[:id])
    end
    def booktype_params
-      params.require(:book_type).permit(:id,:name)
+      params.require(:book_type).permit(:name)        
    end
 
 end
