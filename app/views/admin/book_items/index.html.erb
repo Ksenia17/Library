@@ -5,7 +5,7 @@
 <h5>Жанр :<%= @book.book_type.name   %> </h5>
 <h5>Автор :<%= @book.author %> </h4>
 <h5>Дата издания :<%= @book.year_book %> </h4>
-<h5>Кто добавил книгу :<%= @book.user.first_name.capitalize %><%= @book.user.last_name.capitalize %> </h4>
+<h5>Кто добавил книгу :<%= "#{@book.user.first_name.capitalize} #{@book.user.last_name.capitalize}"  %> </h4>
 
 
 <div class="table-responsive">
@@ -23,7 +23,7 @@
     <% @book_items.each do |item| %>
       <tr>
         <td><%= item.id %></td>
-        <td><%= item.user.first_name.capitalize %> <%= item.user.last_name.capitalize %></td>        
+        <td><%= "#{item.user.first_name.capitalize}  #{item.user.last_name.capitalize}" %> </td>        
        
         <td><%= item.created_at.to_s(:ru_datetime) %></td>
         <td><%= link_to 'Утилизировать',admin_book_book_item_path(@book,item),                        method: :delete,

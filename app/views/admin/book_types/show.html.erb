@@ -3,8 +3,40 @@
 <% end %>
 <p></p>
 
-<h4>Редактирование категории книг: </h4>
+<h4>Просмотр выбранной категории книг: </h4>
 <p></p>
 <p>Наименование категории: <%= @book_type.name  %></p>
 <p></p>
+
+<div class="table-responsive">
+<table class="table table-striped">
+	
+	<tr>
+		<th>N n/n</th>
+    	<th>Название</th>
+    	<th>Категория </th>
+    	<th>Автор </th>
+    	<th>Год издания </th>
+    	<th></th>
+    	<th></th>
+    	<th></th>
+
+	</tr>
+	<% if @books %>
+		<% @books.each do |book| %>
+			<tr>
+				<td><%= book.id %></td>
+				<td><%= book.name %> </td>
+				<td><%= book.book_type.name %></td>
+				<td><%= book.author %></td>
+				<td><%= book.year_book %></td>			
+
+			</tr>
+		<% end %>
+	<% end%>
+
+</table>
+</div>
+
+
 <%= link_to "Редактирование",edit_admin_book_type_path(@book_type)  %>

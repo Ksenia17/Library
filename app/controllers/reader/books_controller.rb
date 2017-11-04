@@ -10,16 +10,6 @@ class Reader::BooksController < ApplicationController
 
        @books = Book.all  # все книги
      end
-
-  def my_book
-   
-     @books = Book.readered
-     end
-
-  def edit
-    @book = Book.find(params[:id])
-    
-  end
-
+ 
 
 end

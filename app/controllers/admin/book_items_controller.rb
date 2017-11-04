@@ -38,10 +38,9 @@ class Admin::BookItemsController < ApplicationController
    
     @book = Book.find(params[:book_id])
     @book_item = BookItem.find(params[:id])
-   # @book_item.destroyM  
-     @book_item.archived_at = Time.now
-     @book_item.save 
-
+  
+    @book_item.destroyM  
+  
     redirect_to admin_book_book_items_path(@book)   
    
   end
