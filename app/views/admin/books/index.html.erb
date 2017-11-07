@@ -25,7 +25,9 @@
 
 				<td><%= link_to "Вся информация о книге", admin_book_book_items_path(book) %> </td>
 				<td><%= link_to "Редактирование", edit_admin_book_path(book) %> </td>
-				<td><%= link_to "Удаление", '#' %> </td>
+				<td><%= link_to "Удаление", admin_book_path(book),
+								            method: :delete,
+								            data: { confirm: "Are you sure delete book?"} %> </td>
 
 			</tr>
 		<% end %>
