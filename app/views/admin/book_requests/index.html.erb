@@ -1,0 +1,34 @@
+<h4>Журнал событий для администратора:</h4>
+<p></p>
+<div class="table-responsive">
+<table class="table table-striped">
+	
+	<tr>
+		<th>Читатель:</th>
+    	<th>Книга: </th>
+    	<th>Дата запроса:</th>
+    	<th>Время подтверждения запроса</th>
+    	<th>Наличие свободного экземпляра:</th>
+    	<th>Всего экземпляров:</th>
+    	
+    	
+	</tr>
+	
+		<% @book_requests.each do |request| %>
+			<tr>
+				<td><%= request.user.name %> </td>
+				<td><%= request.book_id %></td>
+				<td><%= request.created_at %></td>
+				<td><%= request.complete_time %></td>
+				<td></td>
+				<td></td>
+				<td><%= link_to 'Подтвердить запрос на выдачу','#' %> </td>
+				<td><%= link_to 'Отказать ввиду отсутствия','#' %> </td>
+				<td><%= link_to 'Проверка личных данных читателя','#' %> </td>
+			</tr>
+		<% end %>
+	
+
+</table>
+<%= link_to 'Архив запросов','#' %>
+</div>

@@ -24,14 +24,18 @@ Rails.application.routes.draw do
       post 'confirm', on: :member # совпадает с именем def..end в контроллере
       
       get 'list_fines',on: :collection
-
     
     end  
+
+    resources :book_requests, only: [:index] do  
+    end
+
     resources :book_types , only: [:new,:create,:index,:show,:edit,:update,:destroy] do   
     end 
     
     resources :books, only: [:new,:create,:index,:show,:edit, :update,:destroy]  do       
-      resources :book_items, only: [:create,:index,:show,:destroy]
+      resources :book_items, only: [:create,:index,:show,:destroy] do
+      end  
     end
 
 
@@ -40,10 +44,13 @@ Rails.application.routes.draw do
  namespace :reader do
     resources :users , only: [:show,:edit, :update] do 
       resources :books , only: [:index] do   
-        
+        get 'mybook', on: :collection 
+        post 'takebook', on: :member       
       end   
     end  
-    
+    resources :book_requests, only: [:create,:index] do  
+    end
+
     resources :book_types , only: [:index] do   
     end 
 

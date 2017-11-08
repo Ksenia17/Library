@@ -10,7 +10,7 @@
     	<th>Автор: </th>
     	<th>Дата издания: </th>
     	<th>Кто добавил: </th>
-    	
+    	<th></th>
 	</tr>
 	
 		<% @books.each do |book| %>
@@ -20,8 +20,8 @@
 				<td><%= book.book_type.name %></td>
 				<td><%= book.author %></td>
 				<td><%= book.year_book %></td>
-				<td><%= book.user.first_name%><%= book.user.last_name%></td>
-				
+				<td><%= "#{book.user.first_name.capitalize} #{book.user.last_name.capitalize}"%></td>
+				<td><%= button_to 'Взять эту книгу',takebook_reader_user_book_path(current_user.id,book) %></td>  
 			</tr>
 		<% end %>
 	

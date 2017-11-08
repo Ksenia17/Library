@@ -5,6 +5,6 @@ class Reader::BookTypeController < ApplicationController
   layout "reader"
 
   def index
-    @book_types = Book_type.all
+    @book_types = Booktype.all
   end
 end

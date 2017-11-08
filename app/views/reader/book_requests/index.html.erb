@@ -1,0 +1,30 @@
+<h4>Журнал запросов читателя:</h4>
+<p></p>
+<div class="table-responsive">
+<table class="table table-striped">
+	
+	<tr>
+		<th>N n/n</th>
+    	<th>Название книги:</th>
+    	<th>Категория: </th>
+    	<th></th>
+    	
+    	
+	</tr>
+	
+		<% @book_requests.each do |request| %>
+			<tr>
+				<td><%= request.id %></td>
+				<td><%= request.user.name %> </td>
+				<td><%= request.book_id %></td>
+			<% if request.completetime == null%>
+				<td>Ваша заявка на книгу рассматривается...</td>
+			<%  end %>				
+				
+			</tr>
+		<% end %>
+	
+
+</table>
+
+</div>

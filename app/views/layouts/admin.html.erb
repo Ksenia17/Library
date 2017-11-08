@@ -22,7 +22,8 @@
  <%= link_to ' Учет и пополнение книг', admin_books_path  %>	| 
  <%= link_to ' Категории книг',  admin_book_types_path  %>	|
  <%= link_to ' Все администраторы', admin_info_index_path  %>	|
- 
+ <%= link_to ' Журнал событий', admin_book_requests_path  %> |
+
 <% if @errors %>
  <%= render 'layouts/error_messages' %>
 <% end %> 
