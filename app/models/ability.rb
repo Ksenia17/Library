@@ -9,12 +9,13 @@ class Ability
        can :manage, :all # for RESTful controllers :all                
     elsif user.has_role? :user
         can :read, :all
-        can :create, :all
-           
-     #  can [:edit,:show,:update], User, user_id: user.id 
+             
+    
       can [:show,:edit,:update], User do |u|
         u == user
       end
+
+      can [:show,:create], BookRequest
 
         cannot :destroy, User                
         #  can [:edit, :update], Book, :user_id => user.id            

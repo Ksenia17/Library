@@ -42,14 +42,16 @@ Rails.application.routes.draw do
  end
 
  namespace :reader do
-    resources :users , only: [:show,:edit, :update] do 
-      resources :books , only: [:index] do   
-        get 'mybook', on: :collection 
-        post 'takebook', on: :member       
+    
+    resources :books , only: [:index] do  
+        resources :book_requests, only: [:create,:index]   
+            
       end   
+
+    resources :users , only: [:show,:edit, :update] do 
+      
     end  
-    resources :book_requests, only: [:create,:index] do  
-    end
+    
 
     resources :book_types , only: [:index] do   
     end 

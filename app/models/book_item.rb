@@ -10,9 +10,10 @@ class BookItem < ApplicationRecord
   scope :archived, -> { where("archived_at is null" ) }
 
   def destroyM #обновление колонки archived_at
-     
-  self.archived_at = Time.now
-  self.save
+ # binding.pry  #self   
+  archived_at = Time.now   # без self
+  save
+
   end
 
 end

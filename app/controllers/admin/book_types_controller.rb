@@ -47,7 +47,7 @@ class Admin::BookTypesController < ApplicationController
  
   # запрос на проверку
   #@books = Book.where(book_type_id: @book_type.id)
-  @books = @book_type.books
+  @books = @book_type.books # лучше через ассоциацию
   #binding.pry
   if not @books.empty?
     redirect_to admin_book_types_path, :notice => 'Category book was not deleted, because were books'

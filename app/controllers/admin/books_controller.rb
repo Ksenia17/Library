@@ -58,10 +58,17 @@ class Admin::BooksController < ApplicationController
 
   def destroy    
     
-     # будет проверка, на руках ли книга
-     #@books = Book.where(...)
-    @book.destroy
-    redirect_to admin_books_path,:notice => "Book was successfully deleted"
+     # будет проверка, book_item
+    # если есть экземпляры?
+   # binding.pry
+    @book_items= @book.book_items
+    if not @book_items.empty?
+      redirect_to admin_books_path,:notice => "Book was not deleted, because were books-items"    
+    else 
+      @book.destroy
+      redirect_to admin_books_path,:notice => "Book was successfully deleted"
+    end
+   
   end
 
 private 

@@ -21,7 +21,7 @@
 				<td><%= book.author %></td>
 				<td><%= book.year_book %></td>
 				<td><%= "#{book.user.first_name.capitalize} #{book.user.last_name.capitalize}"%></td>
-				<td><%= button_to 'Взять эту книгу',takebook_reader_user_book_path(current_user.id,book) %></td>  
+				<td><%= button_to 'Взять эту книгу',''_path(book) %></td>  
 			</tr>
 		<% end %>
 	
