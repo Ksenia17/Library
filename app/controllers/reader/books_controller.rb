@@ -1,6 +1,6 @@
 class Reader::BooksController < ApplicationController
   before_action :authenticate_user! # for devise
-  load_and_authorize_resource :book, :book_request #:books,:parent => false     # for cancancan  не вышло!
+  load_and_authorize_resource :book #:books,:parent => false     # for cancancan  не вышло!
 
   layout "reader"
 

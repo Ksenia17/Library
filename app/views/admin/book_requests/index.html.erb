@@ -4,21 +4,23 @@
 <table class="table table-striped">
 	
 	<tr>
-		<th>Читатель:</th>
-    	<th>Книга: </th>
-    	<th>Дата запроса:</th>
+		<th>Читатель</th>
+    	<th>Книга </th>
+    	<th>Дата запроса</th>
     	<th>Время подтверждения запроса</th>
-    	<th>Наличие свободного экземпляра:</th>
+    	<th>Наличие свободного экземпляра</th>
     	<th>Всего экземпляров:</th>
-    	
+    	<th></th>
+    	<th></th>
+    	<th></th>
     	
 	</tr>
 	
 		<% @book_requests.each do |request| %>
 			<tr>
-				<td><%= request.user.name %> </td>
+				<td><%= "#{request.user.first_name.capitalize}  #{request.user.last_name.capitalize}" %> </td>
 				<td><%= request.book_id %></td>
-				<td><%= request.created_at %></td>
+				<td><%= request.created_at.to_s(:ru_datetime) %></td>
 				<td><%= request.complete_time %></td>
 				<td></td>
 				<td></td>

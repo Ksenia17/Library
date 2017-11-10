@@ -5,7 +5,7 @@ load_and_authorize_resource :book_request
  layout "admin"
 
    def index
-     @book_requests=BookRequest.all
+     @book_requests=BookRequest.all # показать необработанные запросы
    end
 
 end
