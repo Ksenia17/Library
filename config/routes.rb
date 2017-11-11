@@ -27,7 +27,13 @@ Rails.application.routes.draw do
     
     end  
 
-    resources :book_requests, only: [:index] do  
+    resources :book_requests, only: [:index] do 
+     
+      post 'approval', on: :member
+     
+      post 'negative', on: :member 
+
+      resources :book_history, only: [:new,:create]
     end
 
     resources :book_types , only: [:new,:create,:index,:show,:edit,:update,:destroy] do   
@@ -42,9 +48,11 @@ Rails.application.routes.draw do
  end
 
  namespace :reader do
-    
+  
+  resources :book_requests, only: [:index]
+
     resources :books , only: [:index] do  
-        resources :book_requests, only: [:create,:index]   
+        resources :book_requests, only: [:create]   
             
       end   
 

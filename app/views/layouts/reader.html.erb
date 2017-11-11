@@ -20,7 +20,7 @@
  <%= link_to 'Мои книги', '#'  %>|  
  <%= link_to 'Личные данные', edit_reader_user_path(current_user) %>| 
  <%= link_to 'Архив', '#'  %>	|
- <%= link_to 'Журнал запросов','reader_book_book_requests_path '%> 
+ <%= link_to 'Журнал запросов',reader_book_requests_path %> 
 
 <% if @errors %>
  <%= render 'layouts/error_messages' %>

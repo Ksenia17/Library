@@ -6,8 +6,10 @@
 	<tr>
 		<th>N n/n</th>
     	<th>Название книги:</th>
+    	<th>Автор:</th>
     	<th>Категория: </th>
-    	<th></th>
+    	<th>Дата издания: </th>
+    	<th>Статус обработки заявки:</th>
     	
     	
 	</tr>
@@ -15,10 +17,14 @@
 		<% @book_requests.each do |request| %>
 			<tr>
 				<td><%= request.id %></td>
-				<td><%= request.user.name %> </td>
-				<td><%= request.book_id %></td>
-			<% if request.completetime == null%>
+				<td><%= request.book.name %> </td>
+				<td><%= request.book.author %> </td>
+				<td><%= request.book.book_type.name %></td> 
+				<td><%= request.book.year_book.to_s(:ru_datetime) %> </td>
+			<% if not request.complete_time %>
 				<td>Ваша заявка на книгу рассматривается...</td>
+			<% else%>
+				<td>Заявка на книгу подтверждена администратором</td>
 			<%  end %>				
 				
 			</tr>

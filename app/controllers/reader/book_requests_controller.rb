@@ -19,7 +19,7 @@ load_and_authorize_resource :book_request# for cancancan
 
     if @book_request.save
     # перейти на стр. "Журнал запросов" 
-   # redirect_to  '_path'     #admin_book_book_item_path(book_id: @book.id, id: @book_item.id),:notice => "This book was successfully selected"
+    redirect_to  reader_book_requests_path   
     end   
   end
 
