@@ -5,7 +5,8 @@ load_and_authorize_resource :book_request# for cancancan
   layout "reader"
 
   def index
-    @book_requests=BookRequest.where(user_id: current_user.id)
+  #  @book_requests=BookRequest.where(user_id: current_user.id)
+    @book_requests = current_user.book_requests # через ассоциацию
   end
 
   

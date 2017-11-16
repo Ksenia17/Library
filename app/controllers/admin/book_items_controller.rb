@@ -38,7 +38,7 @@ class Admin::BookItemsController < ApplicationController
    
     @book = Book.find(params[:book_id])
     @book_item = BookItem.find(params[:id])
-  
+   # binding.pry
     @book_item.destroyM  
   
     redirect_to admin_book_book_items_path(@book)   

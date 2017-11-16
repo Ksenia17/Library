@@ -5,6 +5,8 @@ class Admin::BooksController < ApplicationController
 
  layout "admin"
 
+ 
+
   def index
     @books = Book.all
   end

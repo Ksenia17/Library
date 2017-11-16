@@ -9,9 +9,9 @@
     	<th>Автор:</th>
     	<th>Категория: </th>
     	<th>Дата издания: </th>
+    		    	
     	<th>Статус обработки заявки:</th>
-    	
-    	
+    	<th>Дата выдачи читателю: </th>    	
 	</tr>
 	
 		<% @book_requests.each do |request| %>
@@ -21,10 +21,16 @@
 				<td><%= request.book.author %> </td>
 				<td><%= request.book.book_type.name %></td> 
 				<td><%= request.book.year_book.to_s(:ru_datetime) %> </td>
+
 			<% if not request.complete_time %>
 				<td>Ваша заявка на книгу рассматривается...</td>
 			<% else%>
-				<td>Заявка на книгу подтверждена администратором</td>
+				<% if request.approved_flg == true %>
+           			<td>Вам выдали книгу</td>
+           			 <td><%= request.complete_time.to_s(:ru_datetime) %></td>
+        		<% else%>
+					<td>Нет возможности в данный момент выдать книгу.... Извините."</td>
+				<% end %>
 			<%  end %>				
 				
 			</tr>

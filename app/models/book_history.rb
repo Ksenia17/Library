@@ -1,5 +1,5 @@
 class BookHistory < ApplicationRecord
-  belongs_to :book_request
+  belongs_to :book_request #, index: { unique: true }, foreign_key: true
   belongs_to :book_item
   belongs_to :user
   has_many   :fines

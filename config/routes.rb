@@ -51,18 +51,15 @@ Rails.application.routes.draw do
   
   resources :book_requests, only: [:index]
 
-    resources :books , only: [:index] do  
-        resources :book_requests, only: [:create]   
+  resources :books , only: [:index] do  
+    resources :book_requests, only: [:create]   
             
-      end   
+  end   
 
-    resources :users , only: [:show,:edit, :update] do 
-      
-    end  
-    
-
-    resources :book_types , only: [:index] do   
-    end 
+  resources :users , only: [:show,:edit, :update]  
+  
+  resources :book_types , only: [:index]    
+   
 
  end 
 

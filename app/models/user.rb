@@ -14,7 +14,7 @@ class User < ApplicationRecord
 
   has_many :book_items
   
-  has_many  :book_request
+  has_many  :book_requests
 
   scope :confirmed, -> { where("confirmation_time is not null") }
   scope :none_registed , -> { where("confirmation_by_admin_id is null") } 
