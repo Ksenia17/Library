@@ -24,8 +24,8 @@ class BookRequest < ApplicationRecord
   end   
 
   def give_to_user(user1)
-   # binding.pry
-   book_history = self.create_book_history #({:book_history_book_item_id => self.book_id,:book_history_user_id => user1.id,:book_history_owned_from => Time.now })   
+    binding.pry
+   book_history = self.build_book_history #({:book_history_book_item_id => self.book_id,:book_history_user_id => user1.id,:book_history_owned_from => Time.now })   
    book_history.request_id = self.id
    book_history.book_item_id = self.book_id #?
    book_history.user_id = user1.id

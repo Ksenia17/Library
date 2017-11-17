@@ -16,6 +16,8 @@
     	<th></th>
     	<th></th>
     	<th></th>
+    	<th></th>
+    	<th></th>
     	
 	</tr>
 	
@@ -27,8 +29,15 @@
 				<td><%= request.complete_time %></td>
 				<td></td>
 				<td><%= request.book.book_items.count %> </td>
-				<td><%= button_to 'Подтвердить запрос на выдачу',approval_admin_book_request_path(request) %> </td>
-				<td><%= button_to 'Отказать ввиду отсутствия',negative_admin_book_request_path(request) %> </td>
+					<td><% if not request.complete_time %> </td>
+						<td><%= button_to 'Подтвердить запрос на выдачу',approval_admin_book_request_path(request) %> </td>
+						<td><%= button_to 'Отказать ввиду отсутствия',negative_admin_book_request_path(request) %> </td>
+					<td><% else%> </td>	
+						<td></td>
+						<td></td>
+					<td><% end%> </td>
+				
+				
 				<td><%= link_to 'Проверка личных данных читателя','#' %> </td>
 			</tr>
 		<% end %>

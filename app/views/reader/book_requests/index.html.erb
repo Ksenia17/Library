@@ -27,7 +27,7 @@
 			<% else%>
 				<% if request.approved_flg == true %>
            			<td>Вам выдали книгу</td>
-           			 <td><%= request.complete_time.to_s(:ru_datetime) %></td>
+           			 <td><%= request.book_history.try(:owned_from).try(:to_s,:ru_datetime)  %></td>
         		<% else%>
 					<td>Нет возможности в данный момент выдать книгу.... Извините."</td>
 				<% end %>

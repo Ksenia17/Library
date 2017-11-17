@@ -5,7 +5,7 @@ load_and_authorize_resource :book_request
  layout "admin"
 
    def index
-     @book_requests=BookRequest.all # показать необработанные запросы
+     @book_requests=BookRequest.all.order(complete_time: :desc) # показать необработанные запросы where("complete_time is null")
 
    end
 
