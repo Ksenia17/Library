@@ -41,6 +41,7 @@ Rails.application.routes.draw do
     
     resources :books, only: [:new,:create,:index,:show,:edit, :update,:destroy]  do       
       resources :book_items, only: [:create,:index,:show,:destroy] do
+        resources :book_histories, only: [:index] #new
       end  
     end
 

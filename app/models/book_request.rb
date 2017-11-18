@@ -15,19 +15,31 @@ class BookRequest < ApplicationRecord
   end  
 
   def positive(current_user)
+    #проверка - есть ли свободный экз?
+    #массив - все экз.книги
+    masVse = self.book.book_items
+  #  binding.pry
+    #масссив - на руках
+  #  masLand = self.book.book_items.book_histories  # nil
+    
+    if self.book_history == nil
+    av_book_item = self.book.book_items.sample[:id]
+    end  
+
+
     self.complete_time = Time.now  
     self.approved_flg = true
     self.admin_user_id = current_user.id
     self.save   
-
-    self.give_to_user(user)   
+    binding.pry
+    self.give_to_user(user,av_book_item)   
   end   
 
-  def give_to_user(user1)
-    binding.pry
-   book_history = self.build_book_history #({:book_history_book_item_id => self.book_id,:book_history_user_id => user1.id,:book_history_owned_from => Time.now })   
-   book_history.request_id = self.id
-   book_history.book_item_id = self.book_id #?
+  def give_to_user(user1,av_book_item1)
+  
+   book_history = self.create_book_history  # build - no work
+   binding.pry
+   book_history.book_item_id = av_book_item1 
    book_history.user_id = user1.id
    book_history.owned_from = Time.now 
    save # book_history.save - не работает )

@@ -16,7 +16,7 @@ class Admin::BookTypesController < ApplicationController
 
   def create
      
-    @book_type = BookType.create(book_type_params)
+    @book_type = BookType.create(booktype_params)
     
       if @book_type.save   
           if @book_type.errors.empty?   #(id:@book_type.id)
@@ -65,7 +65,7 @@ private
    def find_type
       @book_type=BookType.find(params[:id])
    end
-   def book_type_params
+   def booktype_params
       # binding.pry  
       params.require(:book_type).permit(:name)        
    end

@@ -27,7 +27,7 @@
 				<td><%= request.book.name %></td>
 				<td><%= request.created_at.to_s(:ru_datetime) %></td>
 				<td><%= request.complete_time %></td>
-				<td></td>
+				<td><%= 'неизвестно' %> </td>
 				<td><%= request.book.book_items.count %> </td>
 					<td><% if not request.complete_time %> </td>
 						<td><%= button_to 'Подтвердить запрос на выдачу',approval_admin_book_request_path(request) %> </td>
