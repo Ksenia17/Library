@@ -7,7 +7,7 @@ class BookItem < ApplicationRecord
 	validates  :user_id  , presence: true
 
 #  scope :activered, -> { where(book_id:  '8'  ) } 
-  scope :archived, -> { where("archived_at is null" ) }
+  scope :noarchived, -> { where("archived_at is null" ) }
 
   def  destroyM #
  # binding.pry  #self   

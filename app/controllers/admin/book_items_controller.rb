@@ -29,7 +29,7 @@ class Admin::BookItemsController < ApplicationController
   def index
     
     @book = Book.find(params[:book_id])
-    @book_items =  @book.book_items.archived 
+    @book_items =  @book.book_items.noarchived 
   
   end  
 

@@ -4,8 +4,7 @@ load_and_authorize_resource :book_request
  
  layout "admin"
 
- def create
-     
+ def create     
  end
 
 end
