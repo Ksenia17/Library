@@ -8,6 +8,7 @@ class BookItem < ApplicationRecord
 
 #  scope :activered, -> { where(book_id:  '8'  ) } 
   scope :noarchived, -> { where("archived_at is null" ) }
+  scope :available, -> { joins(:book_histories).not_available }  #where('owned_to is null')
 
   def  destroyM #
  # binding.pry  #self   

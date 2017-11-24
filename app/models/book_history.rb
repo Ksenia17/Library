@@ -9,4 +9,7 @@ class BookHistory < ApplicationRecord
 	validates  :book_item_id  ,	presence: true
 	validates  :user_id  ,		presence: true
 	validates  :owned_from  ,	presence: true
+
+  scope :not_available, -> {where("owned_to is null")} 
+
 end

@@ -22,9 +22,11 @@ load_and_authorize_resource :book_request
     @book_request = BookRequest.find(params[:id])
 
    #автоматическая проверка - есть ли свободные экземпляры?
-
+   begin
     @book_request.positive(current_user)
-    
+  rescue => error
+    binding.pry
+   end 
     #if @book_request.save
       redirect_to admin_book_requests_path, :notice => 'Book-request was successfully processed!'
    # end

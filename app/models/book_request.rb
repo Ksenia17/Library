@@ -16,13 +16,18 @@ class BookRequest < ApplicationRecord
 
   def positive(current_user)
     #проверка - есть ли свободный экз?
-    #массив - все экз.книги -  masVse = self.book.book_items
-    
-  #  binding.pry
-
+     
     active_items = self.book.book_items.noarchived
-    free_items = active_items.select{|item| item.book_histories.where(owned_to: true)} # получили свободные экземпляры
-   if  free_items != nil
+   # binding.pry
+    if  !active_items.empty?  
+      free_items = active_items.select{|item| item.book_histories.where('owned_to is null').empty?} # получили свободные экземпляры
+    # free_items = active_items.select{|item| item.book_histories.not_available.empty?}
+    else
+      raise 'active items is null'
+      free_items.map{0}
+    end  
+  # binding.pry
+   if  (!free_items.empty?) || (!free_items.blank?) 
         av_book_item = free_items.first
 
         self.complete_time = Time.now  
@@ -33,9 +38,7 @@ class BookRequest < ApplicationRecord
         self.give_to_user(user,av_book_item) # 
 
    else   
-      #rescue NameError
-        raise  'no available book'    # в случае - нет , выдать ошибку-что  нет свободных экземпляров
-      #end
+      raise  'no available book items'    # в случае - нет , выдать ошибку-что  нет свободных экземпляров      
    end 
   
 
