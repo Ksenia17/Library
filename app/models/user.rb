@@ -6,7 +6,8 @@ class User < ApplicationRecord
   
 
   has_many :books
- # has_many :book_histories
+ 
+  has_many :book_histories
   
 
   has_many :fines

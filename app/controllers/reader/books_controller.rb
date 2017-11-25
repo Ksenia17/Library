@@ -12,11 +12,11 @@ class Reader::BooksController < ApplicationController
      end
    
 
-    def mybook        
+  #  def mybook        
+    
+  #    @books = current_user.book_histories.where("owned_to is null")
       
-      @books = Book.selected
-      
-     end 
+  #   end 
  
 
 end

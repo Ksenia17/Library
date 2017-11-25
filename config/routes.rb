@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   
 
+  namespace :reader do
+    get 'book_histories/index'
+  end
+
   namespace :admin do
     get 'book_types/index'
   end
@@ -52,12 +56,16 @@ Rails.application.routes.draw do
   
   resources :book_requests, only: [:index]
 
-  resources :books , only: [:index] do  
+  resources :books , only: [:index] do 
+   # get 'mybook', on: :collection
+     
     resources :book_requests, only: [:create]   
             
   end   
 
-  resources :users , only: [:show,:edit, :update]  
+  resources :users , only: [:show,:edit, :update]  do
+      resources :book_histories, only: [:index]
+  end  
   
   resources :book_types , only: [:index]    
    

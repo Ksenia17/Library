@@ -11,5 +11,6 @@ class Book < ApplicationRecord
    validates :author,      presence: true
    validates :year_book,     presence: true  
    
-     
+  scope :on_handed, -> { where("owned_to is null") }
+
 end

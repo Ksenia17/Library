@@ -1,0 +1,34 @@
+<h4>Мои книги:</h4>
+<p></p>
+<div class="table-responsive">
+<table class="table table-striped">
+	
+	<tr>
+		<th>N n/n</th>
+    	<th>Название книги:</th>
+    	<th>Категория: </th>
+    	<th>Автор: </th>
+    	<th>Дата издания: </th>
+    	
+
+    	<th></th>
+	</tr>
+	
+		<% @books_history.each do |history| %>
+			<tr>
+				<td><%= history.id %></td>
+				<td><%= history.book_request.book.name %> </td>
+				<td><%= history.book_request.book.book_type.name %></td>
+				<td><%= history.book_request.book.author %></td>
+				<td><%= history.book_request.book.year_book %></td>
+				
+				<td><%= link_to "Вернуть прочитанную", '#' %> </td>
+			</tr>
+		<% end %>
+	
+
+</table>
+
+</div>
+
+<button type="button" class="btn btn-primary">Взять новую книгу</button>

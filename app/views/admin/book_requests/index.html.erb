@@ -1,6 +1,10 @@
 <% if notice %>
 <p id="notice"><%= notice %></p>
 <% end %>
+<% if @error %>
+<p><%= @error %></p>
+<% end %>
+
 <h4>Журнал событий для администратора:</h4>
 <p></p>
 <div class="table-responsive">
@@ -27,7 +31,7 @@
 				<td><%= request.book.name %></td>
 				<td><%= request.created_at.to_s(:ru_datetime) %></td>
 				<td><%= request.complete_time %></td>
-				<td><%= 'неизвестно' %> </td>
+				<td><%= request.book.book_items.noarchived.select{|item| item.book_histories.where('owned_to is null').empty?}.size %> </td>
 				<td><%= request.book.book_items.count %> </td>
 					<td><% if not request.complete_time %> </td>
 						<td><%= button_to 'Подтвердить запрос на выдачу',approval_admin_book_request_path(request) %> </td>
