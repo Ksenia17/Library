@@ -13,6 +13,19 @@ load_and_authorize_resource :book_request# for cancancan
   def create 
     #binding.pry
     @book = Book.find(params[:book_id])
+
+    # проверка - есть ли такая уже у читателя
+    # scope on user_id - @book_request.user_sele
+    # scope on book_id  - @book_request.book_hand
+    binding.pry
+    @book_request = @book.book_requests.user_sele(current_user)   
+    if @book_request.size != nil 
+      puts 'такая книга уже есть в наличии'
+    else puts 'в наличии  - нет'  
+    end
+    
+    
+
     @book_request = @book.book_requests.build
 
     @book_request.user_id = current_user.id

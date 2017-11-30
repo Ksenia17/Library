@@ -10,6 +10,14 @@ class BookHistory < ApplicationRecord
 	validates  :user_id  ,		presence: true
 	validates  :owned_from  ,	presence: true
 
-  scope :not_available, -> {where("owned_to is null")} 
+ default_scope {where("owned_to is null")} 
+
+# scope :on_hands, -> {where("owned_to is null")} 
+
+  def book_return
+  #  binding.pry
+    self.owned_to = Time.now
+    self.save
+  end
 
 end

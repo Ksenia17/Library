@@ -1,4 +1,4 @@
-class Reader::BookTypeController < ApplicationController
+class Reader::BookTypesController < ApplicationController
   before_action :authenticate_user! # for devise
   load_and_authorize_resource :book_type# for cancancan
   

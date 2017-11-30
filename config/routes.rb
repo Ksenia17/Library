@@ -45,7 +45,8 @@ Rails.application.routes.draw do
     
     resources :books, only: [:new,:create,:index,:show,:edit, :update,:destroy]  do       
       resources :book_items, only: [:create,:index,:show,:destroy] do
-        resources :book_histories, only: [:index] #new
+        resources :book_histories, only: [:index] 
+
       end  
     end
 
@@ -64,11 +65,12 @@ Rails.application.routes.draw do
   end   
 
   resources :users , only: [:show,:edit, :update]  do
-      resources :book_histories, only: [:index]
+      resources :book_histories, only: [:index] do  
+        post 'return_book', on: :member
+      end  
   end  
   
-  resources :book_types , only: [:index]    
-   
+  resources :book_types , only: [:index]  
 
  end 
 

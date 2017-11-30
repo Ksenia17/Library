@@ -5,7 +5,17 @@ class BookRequest < ApplicationRecord
 
   validates  :book_id  , presence: true
 	validates  :user_id  , presence: true	
-    
+   
+# scope :book_hand, -> (:book_id) {where("book_id = ? ",:book_id)}
+
+# scope :user_sele, -> (current_user)  {where("user_id = ?",current_user )} 
+
+
+
+  def self.user_sele(current_user)
+    where("user_id = ?", current_user)
+  end
+  
 
   def negat(current_user)
     self.complete_time = Time.now 
@@ -14,21 +24,24 @@ class BookRequest < ApplicationRecord
     self.save
   end  
 
-  def positive(current_user)
-    #проверка - есть ли свободный экз?
-     
-    active_items = self.book.book_items.noarchived
-   # binding.pry
-    if  !active_items.empty?  
-      free_items = active_items.select{|item| item.book_histories.where('owned_to is null').empty?} # получили свободные экземпляры
-    # free_items = active_items.select{|item| item.book_histories.not_available.empty?}
+ def free_items
+  active_items = self.book.book_items.noarchived
+ 
+    if  !active_items.empty? 
+      active_items.select{|item| item.book_histories.where('owned_to is null').empty?} # получили свободные экземпляры
+    
     else
-      raise 'active items is null'
-      free_items.map{0}
+      []      
+    
     end  
-  # binding.pry
-   if  (!free_items.empty?) || (!free_items.blank?) 
-        av_book_item = free_items.first
+ end
+
+  def positive(current_user)
+      
+   
+  free = free_items
+   if  !free.empty?  # || (!free_items.blank?) 
+        av_book_item = free.first
 
         self.complete_time = Time.now  
         self.approved_flg = true

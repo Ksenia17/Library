@@ -16,6 +16,7 @@ class Ability
       end
 
       can [:show,:create], BookRequest
+      can :return_book, BookHistory
 
         cannot :destroy, User                
         #  can [:edit, :update], Book, :user_id => user.id            

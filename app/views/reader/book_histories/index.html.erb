@@ -4,25 +4,27 @@
 <table class="table table-striped">
 	
 	<tr>
-		<th>N n/n</th>
+		
     	<th>Название книги:</th>
     	<th>Категория: </th>
     	<th>Автор: </th>
     	<th>Дата издания: </th>
-    	
+    	<th>Дата выдачи книги: </th>
+    	<th>Дата возврата книги: </th>
 
     	<th></th>
 	</tr>
 	
 		<% @books_history.each do |history| %>
 			<tr>
-				<td><%= history.id %></td>
+				
 				<td><%= history.book_request.book.name %> </td>
 				<td><%= history.book_request.book.book_type.name %></td>
 				<td><%= history.book_request.book.author %></td>
 				<td><%= history.book_request.book.year_book %></td>
-				
-				<td><%= link_to "Вернуть прочитанную", '#' %> </td>
+				<td><%= history.owned_from.to_s(:ru_datetime) %> </td>
+				<td><%= history.owned_from + 7.day  %> </td>
+				<td><%= button_to "Вернуть прочитанную", return_book_reader_user_book_history_path(current_user,history) %> </td>
 			</tr>
 		<% end %>
 	
