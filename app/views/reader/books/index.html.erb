@@ -21,7 +21,12 @@
 				<td><%= book.author %></td>
 				<td><%= book.year_book %></td>
 				<td><%= "#{book.user.first_name.capitalize} #{book.user.last_name.capitalize}"%></td>
-				<td><%= button_to 'Взять эту книгу',reader_book_book_requests_path(book) %></td>  
+					
+					<% if book.book_requests.on_handed.size != 0 %>	
+					<td><%= button_to 'Взять эту книгу',reader_book_book_requests_path(book) %></td>  
+					<% else%>
+					<td>Эта книга у Вас в наличии...</td>
+					<% end%>
 			</tr>
 		<% end %>
 	

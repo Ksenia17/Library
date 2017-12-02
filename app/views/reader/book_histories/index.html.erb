@@ -10,7 +10,7 @@
     	<th>Автор: </th>
     	<th>Дата издания: </th>
     	<th>Дата выдачи книги: </th>
-    	<th>Дата возврата книги: </th>
+    	<th>Дата будущего возврата книги: </th>
 
     	<th></th>
 	</tr>
@@ -23,8 +23,9 @@
 				<td><%= history.book_request.book.author %></td>
 				<td><%= history.book_request.book.year_book %></td>
 				<td><%= history.owned_from.to_s(:ru_datetime) %> </td>
-				<td><%= history.owned_from + 7.day  %> </td>
-				<td><%= button_to "Вернуть прочитанную", return_book_reader_user_book_history_path(current_user,history) %> </td>
+				<td><%= (history.owned_from + 7.day + 15.hour).to_s(:krat_datetime) %> </td>
+				<td><%= button_to "Вернуть прочитанную",  return_book_reader_book_history_path(history) %> </td>
+
 			</tr>
 		<% end %>
 	

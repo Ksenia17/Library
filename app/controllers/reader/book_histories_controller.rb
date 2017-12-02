@@ -14,7 +14,7 @@ load_and_authorize_resource :book_history# for cancancan
 
    @books_history.book_return
    
-   redirect_to reader_user_book_histories_path(current_user)
+   redirect_to reader_book_histories_path
       
   end
 

@@ -7,3 +7,4 @@ require_relative 'application'
 Rails.application.initialize!
 
 Time::DATE_FORMATS[:ru_datetime] = "%Y.%m.%d в %k:%M:%S"
+Time::DATE_FORMATS[:krat_datetime] = "%Y.%m.%d"

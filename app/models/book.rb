@@ -10,7 +10,7 @@ class Book < ApplicationRecord
    validates :book_type_id, presence: true
    validates :author,      presence: true
    validates :year_book,     presence: true  
-   
-  scope :on_handed, -> { where("owned_to is null") }
+                  
+  scope :on_handed, -> (current_user)  { where("user_id = ?" ,current_user).joins(:book_history).where("owned_to is null ")} 
 
 end

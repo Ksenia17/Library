@@ -1,3 +1,10 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+<% if @error %>
+<p><%= @error %></p>
+<% end %>
+
 <h4>Журнал запросов читателя:</h4>
 <p></p>
 <div class="table-responsive">
@@ -35,7 +42,7 @@
            			 <td><%= request.book_history.try(:owned_from).try(:to_s,:ru_datetime) %></td>
 						
 				     <td><%= request.book_history.try(:owned_to).try(:to_s,:ru_datetime) %></td>
-			 
+			 			
         		<% else%>
 					<td>Нет возможности в данный момент выдать книгу.... Извините."</td>
 				<% end %>

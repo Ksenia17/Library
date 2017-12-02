@@ -15,9 +15,11 @@ class BookHistory < ApplicationRecord
 # scope :on_hands, -> {where("owned_to is null")} 
 
   def book_return
-  #  binding.pry
+  
     self.owned_to = Time.now
     self.save
   end
+
+ 
 
 end

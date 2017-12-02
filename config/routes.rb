@@ -57,18 +57,19 @@ Rails.application.routes.draw do
   
   resources :book_requests, only: [:index]
 
+  resources :book_histories, only: [:index] do  
+        post 'return_book', on: :member
+      end  
+
+
   resources :books , only: [:index] do 
-   # get 'mybook', on: :collection
+  
      
     resources :book_requests, only: [:create]   
             
   end   
 
-  resources :users , only: [:show,:edit, :update]  do
-      resources :book_histories, only: [:index] do  
-        post 'return_book', on: :member
-      end  
-  end  
+  resources :users , only: [:show,:edit, :update]  
   
   resources :book_types , only: [:index]  
 

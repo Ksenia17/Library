@@ -16,7 +16,12 @@ class Ability
       end
 
       can [:show,:create], BookRequest
+     # binding.pry
+      can  [:show], BookHistory do |u|  
+        u == user
+      end
       can :return_book, BookHistory
+     
 
         cannot :destroy, User                
         #  can [:edit, :update], Book, :user_id => user.id            
