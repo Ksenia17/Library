@@ -22,7 +22,12 @@
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
   
- 
+  <% if @errors %>
+   <%= render 'layouts/error_messages' %>
+  <% end %> 
+
+
+
     
     <%= yield %>
    

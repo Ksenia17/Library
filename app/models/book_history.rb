@@ -20,6 +20,8 @@ class BookHistory < ApplicationRecord
     self.save
   end
 
+  
+
  
 
 end

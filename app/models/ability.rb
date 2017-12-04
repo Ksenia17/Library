@@ -16,7 +16,7 @@ class Ability
       end
 
       can [:show,:create], BookRequest
-     # binding.pry
+    
       can  [:show], BookHistory do |u|  
         u == user
       end

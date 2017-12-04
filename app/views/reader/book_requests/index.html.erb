@@ -19,7 +19,8 @@
     		    	
     	<th>Статус обработки заявки:</th>
     	<th>Дата выдачи читателю: </th> 
-    	<th>Дата возврата этой книги: </th>    	
+    	<th>Дата будущего возврата книги: </th>   
+
 	</tr>
 	
 		<% @book_requests.each do |request| %>
@@ -40,9 +41,12 @@
 				<% if request.approved_flg == true %>
            			<td>Вам выдали книгу</td>
            			 <td><%= request.book_history.try(:owned_from).try(:to_s,:ru_datetime) %></td>
-						
-				     <td><%= request.book_history.try(:owned_to).try(:to_s,:ru_datetime) %></td>
-			 			
+						<% if request.book_history.try(:owned_from) %>
+				     		<td><%= (request.book_history.owned_from + 7.day + 15.hour).try(:to_s,:krat_datetime) %></td>
+			 			<% else %>
+			 				<td></td>
+			 			<% end %>
+
         		<% else%>
 					<td>Нет возможности в данный момент выдать книгу.... Извините."</td>
 				<% end %>

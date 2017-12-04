@@ -12,9 +12,12 @@ load_and_authorize_resource :book_request
    def negative
      @book_request = BookRequest.find(params[:id])
      #автоматическая проверка 
-     @book_request.negat(current_user)
- 
-     redirect_to admin_book_requests_path, :notice => 'Book-request was not successfully processed'
+    # binding.pry
+     begin
+      @book_request.negat(current_user)
+      redirect_to admin_book_requests_path, :notice => 'Refused, because there is no free book-item'
+      rescue => @error
+     end 
    
    end
 
@@ -26,14 +29,9 @@ load_and_authorize_resource :book_request
     @book_request.positive(current_user)
     redirect_to admin_book_requests_path, :notice => 'Book-request was successfully processed!'
   rescue => @error
-   # binding.pry
-   
-   end 
-    #if @book_request.save
       
-   # end
-    
-   
+   end 
+      
      
    end
 

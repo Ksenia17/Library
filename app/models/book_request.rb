@@ -12,8 +12,8 @@ class BookRequest < ApplicationRecord
 
 
   scope :owned, -> {joins(:book_history).where("owned_to is null ")}
-                                              
-  scope :on_handed, -> {where(user_id: 4 ).joins(:book_history).where("owned_to is null ")} 
+                                               
+  scope :on_handed, -> (current_user) {where(user_id: current_user).joins(:book_history).where("owned_to is null")} 
   
 
   def negat(current_user)

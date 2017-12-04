@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
   
 
-  namespace :reader do
-    get 'book_histories/index'
-  end
+#  namespace :reader do
+#    get 'book_histories/index'
+#  end
 
-  namespace :admin do
-    get 'book_types/index'
-  end
+#  namespace :admin do
+#    get 'book_types/index'
+#  end
 
   devise_for :users,
               controllers: {
