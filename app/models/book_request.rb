@@ -12,7 +12,13 @@ class BookRequest < ApplicationRecord
 
 
   scope :owned, -> {joins(:book_history).where("owned_to is null ")}
-                                               
+  scope :sele, ->  (current_user) { where(user_id: current_user) } 
+
+  scope :application, -> {where("complete_time is null" )}  
+  scope :not_application, -> {where("complete_time is not null")} 
+
+  scope :approved, -> {where(approved_flg: true)} 
+
   scope :on_handed, -> (current_user) {where(user_id: current_user).joins(:book_history).where("owned_to is null")} 
   
 

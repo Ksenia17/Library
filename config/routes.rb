@@ -9,7 +9,8 @@ Rails.application.routes.draw do
 #    get 'book_types/index'
 #  end
 
-  devise_for :users,
+  devise_for :users,    
+    
               controllers: {
                 sessions: 'users/sessions' 
                            }
@@ -58,13 +59,12 @@ Rails.application.routes.draw do
   resources :book_requests, only: [:index]
 
   resources :book_histories, only: [:index] do  
-        post 'return_book', on: :member
-      end  
+    post 'return_book', on: :member
+  end  
 
 
   resources :books , only: [:index] do 
-  
-     
+        
     resources :book_requests, only: [:create]   
             
   end   

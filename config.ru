@@ -5,4 +5,4 @@ require_relative 'config/environment'
 run Rails.application
 
 # require 'resque/server'  
-# run Rack::URLMap.new "/" => Library::Application,  "/resque" => Resque::Server.new  
+# run Rack::URLMap.new "/" => AppName::Application,  "/resque" => Resque::Server.new  

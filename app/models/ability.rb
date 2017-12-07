@@ -17,10 +17,11 @@ class Ability
 
       can [:show,:create], BookRequest
     
-      can  [:show], BookHistory do |u|  
-        u == user
+      can  :return_book, BookHistory do |b| 
+       # binding.pry 
+        b.user == user # проверить!
       end
-      can :return_book, BookHistory
+    #  can :return_book, BookHistory
      
 
         cannot :destroy, User                

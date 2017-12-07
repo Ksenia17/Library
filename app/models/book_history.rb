@@ -20,6 +20,12 @@ class BookHistory < ApplicationRecord
     self.save
   end
 
+  def date_fut
+  #  binding.pry
+    new_date = self.owned_from + 7.day + ( 24 - self.owned_from.hour + 1).hour # 15.hour  #self.owned_from.hour
+  
+  end
+
   
 
  

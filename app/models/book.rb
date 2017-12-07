@@ -11,6 +11,6 @@ class Book < ApplicationRecord
    validates :author,      presence: true
    validates :year_book,     presence: true  
                   
-#  scope :on_handed, -> (current_user)  { where("user_id = ?" ,current_user).joins(:book_history).where("owned_to is null ")} 
-
+  scope :not_state, ->  { joins(:book_requests).where("complete_time is not null ").group("id")} 
+  
 end

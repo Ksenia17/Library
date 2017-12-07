@@ -6,7 +6,7 @@ load_and_authorize_resource :book_request# for cancancan
 
   def index
   #  @book_requests=BookRequest.where(user_id: current_user.id)
-    @book_requests = current_user.book_requests # через ассоциацию
+    @book_requests = current_user.book_requests # через ассоциацию  здесь не показываем книги, которые уже поданы в заявке
   end
 
   

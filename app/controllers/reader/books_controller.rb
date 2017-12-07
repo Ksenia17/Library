@@ -7,8 +7,9 @@ class Reader::BooksController < ApplicationController
 
 
    def index
+    #  binding.pry
+       @books = Book.all #not_state #all  # все книги и не показыаю книги, которые сейчас в заявке
 
-       @books = Book.all  # все книги
      end
    
 

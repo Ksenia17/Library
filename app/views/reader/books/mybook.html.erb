@@ -22,7 +22,7 @@
 				<td><%= book.author %></td>
 				<td><%= book.year_book %></td>
 				<td><%= "#{book.user.first_name.capitalize} #{book.user.last_name.capitalize}"%></td>
-				<td><%= link_to "Вернуть прочитанную", '#' %> </td>
+				<td><%= link_to "Вернуть прочитанную", return_book_reader_book_history_path %> </td>
 			</tr>
 		<% end %>
 	
