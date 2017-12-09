@@ -21,7 +21,7 @@ class BookHistory < ApplicationRecord
   end
 
   def date_fut
-  #  binding.pry
+  #  binding.pry      # 2 способ - history=BookHistory.find(19).owned_from.to_date + 7.day
     new_date = self.owned_from + 7.day + ( 24 - self.owned_from.hour + 1).hour # 15.hour  #self.owned_from.hour
   
   end

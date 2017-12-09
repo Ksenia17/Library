@@ -28,7 +28,7 @@
 				<td><%= "#{request.user.first_name.capitalize}  #{request.user.last_name.capitalize}" %> </td>
 				<td><%= request.book.name %></td>
 				<td><%= request.created_at.to_s(:ru_datetime) %></td>
-				<td><%= request.complete_time %></td>
+				<td><%= request.complete_time.to_s(:ru_datetime) %></td>
 				<td><%= request.free_items.size %> </td>   
 				<td><%= request.book.book_items.count %> </td>
 					<td><% if not request.complete_time %> </td>

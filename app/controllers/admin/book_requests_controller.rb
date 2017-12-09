@@ -15,8 +15,9 @@ load_and_authorize_resource :book_request
     # binding.pry
      begin
       @book_request.negat(current_user)
-      redirect_to admin_book_requests_path, :notice => 'Refused, because there is no free book-item'
+      redirect_to admin_book_requests_path, :notice => 'Refused, because there is not free book-item'
       rescue => @error
+        redirect_to admin_book_requests_path, :notice => 'Refused, because there is not free book-item'
      end 
    
    end
@@ -28,8 +29,9 @@ load_and_authorize_resource :book_request
    begin
     @book_request.positive(current_user)
     redirect_to admin_book_requests_path, :notice => 'Book-request was successfully processed!'
-  rescue => @error
-      
+  rescue =>   @error
+    #  binding.pry
+      redirect_to admin_book_requests_path, :notice => 'Refused, because there is not free book-item'
    end 
       
      

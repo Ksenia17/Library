@@ -91,3 +91,4 @@ gem 'cancancan', '~> 2.0'
 gem 'pry'
 gem 'jquery-turbolinks'
 gem 'delayed_job_active_record'
+gem "daemons"
