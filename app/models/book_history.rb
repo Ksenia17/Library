@@ -10,7 +10,9 @@ class BookHistory < ApplicationRecord
 	validates  :user_id  ,		presence: true
 	validates  :owned_from  ,	presence: true
 
- default_scope {where("owned_to is null")} 
+ default_scope {where("owned_to is null")} #на время отладки 10.12.2017
+
+ scope :fined, -> { where("owned_to.to_date - owned_from.to_date > 7") }
 
 # scope :on_hands, -> {where("owned_to is null")} 
 
