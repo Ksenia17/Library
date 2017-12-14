@@ -5,12 +5,12 @@ load_and_authorize_resource :book_history# for cancancan
   layout "reader" 
   
   def index
-    @books_history = current_user.book_histories.all  #on_hands
+    @books_history = current_user.book_histories.on_hands
   end
 
   def return_book
   # binding.pry   
-   @books_history = BookHistory.find(params[:id]) 
+   @books_history = BookHistory.on_hands.find(params[:id]) 
 
    @books_history.book_return
    

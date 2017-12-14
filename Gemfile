@@ -92,3 +92,4 @@ gem 'pry'
 gem 'jquery-turbolinks'
 gem 'delayed_job_active_record'
 gem "daemons"
+gem 'delayed_job_recurring'
