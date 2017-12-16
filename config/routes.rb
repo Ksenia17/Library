@@ -29,7 +29,7 @@ Rails.application.routes.draw do
       post 'confirm', on: :member # совпадает с именем def..end в контроллере
       
       get 'list_fines',on: :collection
-    
+      post 'plus_fine', on: :collection
     end  
 
     resources :book_requests, only: [:index] do 

@@ -4,21 +4,21 @@
     
     <tr>
       <th>N n/n</th>
-      <th>First name </th>
-      <th>Last name </th>
-      <th>Email </th>
-      <th>Penalty_time </th>
+      <th>Читатель </th>
+     
+      <th>Электр.почта </th>
+      <th>Дата штрафа </th>
       
     </tr>
    
   
     <% @users.each do |user| %>
     <tr>
-    <td><%= user.id %></td>
-    <td><%= user.first_name%></td>
-    <td><%= user.last_name%></td>
+    <td><%= user.id%></td>
+    <td><%= "#{user.first_name.capitalize}  #{user.last_name.capitalize}" %></td>
+       
     <td><%= user.email%></td>
-    <td><%= user.penalty_time%></td>
+    <td><%= user.penalty_time.to_s(:ru_datetime)%></td>
     <td> </td>
     
     
@@ -26,4 +26,5 @@
    <% end %>
  
 </table>
+<%= button_to 'Проверка на наличие штрафа у новых читателей',plus_fine_admin_users_path %>
 </div>

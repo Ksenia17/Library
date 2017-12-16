@@ -63,6 +63,11 @@ class Admin::UsersController < ApplicationController  # AdminController
     
   end  
   
+  def plus_fine
+  #  Delayed::Job.enqueue FineWorker.new,run_at:15.seconds.from_now
+    fineworker = FineWorker.new
+    fineworker.send_later(:perfom)
+  end
 
   def list_fines
    # @users = User.penalized
