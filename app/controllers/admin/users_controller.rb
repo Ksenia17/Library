@@ -66,13 +66,13 @@ class Admin::UsersController < ApplicationController  # AdminController
   def plus_fine
   #  Delayed::Job.enqueue FineWorker.new,run_at:15.seconds.from_now
     fineworker = FineWorker.new
-    fineworker.send_later(:perfom)
+    fineworker.perfom
+    redirect_to  list_fines_admin_users_path, :notice => "Fines were added" 
   end
 
-  def list_fines
-   # @users = User.penalized
-   @users = User.where ("penalty_time is not null")
-  end
+#  def list_fines   
+#   @users =  User.where ("penalty_time is not null")
+#  end
    
  #  def list_admin
     #  @users = User.administrated

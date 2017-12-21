@@ -8,7 +8,7 @@
 <p>Название: "<%= @book_item.book.name %>"</p>
 <p>Дата создания  : <%= @book_item.created_at.to_s(:ru_datetime)%> </p>
 <p>Кто добавил  : <%= "#{@book_item.user.first_name.capitalize} #{@book_item.user.last_name.capitalize}"  %>  </p>
-<p>Когда утилизируется : <%= @book_item.noarchived_at %></p>		
+<p>Дата списания : <%= @book_item.archived_at %></p>		
 		
 <p></p>	
 

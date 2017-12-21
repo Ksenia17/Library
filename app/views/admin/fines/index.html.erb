@@ -1,0 +1,34 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+<h4>Список штрафников : </h4>
+<div class="table-responsive">
+ <table class="table table-striped">
+    
+    <tr>
+      <th>N n/n</th>
+      <th>Читатель </th>
+     
+      <th>Электр.почта </th>
+      <th>Дата штрафа </th>
+      
+    </tr>
+   
+  
+    <% @fines.each do |fine| %>
+    <tr>
+    <td><%= fine.id%></td>
+    <td><%= "#{fine.user.first_name.capitalize}  #{fine.user.last_name.capitalize}" %></td>
+       
+    <td><%= fine.user.email%></td>
+    <td><%= fine.user.penalty_time.to_s(:ru_datetime)%></td>
+    <td> </td>
+    
+    
+    </tr>         
+   <% end %>
+ 
+</table>
+<%= button_to 'Проверка на наличие штрафа у новых читателей',admin_fines_path %>
+</div>

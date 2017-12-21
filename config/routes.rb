@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   
 
+  namespace :admin do
+    get 'fines/create'
+  end
+
 #  namespace :reader do
 #    get 'book_histories/index'
 #  end
@@ -18,7 +22,8 @@ Rails.application.routes.draw do
  
  namespace :admin do
 
-    
+   
+
     resources :info, only: [:index,:show,:edit, :update] do  
     end    
 
@@ -28,9 +33,11 @@ Rails.application.routes.draw do
       get 'wait',  on: :member
       post 'confirm', on: :member # совпадает с именем def..end в контроллере
       
-      get 'list_fines',on: :collection
-      post 'plus_fine', on: :collection
+    #  get 'list_fines',on: :collection
+    #  post 'plus_fine', on: :collection
     end  
+
+    resources :fines, only: [:index,:create] 
 
     resources :book_requests, only: [:index] do 
      
