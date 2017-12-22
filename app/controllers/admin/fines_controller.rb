@@ -11,7 +11,7 @@ load_and_authorize_resource :fine
   end
 
   def index
-    @fines = Fine.where ("id is not null")
+    @fines = Fine.all
   end
 
 

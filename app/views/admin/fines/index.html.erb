@@ -12,7 +12,7 @@
      
       <th>Электр.почта </th>
       <th>Дата штрафа </th>
-      
+      <th>Штраф по книге: </th>
     </tr>
    
   
@@ -22,7 +22,8 @@
     <td><%= "#{fine.user.first_name.capitalize}  #{fine.user.last_name.capitalize}" %></td>
        
     <td><%= fine.user.email%></td>
-    <td><%= fine.user.penalty_time.to_s(:ru_datetime)%></td>
+    <td><%= fine.user.created_at.to_s(:ru_datetime)%></td>
+    <td><%= fine.book_history.book_item.book.name %></td>
     <td> </td>
     
     

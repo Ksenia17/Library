@@ -23,10 +23,7 @@ class FineWorker
           fine = history.fines.build      
           fine.user_id =  history.user_id      
           fine.save   
-
-        #  user = history.user
-        #  user.penalty_time = Time.now
-        #  user.save
+        
 
         end 
          
