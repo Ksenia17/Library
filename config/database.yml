@@ -12,8 +12,8 @@
 development:
   adapter: postgresql
   database: library  
-  username: example
-  password: oks
+  username: socbet_user
+  password: socbet123
   host: localhost
   encoding: UTF8
   port: 5432
