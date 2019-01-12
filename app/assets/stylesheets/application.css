@@ -13,10 +13,24 @@
  *= require_tree .
  *= require_self
  */ 
-.container img{
+
+/*.container img{
     width: 100%;
     position: absolute;
- }
+ }*/
+.container{
+  width: 1200px;
+  margin: 0 auto;
+}
+
 .container h3 {
   color: #6f42c1;
 }
+/*.navbar {
+  position: relative;
+  display: flex;
+}*/
+img{
+    max-width: 100%;
+    height: auto;
+ }
