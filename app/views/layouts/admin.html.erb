@@ -1,37 +1,63 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Library</title>
-  <link data-require="bootstrap-css@*" data-semver="4.0.0-alpha.4" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" />
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag  "application", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%= csrf_meta_tags %>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag  "application", "data-turbolinks-track" => true %>
+    <title>Library</title>
 </head>
 <body>
-<% if user_signed_in? %>
-   <%=  current_user.email  %> |<%= link_to 'Sign Out', destroy_user_session_path, :method => 'delete' %>
-   <% else %> 
-   <%= link_to 'Sign In', new_user_session_path %> | <%= link_to 'Sign Up',    new_user_registration_path %> 
-  	<% end %> 
-  	
-<h3>Информация только для администраторов </h3>
- 												
- <%= link_to 'Список уже зарегистрированных', admin_users_path  %>|
- <%= link_to ' Список, ожидающих регистрацию', list_wait_admin_users_path  %>|
- <%= link_to ' Список штрафников', admin_fines_path  %>	|
- <%= link_to ' Учет и пополнение книг', admin_books_path  %>	| 
- <%= link_to ' Категории книг',  admin_book_types_path  %>	|
- <%= link_to ' Все администраторы', admin_info_index_path  %>	|
- <%= link_to ' Журнал событий', admin_book_requests_path  %> |
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <% if user_signed_in? %>
+            <ul class="navbar-nav">
+              <li class="nav-item nav-link">
+                <%=  current_user.email%><span class="sr-only">(current)</span>
+              </li>
+              <li class="nav-item nav-link">
+                <%= link_to 'Выход', destroy_user_session_path, :method => 'delete' %>
+              </li>
+            </ul>
+          <% else %>
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" href=<%= new_user_session_path%>>ВХОД <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href=<%= new_user_registration_path%>>РЕГИСТРАЦИЯ</a>
+              </li>
+            </ul>
+          <% end %>
+        </div>
+      </nav>
+    </header>
 
-<% if @errors %>
- <%= render 'layouts/error_messages' %>
-<% end %> 
+<div class="card">
+  <div class="card-header">
+    <h3 class="card-title">Информация только для администраторов </h3>
+    <a class="btn btn-outline-primary" href=<%=admin_users_path%> role="button">Список уже зарегистрированных</a>
+    <a class="btn btn-outline-primary" href=<%=list_wait_admin_users_path%> role="button">Список, ожидающих регистрацию</a>
+    <a class="btn btn-outline-primary" href=<%=admin_fines_path%> role="button">Список штрафников</a>
+    <a class="btn btn-outline-primary" href=<%=admin_books_path%> role="button">Учет и пополнение книг</a>
+    <a class="btn btn-outline-primary" href=<%=admin_book_types_path%> role="button">Категории книг</a>
+    <a class="btn btn-outline-primary" href=<%=admin_info_index_path%> role="button">Все администраторы</a>
+    <a class="btn btn-outline-primary" href=<%=admin_book_requests_path%> role="button">Журнал событий</a>
+  </div>
 
-<%= yield %>
+  <% if @errors %>
+  <%= render 'layouts/error_messages' %>
+  <% end %>
+
+    <%= yield %>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
 
- 
+</div>
 </body>
 </html>
