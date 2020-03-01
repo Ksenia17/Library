@@ -18,9 +18,27 @@
     width: 100%;
     position: absolute;
  }*/
-.container{
-  width: 1200px;
-  margin: 0 auto;
+
+
+body{
+  background:url(Fon.jpg);
+
+}
+
+.form_sign{
+  margin: 7%;
+  padding: 7%;
+  border: 1px solid grey;
+  text-align: center;
+  border-radius: 2%;
+  box-shadow: 6px 6px #989898, 12px 12px #6c6666; 
+}
+.form_sign h2{
+  color: blue;
+}
+
+.form-group{
+text-align: left;
 }
 
 .container h3 {

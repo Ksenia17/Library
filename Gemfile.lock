@@ -119,6 +119,9 @@ GEM
       railties (>= 4.1.0, < 5.2)
       responders
       warden (~> 1.2.3)
+    devise-bootstrap-views (1.1.0)
+    devise-i18n (1.5.1)
+      devise (>= 3.4)
     diff-lcs (1.3)
     erubi (1.7.0)
     execjs (2.7.0)
@@ -321,6 +324,8 @@ DEPENDENCIES
   delayed_job_active_record
   delayed_job_recurring
   devise
+  devise-bootstrap-views (~> 1.0)
+  devise-i18n
   factory_girl_rails
   faker (= 1.1.2)
   jbuilder (~> 2.5)

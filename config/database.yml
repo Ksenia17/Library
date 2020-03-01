@@ -31,8 +31,8 @@ development:
 test: &test
   adapter: postgresql
   database: library  
-  username: example
-  password: oks
+  username: socbet_user #example
+  password: socbet123 #oks
   host: localhost
   encoding: UTF8
   port: 5432
@@ -44,8 +44,8 @@ test: &test
 production:
   adapter: postgresql
   database: library  
-  username: example
-  password: oks
+  username: socbet_user #example
+  password: socbet123 #oks
   host: localhost
   encoding: UTF8
   port: 5432
