@@ -66,7 +66,7 @@ group :test do
   gem 'capybara' #, '2.1.0'  #'2.13.0'
   gem 'factory_girl_rails'#, '4.2.1'
   gem 'cucumber-rails', '1.4.0', :require => false
-  gem 'database_cleaner', github: 'bmabey/database_cleaner'
+#  gem 'database_cleaner', github: 'bmabey/database_cleaner'
   # Windows: раскомментируйте эти строки.
   # gem 'rb-notifu', '0.0.4'
   # gem 'win32console', '1.3.2'
@@ -93,3 +93,5 @@ gem 'jquery-turbolinks'
 gem 'delayed_job_active_record'
 gem "daemons"
 gem 'delayed_job_recurring'
+gem 'carrierwave'
+gem "mini_magick"

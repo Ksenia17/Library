@@ -1,51 +1,39 @@
-<h4>Все книги библиотеки:</h4>
-<p></p>
-<div class="table-responsive">
-<table class="table table-striped">
-	
-	<tr>
-		<th>N n/n</th>
-    	<th>Название книги:</th>
-    	<th>Категория: </th>
-    	<th>Автор: </th>
-    	<th>Дата издания: </th>
-    	<th>Кто добавил: </th>
-    	<th></th>
-	</tr>
-	
-		<% @books.each do |book| %>
-			<tr>
-				<td><%= book.id %></td>
-				<td><%= book.name %> </td>
-				<td><%= book.book_type.name %></td>
-				<td><%= book.author %></td>
-				<td><%= book.year_book %></td>
-				<td><%= "#{book.user.first_name.capitalize} #{book.user.last_name.capitalize}"%></td>
-							
-			
-					
+<div class="album">
+  <h4>Все книги библиотеки:</h4>
+  <div class="container">
+      <div class="row align-items-center">
+        
+          <% @books.each do |book| %>
+        <div class="col-lg-3 col-md-3  col-sm-6 col-xs-12 ">
+            <!-- <div class="card"> -->
+            <img class="card-img-top" src="#" alt="Card image cap">
+            <div class="card-body">
+            <!--   <h5 class="card-title">N n/n <%= book.id %></h5> -->
+            <h6 class="card-title">Название книги:<%= book.name %></h6>
+            <p class="card-text">Категория:<%= book.book_type.name %></p> 
+            <p class="card-text">Автор:<%= book.author %></p>
+            <p class="card-text">Дата издания:<%= book.year_book %></p>
+            <p class="card-text"><small class="text-muted"> Кто добавил:<%= "#{book.user.first_name.capitalize} #{book.user.last_name.capitalize}"%></small></p>
+            
+              <% if book.book_requests.sele(current_user).application.size !=0 %>
+                <p class="card-text">Ваша заявка на книгу рассматривается...</p>
+            <% else%>
+              <% if book.book_requests.not_application.on_handed(current_user).size == 0 %>
 
-					<% if book.book_requests.sele(current_user).application.size !=0 %>
-				 		
-				 		<td>Ваша заявка на книгу рассматривается...</td>
+                  <div><button type="button" class="btn btn-outline-primary"><%= button_to 'Взять эту книгу',reader_book_book_requests_path(book) %></button></div>
 
-					<% else%>					
-						 
-						 <% if book.book_requests.not_application.on_handed(current_user).size == 0 %>
-
-							<td><%= button_to 'Взять эту книгу',reader_book_book_requests_path(book) %></td>
-
-							<% else%>
-							  <td>Эта книга у Вас в наличии...</td>
-							<% end%>					
-						 
-    				<% end%>		
+                  <% else%>
+                    <p class="card-text">Эта книга у Вас в наличии...</p>
+                  <% end%>  
+            
+            <% end%>    
+            </div>  <!-- card-body -->
+        <!--   </div>  -->
+       
+            </div> <!-- col -->
+      <% end %>
 
 
-			</tr>
-		<% end %>
-	
-
-</table>
-
-</div>
+    </div>  <!-- row -->
+  </div>  <!-- container -->
+</div>  <!-- album -->

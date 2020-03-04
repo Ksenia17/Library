@@ -1,9 +1,3 @@
-GIT
-  remote: https://github.com/bmabey/database_cleaner.git
-  revision: f1e71657936ad177e19032b9b5efbda28543d0d0
-  specs:
-    database_cleaner (1.6.1)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -71,6 +65,10 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    carrierwave (1.3.1)
+      activemodel (>= 4.0.0)
+      activesupport (>= 4.0.0)
+      mime-types (>= 1.16)
     childprocess (0.8.0)
       ffi (~> 1.0, >= 1.0.11)
     coderay (1.1.2)
@@ -119,9 +117,6 @@ GEM
       railties (>= 4.1.0, < 5.2)
       responders
       warden (~> 1.2.3)
-    devise-bootstrap-views (1.1.0)
-    devise-i18n (1.5.1)
-      devise (>= 3.4)
     diff-lcs (1.3)
     erubi (1.7.0)
     execjs (2.7.0)
@@ -158,6 +153,7 @@ GEM
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
+    mini_magick (4.10.1)
     mini_mime (0.1.4)
     mini_portile2 (2.3.0)
     minitest (5.10.3)
@@ -317,20 +313,19 @@ DEPENDENCIES
   byebug
   cancancan (~> 2.0)
   capybara
+  carrierwave
   coffee-rails (~> 4.2)
   cucumber-rails (= 1.4.0)
   daemons
-  database_cleaner!
   delayed_job_active_record
   delayed_job_recurring
   devise
-  devise-bootstrap-views (~> 1.0)
-  devise-i18n
   factory_girl_rails
   faker (= 1.1.2)
   jbuilder (~> 2.5)
   jquery-rails
   jquery-turbolinks
+  mini_magick
   pg
   pry
   puma (~> 3.7)
@@ -351,4 +346,4 @@ RUBY VERSION
    ruby 2.3.3p222
 
 BUNDLED WITH
-   1.15.4
+   2.1.4
