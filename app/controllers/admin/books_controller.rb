@@ -80,7 +80,7 @@ private
 
   def book_params
     
-    params.require(:book).permit(:name, :book_type_id, :author, :year_book)   
+    params.require(:book).permit(:name, :book_type_id, :author, :year_book, :image)   
 
   end
 

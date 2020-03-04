@@ -6,10 +6,12 @@
           <% @books.each do |book| %>
         <div class="col-lg-3 col-md-3  col-sm-6 col-xs-12 ">
             <!-- <div class="card"> -->
-            <img class="card-img-top" src="#" alt="Card image cap">
+            <% if book.image? %>  
+              <img class="card-img-top" src=<%= book.image%> alt="Card image cap">
+            <% end%>  
             <div class="card-body">
             <!--   <h5 class="card-title">N n/n <%= book.id %></h5> -->
-            <h6 class="card-title">Название книги:<%= book.name %></h6>
+            <!-- <h6 class="card-title">Название книги:<%= book.name %></h6> -->
             <p class="card-text">Категория:<%= book.book_type.name %></p> 
             <p class="card-text">Автор:<%= book.author %></p>
             <p class="card-text">Дата издания:<%= book.year_book %></p>
