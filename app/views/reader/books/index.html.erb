@@ -1,13 +1,14 @@
 <div class="album">
   <h4>Все книги библиотеки:</h4>
   <div class="container">
-      <div class="row align-items-center">
+      <div class="row">
         
           <% @books.each do |book| %>
-        <div class="col-lg-3 col-md-3  col-sm-6 col-xs-12 ">
-            <!-- <div class="card"> -->
-            <% if book.image? %>  
-              <img class="card-img-top" src=<%= book.image%> alt="Card image cap">
+        <div class="col-lg-3 col-md-4  col-sm-6 col-xs-12 ">
+         <div class="card-group">
+          <div class="card text-center">
+            <% if book.image? %>  <!-- card-img-top -->
+              <img class="card1-img1-top1 text-center" src=<%= book.image.url(:large)%> alt="Card image cap">
             <% end%>  
             <div class="card-body">
             <!--   <h5 class="card-title">N n/n <%= book.id %></h5> -->
@@ -30,7 +31,8 @@
             
             <% end%>    
             </div>  <!-- card-body -->
-        <!--   </div>  -->
+           </div>  <!-- card -->
+           </div>  <!-- card-group -->
        
             </div> <!-- col -->
       <% end %>

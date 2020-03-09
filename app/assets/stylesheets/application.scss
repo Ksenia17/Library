@@ -14,15 +14,12 @@
  *= require_self
  */ 
 
-/*.container img{
-    width: 100%;
-    position: absolute;
- }*/
 
+@import "bootstrap";
 
 body{
-  background:url(Fon.jpg);
-
+  background-size: cover;
+  background-image: linear-gradient(to bottom,#EFF8F8,#FADADD); /*, url("images/Fon.jpg");*/
 }
 
 .form_sign{
@@ -43,6 +40,9 @@ text-align: left;
 
 .container h3 {
   color: #6f42c1;
+}
+header{
+  color: blue;
 }
 /*.navbar {
   position: relative;

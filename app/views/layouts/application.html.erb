@@ -4,62 +4,42 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">  
     <%= csrf_meta_tags %>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<!--     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag  "application", "data-turbolinks-track" => true %>
     <title>Library</title>
 </head>
 
 <body>
-    <header>
+  <div class="container">
+    
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="collapse navbar-collapse" id="navbarNav">
+          <a class="navbar-brand" href="#">"LIBRARY - ABONEMENT"</a>
+        
           <% if user_signed_in? %>
-            <ul class="navbar-nav">
-              <li class="nav-item nav-link">
-                <%=  current_user.email%><span class="sr-only">(current)</span>
+            <ul class="nav navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" href="<%=  current_user.email%>"><!-- <span class="sr-only">(current)</span> --></a>
               </li>
-              <li class="nav-item nav-link">
-                <%= link_to 'Выход', destroy_user_session_path, :method => 'delete' %>
+              <li class="nav-item">
+                <%= link_to 'Выход', destroy_user_session_path, :method => 'delete', class: 'btn btn-outline-primary pull-xs-right' %>
               </li>
             </ul>
           <% else %>
-            <ul class="navbar-nav">
+            <ul class="nav navbar-nav">
               <li class="nav-item active">
-                <a class="nav-link" href=<%= new_user_session_path%>>ВХОД <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="<%= new_user_session_path%>">ВХОД <!-- <span class="sr-only">(current)</span> --></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href=<%= new_user_registration_path%>>РЕГИСТРАЦИЯ</a>
+                <a class="nav-link" href="<%= new_user_registration_path%>">РЕГИСТРАЦИЯ</a>
               </li>
-            </ul>
-          <% end %>
-        </div>
-      </nav>
 
-      <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <% if user_signed_in? %>
-            <ul class="navbar-nav">
-              <li class="nav-item ">
-                <a class="nav-link" href="#"><%=  current_user.email%><span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href=<%= destroy_user_session_path%>>Выход</a>
-              </li>
-            </ul>
-          <% else %>
-            <ul class="navbar-nav">
-              <li class="nav-item active">
-                <a class="nav-link" href=<%= new_user_session_path%>>Вход <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href=<%= new_user_registration_path%>>Регистрация</a>
-              </li>
             </ul>
           <% end %>
-        </div>
-      </nav> -->
-    </header>
+
+    </div>
+      
+    <!-- </div> -->
 
 
     <main role="main"> 
@@ -77,9 +57,9 @@
       </div>
     </main> 
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<!--     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script> -->
 
 </body>
 </html>

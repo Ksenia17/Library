@@ -2,32 +2,68 @@
 <html>
 <head>
   <title>Library</title>
-  <link data-require="bootstrap-css@*" data-semver="4.0.0-alpha.4" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" />
+<!--   <link data-require="bootstrap-css@*" data-semver="4.0.0-alpha.4" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" /> -->
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag  "application", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="container">
+
   <% if user_signed_in? %>
-   <%=  current_user.email  %> |<%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+   <%=  current_user.email  %> |<%= link_to 'Выход', destroy_user_session_path, method: :delete, class: 'btn btn-outline-primary' %>
    <% else %> 
    <%= link_to 'Sign In', new_user_session_path %> | <%= link_to 'Sign Up',    new_user_registration_path %> 
   	<% end %> 	
+  
+  </div>
+  <div class="container"> 
+    <h3>Информация только для читателей </h3>
 
-<h3>Информация только для читателей </h3>
- 												
- <%= link_to 'Все книги библиотеки', reader_books_path %>|   
- <%= link_to 'Мои книги',  reader_book_histories_path  %>|  
- <%= link_to 'Личные данные', edit_reader_user_path(current_user) %>| 
- <%= link_to 'Архив', '#'  %>	|
- <%= link_to 'Журнал запросов',reader_book_requests_path %> 
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <!-- <a class="navbar-brand" href="#"><БУДЕТ ИКОНКА</a> -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <!-- <a class="nav-link" href="<%= link_to 'Все книги библиотеки', reader_books_path %>">Home <span class="sr-only">(current)</span></a> -->
+        <%= link_to 'Все книги библиотеки', reader_books_path, class: 'btn btn-outline-primary' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Мои книги',  reader_book_histories_path, class: 'btn btn-outline-primary' %>
+      </li>
+      <li class="nav-item">
+       <%= link_to 'Личные данные', edit_reader_user_path(current_user), class: 'btn btn-outline-primary'%> 
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Архив', '#', class: 'btn btn-outline-primary'  %>  
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Журнал запросов',reader_book_requests_path, class: 'btn btn-outline-primary' %>
+      </li>
+    </ul>
+  </div>
+</nav>
 
-<% if @errors %>
- <%= render 'layouts/error_messages' %>
-<% end %> 
 
-<%= yield %>
- 
+     												
+<!--      <%= link_to 'Все книги библиотеки', reader_books_path %>|   
+     <%= link_to 'Мои книги',  reader_book_histories_path  %>|  
+     <%= link_to 'Личные данные', edit_reader_user_path(current_user) %>| 
+     <%= link_to 'Архив', '#'  %>	|
+     <%= link_to 'Журнал запросов',reader_book_requests_path %>  -->
+
+
+
+
+    <% if @errors %>
+     <%= render 'layouts/error_messages' %>
+    <% end %> 
+
+    <%= yield %>
+  </div> 
 </body>
 </html>

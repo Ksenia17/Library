@@ -21,7 +21,10 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-gem 'bootstrap-sass'#, '2.3.2.0'
+# gem 'bootstrap-sass'#, '2.3.2.0'
+
+
+
 gem 'bcrypt-ruby', '3.1.2'
 ### gem 'sqlite3' ставим вместо Postg
 gem 'faker', '1.1.2'
@@ -95,3 +98,4 @@ gem "daemons"
 gem 'delayed_job_recurring'
 gem 'carrierwave'
 gem "mini_magick"
+gem 'bootstrap', '~> 4.4.1'
