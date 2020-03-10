@@ -13,4 +13,5 @@
 
 <% if can? :update, @user %>			
 <%= link_to "Edit", edit_reader_user_path(@user) %>
+<%= link_to 'Назад', :back, class: 'btn btn-outline-secondary'%>
 <% end %>

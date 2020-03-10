@@ -1,38 +1,48 @@
-<h4>Мои книги:</h4>
-<p></p>
-<div class="table-responsive">
-<table class="table table-striped">
-	
-	<tr>
-		
-    	<th>Название книги:</th>
-    	<th>Категория: </th>
-    	<th>Автор: </th>
-    	<th>Дата издания: </th>
-    	<th>Дата выдачи книги: </th>
-    	<th>Дата будущего возврата книги: </th>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <h4>Мои книги:</h4>
+        <p></p>
+        <div class="table-responsive">
+        <table class="table table-striped">
+          
+          <tr>
+            
+              <th>Название книги:</th>
+              <th>Категория: </th>
+              <th>Автор: </th>
+              <th>Дата издания: </th>
+              <th>Дата выдачи книги: </th>
+              <th>Дата будущего возврата книги: </th>
 
-    	<th></th>
-	</tr>
-	
-		<% @books_history.each do |history| %>
-			<tr>
-				
-				<td><%= history.book_request.book.name %> </td>
-				<td><%= history.book_request.book.book_type.name %></td>
-				<td><%= history.book_request.book.author %></td>
-				<td><%= history.book_request.book.year_book %></td>
-				<td><%= history.owned_from.to_s(:ru_datetime) %> </td>
-				
-				<td><%= history.date_fut.to_s(:krat_datetime) %> </td>
-				<td><%= button_to "Вернуть прочитанную",  return_book_reader_book_history_path(history) %> </td>
+              <th></th>
+          </tr>
+          
+            <% @books_history.each do |history| %>
+              <tr>
+                
+                <td><%= history.book_request.book.name %> </td>
+                <td><%= history.book_request.book.book_type.name %></td>
+                <td><%= history.book_request.book.author %></td>
+                <td><%= history.book_request.book.year_book %></td>
+                <td><%= history.owned_from.to_s(:ru_datetime) %> </td>
+                
+                <td><%= history.date_fut.to_s(:krat_datetime) %> </td>
+                <td><%= button_to "Вернуть прочитанную",  return_book_reader_book_history_path(history) %> </td>
 
-			</tr>
-		<% end %>
-	
+              </tr>
+            <% end %>
+          
 
-</table>
+        </table>
 
+        </div>
+
+        <!-- <button type="button" class="btn btn-primary">Взять новую книгу</button> -->
+        <button type="button" class="btn btn-outline-secondary"><%= link_to 'Назад', :back%></button>
+            </div>
+  </div>
+  
 </div>
 
-<button type="button" class="btn btn-primary">Взять новую книгу</button>
+

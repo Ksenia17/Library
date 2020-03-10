@@ -1,34 +1,43 @@
-<h4>Мои книги:</h4>
-<p></p>
-<div class="table-responsive">
-<table class="table table-striped">
-	
-	<tr>
-		<th>N n/n</th>
-    	<th>Название книги:</th>
-    	<th>Категория: </th>
-    	<th>Автор: </th>
-    	<th>Дата издания: </th>
-    	<th>Кто добавил: </th>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
 
-    	<th></th>
-	</tr>
-	
-		<% @books.each do |book| %>
-			<tr>
-				<td><%= book.id %></td>
-				<td><%= book.name %> </td>
-				<td><%= book.book_type.name %></td>
-				<td><%= book.author %></td>
-				<td><%= book.year_book %></td>
-				<td><%= "#{book.user.first_name.capitalize} #{book.user.last_name.capitalize}"%></td>
-				<td><%= link_to "Вернуть прочитанную", return_book_reader_book_history_path %> </td>
-			</tr>
-		<% end %>
-	
+      <h4>Мои книги:</h4>
+      <p></p>
+      <div class="table-responsive">
+      <table class="table table-striped">
+      	
+      	<tr>
+      		<th>N n/n</th>
+          	<th>Название книги:</th>
+          	<th>Категория: </th>
+          	<th>Автор: </th>
+          	<th>Дата издания: </th>
+          	<th>Кто добавил: </th>
 
-</table>
+          	<th></th>
+      	</tr>
+      	
+      		<% @books.each do |book| %>
+      			<tr>
+      				<td><%= book.id %></td>
+      				<td><%= book.name %> </td>
+      				<td><%= book.book_type.name %></td>
+      				<td><%= book.author %></td>
+      				<td><%= book.year_book %></td>
+      				<td><%= "#{book.user.first_name.capitalize} #{book.user.last_name.capitalize}"%></td>
+      				<td><%= link_to "Вернуть прочитанную", return_book_reader_book_history_path %> </td>
+      			</tr>
+      		<% end %>
+      	
 
-</div>
+      </table>
 
-<button type="button" class="btn btn-primary">Взять новую книгу</button>
+      </div>
+
+      <button type="button" class="btn btn-primary">Взять новую книгу</button>
+      <button type="button" class="btn btn-outline-secondary"><%= link_to 'Назад', :back%></button>
+
+    </div>
+  </div>
+</div>    

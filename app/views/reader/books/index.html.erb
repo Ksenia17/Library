@@ -1,10 +1,10 @@
 <div class="album">
   <h4>Все книги библиотеки:</h4>
-  <div class="container">
+  <div class="container-fluid">
       <div class="row">
         
           <% @books.each do |book| %>
-        <div class="col-lg-3 col-md-4  col-sm-6 col-xs-12 ">
+        <div class="col-lg-2 col-md-4  col-sm-6 col-xs-12 ">
          <div class="card-group">
           <div class="card text-center">
             <% if book.image? %>  <!-- card-img-top -->
@@ -23,8 +23,8 @@
             <% else%>
               <% if book.book_requests.not_application.on_handed(current_user).size == 0 %>
 
-                  <div><button type="button" class="btn btn-outline-primary"><%= button_to 'Взять эту книгу',reader_book_book_requests_path(book) %></button></div>
-
+<!--                   <div><button type="button" class="btn btn-outline-primary"><%= button_to 'Взять эту книгу',reader_book_book_requests_path(book) %></button></div> -->
+                  <div><%= button_to 'Взять эту книгу',reader_book_book_requests_path(book),class:"btn btn-outline-primary" %></div>  
                   <% else%>
                     <p class="card-text">Эта книга у Вас в наличии...</p>
                   <% end%>  
