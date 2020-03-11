@@ -29,9 +29,12 @@ body{
   text-align: center;
   border-radius: 2%;
   box-shadow: 6px 6px #989898, 12px 12px #6c6666; 
+  font-family: 'Spectral', serif;
+
 }
 .form_sign h2{
   color: blue;
+  font-family: 'Lobster', cursive;
 }
 
 .form-group{
@@ -52,3 +55,7 @@ img{
     max-width: 100%;
     height: auto;
  }
+ nav .navbar-brand{
+  font-family: 'Lobster', cursive;
+ }
+ 

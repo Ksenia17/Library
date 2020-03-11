@@ -1,7 +1,16 @@
 // Place all the styles related to the Reader::Book controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.album h4{
-  text-align: center;
-  color:#B40486;
-}
+//.album h4{
+//  text-align: center;
+ // color:#B40486;
+ // font-family: 'Lobster', cursive;
+//}
+ nav .navbar-brand{
+  font-family: 'Lobster', cursive;
+ }
+
+ .field_with_errors label, .field_with_errors input, .field_with_errors  text_field{
+   color: #d01612;
+   border-color: #d01612
+ }

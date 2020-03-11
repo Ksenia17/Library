@@ -1,12 +1,22 @@
-<% if @errors.any? %>
-  <div id="error_explanation">
-    <div class="alert alert-error">
-      The form contains <%= pluralize(@errors.count, "error") %>.
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+      <% if @errors.any? %>
+        <div id="error_explanation">
+          <div class="alert alert-danger">
+            The form contains <%= pluralize(@errors.count, "error") %>
+            <h5><%= t('common.errors') %> </h5>
+            <ul>
+              <% @errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>  
+              <% end %>
+            </ul>
+
+          </div>
+        </div>
+      <% end %>
     </div>
-    <ul>
-    <% @errors.full_messages.each do |msg| %>
-      <li> <%= msg %></li>
-    <% end %>
-    </ul>
+    
   </div>
-<% end %>
+</div>
+
