@@ -1,12 +1,12 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col">
+    <div class="col-12">
       <h4>Мои книги:</h4>
-        <p></p>
+      <div class="form-font">
         <div class="table-responsive">
-        <table class="table table-striped">
-          
-          <tr>
+        <table class="table table-bordered table-hover">
+          <thead>
+          <tr class="table-secondary">
             
               <th>Название книги:</th>
               <th>Категория: </th>
@@ -17,7 +17,8 @@
 
               <th></th>
           </tr>
-          
+          </thead>
+          <tbody>
             <% @books_history.each do |history| %>
               <tr>
                 
@@ -28,19 +29,20 @@
                 <td><%= history.owned_from.to_s(:ru_datetime) %> </td>
                 
                 <td><%= history.date_fut.to_s(:krat_datetime) %> </td>
-                <td><%= button_to "Вернуть прочитанную",  return_book_reader_book_history_path(history) %> </td>
+                <td><%= button_to "Вернуть прочитанную",  return_book_reader_book_history_path(history), class:"btn btn-outline-primary" %> </td>
 
               </tr>
             <% end %>
           
-
+         </tbody>   
         </table>
 
         </div>
 
         <!-- <button type="button" class="btn btn-primary">Взять новую книгу</button> -->
         <button type="button" class="btn btn-outline-secondary"><%= link_to 'Назад', :back%></button>
-            </div>
+       </div>
+      </div>
   </div>
   
 </div>

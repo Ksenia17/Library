@@ -3,16 +3,13 @@
   <h4>Личные данные читателя: </h4>
   <div class="row">
     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-
-      <% if notice %>
-        <div class="alert alert-success">
-          <p id="notice"><%= notice %></p>
-        </div>  
-      <% end %>
-
-
-
-      
+      <div class="form-font"> 
+        <% if notice %>
+          <div class="alert alert-success">
+            <p id="notice"><%= notice %></p>
+          </div>  
+        <% end %>
+    
         <p></p>
 
         <p>Nn/n : <%= @user.id %></p>
@@ -26,6 +23,7 @@
         <%= link_to "Редактировать", edit_reader_user_path(@user), class: 'btn btn-outline-primary '%>
         <%= link_to 'Назад', :back, class: 'btn btn-outline-secondary'%>
         <% end %>
+      </div>   
     </div>
   </div>
 </div>

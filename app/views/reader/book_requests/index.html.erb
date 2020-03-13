@@ -1,61 +1,78 @@
-<% if notice %>
-<p id="notice"><%= notice %></p>
-<% end %>
-<% if @error %>
-<p><%= @error %></p>
-<% end %>
 
-<h4>Журнал запросов читателя:</h4>
-<p></p>
-<div class="table-responsive">
-<table class="table table-striped">
-	
-	<tr>
-		<th>N n/n</th>
-    	<th>Название книги:</th>
-    	<th>Автор:</th>
-    	<th>Категория: </th>
-    	<th>Дата издания: </th>
-    		    	
-    	<th>Статус обработки заявки:</th>
-    	<th>Дата выдачи читателю: </th> 
-    	<th>Дата будущего возврата книги: </th>   
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
 
-	</tr>
-	
-		<% @book_requests.each do |request| %>
-			<tr>
-				<td><%= request.id %></td>
-				<td><%= request.book.name %> </td>
-				<td><%= request.book.author %> </td>
-				<td><%= request.book.book_type.name %></td> 
-				<td><%= request.book.year_book.to_s(:ru_datetime) %> </td>
-				
-				
+      <% if notice %>
+      <p id="notice"><%= notice %></p>
+      <% end %>
+      <% if @error %>
+      <p><%= @error %></p>
+      <% end %>
+    </div>
+  </div> <!-- row   -->
 
-			<% if not request.complete_time %>
-				<td>Ваша заявка на книгу рассматривается...</td>
-				<td></td>
-				<td></td>
-			<% else%>
-				<% if request.approved_flg == true %>
-           			<td>Вам выдали книгу</td>
-           			 <td><%= request.book_history.try(:owned_from).try(:to_s,:ru_datetime) %></td>
-						<% if request.book_history.try(:owned_from) %>
-				     		<td><%= (request.book_history.owned_from + 7.day + 15.hour).try(:to_s,:krat_datetime) %></td>
-			 			<% else %>
-			 				<td></td>
-			 			<% end %>
+  <div class="row">
+    <div class="col-12">
 
-        		<% else%>
-					<td>Нет возможности в данный момент выдать книгу.... Извините."</td>
-				<% end %>
-			<%  end %>				
-				
-			</tr>
-		<% end %>
-	
+    <h4>Журнал запросов читателя:</h4>
+    <div class="form-font">
+      <div class="table-responsive">
+        <table class="table table-striped">
+    	
+        	<tr>
+        		<th>N n/n</th>
+            	<th>Название книги:</th>
+            	<th>Автор:</th>
+            	<th>Категория: </th>
+            	<th>Дата издания: </th>
+            		    	
+            	<th>Статус обработки заявки:</th>
+            	<th>Дата выдачи читателю: </th> 
+            	<th>Дата будущего возврата книги: </th>   
 
-</table>
+        	</tr>
+        	
+        		<% @book_requests.each do |request| %>
+        			<tr>
+        				<td><%= request.id %></td>
+        				<td><%= request.book.name %> </td>
+        				<td><%= request.book.author %> </td>
+        				<td><%= request.book.book_type.name %></td> 
+        				<td><%= request.book.year_book.to_s(:ru_datetime) %> </td>
+        				
+        				
 
+        			<% if not request.complete_time %>
+        				<td>Ваша заявка на книгу рассматривается...</td>
+        				<td></td>
+        				<td></td>
+        			<% else%>
+        				<% if request.approved_flg == true %>
+                   			<td>Вам выдали книгу</td>
+                   			 <td><%= request.book_history.try(:owned_from).try(:to_s,:ru_datetime) %></td>
+        						<% if request.book_history.try(:owned_from) %>
+        				     		<td><%= (request.book_history.owned_from + 7.day + 15.hour).try(:to_s,:krat_datetime) %></td>
+        			 			<% else %>
+        			 				<td></td>
+        			 			<% end %>
+
+                		<% else%>
+        					<td>Нет возможности в данный момент выдать книгу. Извините ..</td>
+        				  <td></td>
+                  <td></td>
+                <% end %>
+        			<%  end %>				
+        				
+        			</tr>
+        		<% end %>
+    	
+
+      </table>
+      </div>
+    </div>
+  </div>
+
+  </div> <!-- row   -->  
+</div> <!-- cont-r -->
 </div>
