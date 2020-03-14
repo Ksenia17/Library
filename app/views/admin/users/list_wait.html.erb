@@ -1,36 +1,42 @@
-<% if notice %>
-<p id="notice"><%= notice %></p>
-<% end %>
 
-<h4>Список, ожидающих регистрацию : </h4>
+          <% if notice %>
+          <div class="alert-success">
+            <p id="notice"><%= notice %></p>
+          </div>
+          <% end %>
 
-<div class="table-responsive">
- <table class="table table-striped">
-    
-    <tr>
-      <th>N n/n</th>
-      <th>First name </th>
-      <th>Last name </th>
-      <th>Email </th>
-      <th>Birthdate </th>
-      <th></th>
-      <th></th>
+          <h4>Список, ожидающих регистрацию : </h4>
 
-    </tr>
-   
+          <div class="table-responsive">
+           <table class="table table-striped">
+              
+              <tr>
+                <th>N n/n</th>
+                <th>First name </th>
+                <th>Last name </th>
+                <th>Email </th>
+                <th>Birthdate </th>
+                <th></th>
+                <th></th>
+
+              </tr>
+             
+           
+              <% @users.each do |user| %>
+              <tr>
+              <td><%= user.id %></td>
+              <td><%= user.first_name%></td>
+              <td><%= user.last_name%></td>
+              <td><%= user.email%></td>
+              <td><%= user.birthdate%></td>
+              
+              <td><%= link_to "Подтверждение регистрации", wait_admin_user_path(user) %> </td>
+              
+              </tr>         
+             <% end %>
+           
+          </table>
+          </div>
+
  
-    <% @users.each do |user| %>
-    <tr>
-    <td><%= user.id %></td>
-    <td><%= user.first_name%></td>
-    <td><%= user.last_name%></td>
-    <td><%= user.email%></td>
-    <td><%= user.birthdate%></td>
-    
-    <td><%= link_to "Подтверждение регистрации", wait_admin_user_path(user) %> </td>
-    
-    </tr>         
-   <% end %>
- 
-</table>
-</div>
+

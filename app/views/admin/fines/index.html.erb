@@ -1,5 +1,7 @@
 <% if notice %>
-<p id="notice"><%= notice %></p>
+<div class="alert-success">
+  <p id="notice"><%= notice %></p>
+</div>  
 <% end %>
 
 <h4>Список штрафников : </h4>
@@ -31,6 +33,11 @@
    <% end %>
  
 </table>
+
+<div class="align-btn">
 <%= button_to 'Проверка на наличие штрафа у новых читателей',admin_fines_path , class:"btn btn-primary"%>
-<%= link_to 'Назад', :back, class:"btn btn-outline-secondary"%>
 </div>
+
+
+</div>
+

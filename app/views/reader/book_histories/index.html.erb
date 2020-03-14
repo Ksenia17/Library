@@ -29,7 +29,7 @@
                 <td><%= history.owned_from.to_s(:ru_datetime) %> </td>
                 
                 <td><%= history.date_fut.to_s(:krat_datetime) %> </td>
-                <td><%= button_to "Вернуть прочитанную",  return_book_reader_book_history_path(history), class:"btn btn-outline-primary" %> </td>
+                <td><%= button_to "Вернуть прочитанную",  return_book_reader_book_history_path(history), class: "btn btn-outline-primary" %> </td>
 
               </tr>
             <% end %>
@@ -40,7 +40,7 @@
         </div>
 
         <!-- <button type="button" class="btn btn-primary">Взять новую книгу</button> -->
-        <button type="button" class="btn btn-outline-secondary"><%= link_to 'Назад', :back%></button>
+        
        </div>
       </div>
   </div>

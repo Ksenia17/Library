@@ -2,11 +2,26 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 h4{
-  color:#0101DF;
+  color: #0101DF;
   font-family: 'Lobster', cursive;
+  text-align:left;
 }
+
 h3{
   font-family: 'Lobster', cursive;
   color:#8A084B;
   text-align:left;
+}
+
+.card{
+  background-image: linear-gradient(to bottom,#CEF6F5,#FADADD);
+}
+
+table{
+ font-style: italic;
+ font-family: Georgia,Times New Roman,Times,serif;
+ }
+.align-btn{
+  margin-top:2%;
+  margin-bottom:2%;
 }

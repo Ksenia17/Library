@@ -4,10 +4,14 @@
     <div class="col-12">
 
       <% if notice %>
-      <p id="notice"><%= notice %></p>
+        <div class="alert alert-success">
+          <p id="notice"><%= notice %></p>
+        </div>
       <% end %>
       <% if @error %>
-      <p><%= @error %></p>
+       <div class="aler alert-danger">
+        <p><%= @error %></p>
+       </div>
       <% end %>
     </div>
   </div> <!-- row   -->

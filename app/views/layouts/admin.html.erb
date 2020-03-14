@@ -14,18 +14,24 @@
 </head>
 <body>
   <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Абонемент
-          <img src="/assets/books16.png" width="64" height="64" alt="">
-        </a>
-        <div class="collapse navbar-collapse" id="navbarNav">
+    <div class="container-fluid">
+      <div class="row"> 
+        <div class="col">
+          <nav class="navbar  navbar-light bg-faded">
+            <a class="navbar-brand" href="#">Абонемент
+              <img src="/assets/books16.png" width="64" height="64" alt="">
+            </a>
+        <!-- <div class="collapse navbar-collapse" id="navbarNav"> -->
           <% if user_signed_in? %>
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="<%=  current_user.email%>"></a>  <!-- <span class="sr-only">(current)</span> -->
+                <!-- <a class="nav-link" href="<%=  current_user.email%>"></a> -->  
+                <span class="navbar-text">
+                  <%=  current_user.email%>
+                </span>  
               </li>
               <li class="nav-item">
-                <%= link_to 'Выход', destroy_user_session_path, :method => 'delete', class: 'btn btn-outline-primary pull-xs-right' %>
+                <%= link_to 'Выход', destroy_user_session_path, :method => 'delete', class: 'btn btn-outline-primary' %>
               </li>
             </ul>
           <% else %>
@@ -38,28 +44,80 @@
               </li>
             </ul>
           <% end %>
-        </div>
+        <!-- </div> -->
       </nav>
-    </header>
 
-<div class="card">
-  <div class="card-header">
-    <h3 class="card-title">Информация только для администраторов </h3>
-    <a class="btn btn-outline-primary" href=<%=admin_users_path%> role="button">Список уже зарегистрированных</a>
-    <a class="btn btn-outline-primary" href=<%=list_wait_admin_users_path%> role="button">Список, ожидающих регистрацию</a>
-    <a class="btn btn-outline-primary" href=<%=admin_fines_path%> role="button">Список штрафников</a>
-    <a class="btn btn-outline-primary" href=<%=admin_books_path%> role="button">Учет и пополнение книг</a>
-    <a class="btn btn-outline-primary" href=<%=admin_book_types_path%> role="button">Категории книг</a>
-    <a class="btn btn-outline-primary" href=<%=admin_info_index_path%> role="button">Все администраторы</a>
-    <a class="btn btn-outline-primary" href=<%=admin_book_requests_path%> role="button">Журнал событий</a>
-  </div>
+      </div> <!-- row -->
+    </div> <!-- col -->
+  </div>  <!-- container -->
+</header>
 
-  <% if @errors %>
-  <%= render 'layouts/error_messages' %>
-  <% end %>
+<div class="container-fluid">
+    <div class="row"> 
+      <div class="col">
+        <!-- <div class="osn"> -->  
+          <h3>Информация только для администраторов </h3>
 
-    <%= yield %>
-</div>
+            <nav class="navbar navbar-expand-lg navbar-light">
+
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+              </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav"> 
+              <li class="nav-item">
+                <a class="btn btn-outline-secondary btn-sm" href="<%=admin_users_path%>" role="button" >Список уже зарегистрированных</a>
+              </li>
+              <li class="nav-item">
+                <a class="btn btn-outline-secondary btn-sm" href="<%=list_wait_admin_users_path%>" role="button">Список, ожидающих регистрацию</a>
+                
+              </li>
+              <li class="nav-item">
+               <a class="btn btn-outline-secondary btn-sm" href=<%=admin_fines_path%> role="button">Список штрафников</a>
+              </li>
+              <li class="nav-item">
+                <a class="btn btn-outline-secondary btn-sm" href=<%=admin_books_path%> role="button">Учет и пополнение книг</a>  
+              </li>
+              <li class="nav-item">
+                <a class="btn btn-outline-secondary btn-sm" href=<%=admin_book_types_path%> role="button">Категории книг</a>
+              </li>
+              <li class="nav-item">
+                <a class="btn btn-outline-secondary btn-sm" href=<%=admin_info_index_path%> role="button">Все администраторы</a>
+              </li>
+              <li class="nav-item">
+                <a class="btn btn-outline-secondary btn-sm" href=<%=admin_book_requests_path%> role="button">Журнал событий</a>
+              </li>
+
+            </ul>
+          </div>
+        </nav>
+      <!-- </div>  --> 
+     </div> <!-- row -->
+    </div> <!-- col -->
+  </div>  <!-- container -->                            
+
+
+
+    <div class="container-fluid">
+      <div class="row"> 
+        <div class="col">
+
+          <% if @errors %>
+          <%= render 'layouts/error_messages' %>
+          <% end %>
+        </div> <!-- row -->
+      </div> <!-- col -->
+    </div>  <!-- container -->     
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col">
+        <%= yield %>
+        </div> <!-- row -->
+      </div> <!-- col -->
+    </div>  <!-- container -->
+     
+<!-- </div> -->
 
 
 
