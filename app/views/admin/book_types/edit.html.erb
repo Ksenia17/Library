@@ -5,14 +5,14 @@
 
 <h4>Редактирование категории книг: </h4>
 <%= form_for :book_type, url: admin_book_type_path(@book_type), method: :put do |f|     %>  	
-	<div class="field">
-		<%= f.label "Название:" %> </br>
-		<%= f.text_field :name,autofocus: true %> </br>
+	<div class="form-group">
+		<%= f.label "Название:" %> 
+		<%= f.text_field :name,autofocus: true, class: "form-control" %> 
 	</div>
 	<p></p>
 	<p></p>
 	<div class="actions">
-		<%=f.submit "Сохранить новую категорию книг"%>
+		<%=f.submit "Сохранить новую категорию книг", class:"btn btn-primary" %>
 	</div>	
 
 

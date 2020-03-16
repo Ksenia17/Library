@@ -1,31 +1,37 @@
-<h4>Редактирование данных администратора: </h4>
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+        <h4>Редактирование данных администратора: </h4>
 
 <%= form_for :user, url: admin_info_path(@user), method: :put  do |f| %>
   
   <p>
-  <div class="field">
-    <%= f.label 'Имя:' %><br />
-    <%= f.text_field :first_name, autofocus: true %>
+  <div class="form-group">
+    <%= f.label 'Имя:' %>
+    <%= f.text_field :first_name, autofocus: true, class: "form-control" %>
   </div>
    <p></p>
-  <div class="field">
-    <%= f.label 'Фамилия:' %><br />
-    <%= f.text_field :last_name  %>
+  <div class="form-group">
+    <%= f.label 'Фамилия:' %>
+    <%= f.text_field :last_name , class: "form-control" %>
   </div>
    <p></p>
-  <div class="field">
-    <%= f.label 'Электронная почта:' %><br />
-    <%= f.text_field :email %>
+  <div class="form-group">
+    <%= f.label 'Электронная почта:' %>
+    <%= f.text_field :email, class: "form-control" %>
   </div>
    <p></p>
-   <div class="field">
-    <%= f.label 'Дата рождения:' %><br />
-    <%= f.date_field :birthdate %>
+   <div class="form-group">
+    <%= f.label 'Дата рождения:' %>
+    <%= f.date_field :birthdate, class: "form-control" %>
   </div>
   
   <p></p>
   <div class="actions">
-    <%= f.submit "Сохранить изменения:" %>
+    <%= f.submit "Сохранить изменения:", class:"btn btn-outline-primary" %>
   </div>
   </p>
 <% end %>
+      </div>
+    </div>    
+</div>

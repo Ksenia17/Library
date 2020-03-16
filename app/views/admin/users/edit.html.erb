@@ -1,41 +1,50 @@
-<% if notice %>
-<div class="alert-success">
-  <p id="notice"><%= notice %></p>
-</div>  
-<% end %>
-<h4>Редактирование данных зарегистрированного читателя: </h4>
 
-<%= form_for :user, url: admin_user_path(@user), method: :put  do |f| %>
-      
-  <p>
-  <div class="field">
-    <%= f.label 'Имя:' %><br />
-    <%= f.text_field :first_name, autofocus: true %>
-  </div>
-   <p></p>
-  <div class="field">
-    <%= f.label 'Фамилия:' %><br />
-    <%= f.text_field :last_name  %>
-  </div>
-   <p></p>
-  <div class="field">
-    <%= f.label 'Электронная почта:' %><br />
-    <%= f.text_field :email %>
-  </div>
-   <p></p>
-   <div class="field">
-    <%= f.label 'Дата рождения' %><br />
-    <%= f.date_field :birthdate %>
-  </div>
-  <div class="field">
-    <%= f.label 'Уровень читателя' %><br />
-    <%= f.number_field :level,:class => 'text_field' %>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+        <% if notice %>
+          <div class="alert-success">
+            <p id="notice"><%= notice %></p>
+          </div>  
+          <% end %>
+          <h4>Редактирование данных зарегистрированного читателя: </h4>
+
+          <%= form_for :user, url: admin_user_path(@user), method: :put  do |f| %>
+                
+            <p></p>
+            <div class="form-group">
+              <%= f.label 'Имя:' %>
+              <%= f.text_field :first_name, autofocus: true, class: "form-control" %>
+            </div>
+             <p></p>
+            <div class="form-group">
+              <%= f.label 'Фамилия:' %>
+              <%= f.text_field :last_name, class: "form-control"  %>
+            </div>
+             <p></p>
+            <div class="form-group">
+              <%= f.label 'Электронная почта:' %>
+              <%= f.text_field :email, class: "form-control" %>
+            </div>
+             <p></p>
+             <div class="form-group">
+              <%= f.label 'Дата рождения' %>
+              <%= f.date_field :birthdate, class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= f.label 'Уровень читателя' %>
+              <%= f.number_field :level,:class => 'text_field', class: "form-control" %>
+            </div>
+
+            <p></p>
+            <div class="actions">
+              <%= f.submit "Сохранить изменения", class:"btn btn-outline-primary" %>
+            </div>
+
+            </p>
+          <% end %>
+
+      </div>
+    </div>    
   </div>
 
-  <p></p>
-  <div class="actions">
-    <%= f.submit "Сохранить изменения" %>
-  </div>
-
-  </p>
-<% end %>
