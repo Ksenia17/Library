@@ -1,5 +1,7 @@
 <% if notice %>
-<p id="notice"><%= notice %></p>
+<div class="alert-success">
+  <p id="notice"><%= notice %></p>
+</div>  
 <% end %>
 
 <h4>Добавить новый экземпляр выбранной книги: </h4>
@@ -7,7 +9,7 @@
 <h5>Название:"<%= @book.name   %>" </h5>
 <h5>Автор:<%= @book.author %> </h4>
 
-
+<div class="align-btn">
 <%= button_to 'Создать новый экземпляр',admin_book_book_items_path(@book), class:"btn btn-outline-primary" %>  
-
+</div>
 

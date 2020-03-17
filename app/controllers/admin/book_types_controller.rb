@@ -16,7 +16,7 @@ class Admin::BookTypesController < ApplicationController
 
   def create
    # binding.pry  
-    @book_type  = BookType.create(booktype_params)
+    @book_type  = BookType.create(book_type_params)
     
       if @book_type.save   
           if @book_type.errors.empty?   #(id:@book_type.id)
@@ -38,7 +38,7 @@ class Admin::BookTypesController < ApplicationController
   end
 
   def update   
-    if  @book_type.update(booktype_params)
+    if  @book_type.update(book_type_params)
      redirect_to  admin_book_type_path(@book_type), :notice => 'Category book was successfully updated'
     end 
   end
@@ -65,7 +65,7 @@ private
    def find_type
       @book_type=BookType.find(params[:id])
    end
-   def booktype_params
+   def book_type_params
       # binding.pry  
       params.require(:book_type).permit(:name)   
       

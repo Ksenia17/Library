@@ -17,18 +17,16 @@ h3{
   background-image: linear-gradient(to bottom,#CEF6F5,#FADADD);
 }
 
-table{
+table, h5,p,.form-group, .actions{
  font-style: italic;
  font-family: Georgia,Times New Roman,Times,serif;
  }
+
 .align-btn{
   margin-top:2%;
   margin-bottom:2%;
 }
-body{
-  //background-repeat: no repeat; 
-  //background-image: linear-gradient(to bottom,#CEF6F5,#FADADD);
-}
+
 .form-naob{
   background-image: linear-gradient(to bottom,#CEF6EC, #FADADD);
 

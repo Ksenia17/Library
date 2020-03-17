@@ -1,5 +1,7 @@
 <% if notice %>
-<p id="notice"><%= notice %></p>
+<div class="alert-success">
+  <p id="notice"><%= notice %></p>
+</div>
 <% end %>
 <h4>Редактирование текущей книги: </h4>
 <p></p>
@@ -11,5 +13,6 @@
 <p>Дата издания : <%= @book.year_book%> </p>		
 <p></p>	
 
-	
-<%= link_to "Edit", edit_admin_book_path(@book), class:"btn btn-outline-primary" %>
+<div class="align-btn">	
+<%= link_to "Редактирование", edit_admin_book_path(@book), class:"btn btn-outline-primary" %>
+</div>
