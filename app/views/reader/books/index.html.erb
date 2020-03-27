@@ -3,7 +3,8 @@
   <div class="container-fluid">
       <div class="row">
         <div class="col">
-          <h4>Все книги библиотеки:</h4>
+<!--           <h4>Все книги библиотеки:</h4> -->
+        <h4><%= I18n.t('reader.books.index.title')%> </h4>  
         </div> 
       </div>  
         <div class="row">  
@@ -12,7 +13,9 @@
          <div class="card-group">
           <div class="card text-center">
             <% if book.image? %>  <!-- card-img-top -->
-              <%= image_tag book.image.url, alt: "", class: "card-img-top text-center" %>
+              
+<!--               image_tag book.image.url -->
+              <%= image_tag(image_path(book.image.url),alt: "", class: "card-img-top text-center")  %>
 
               <!-- <img class="card-img-top text-center" src=<%= book.image%> alt="Card image cap"> --> <!-- .url(:large) -->
             <% end%>  

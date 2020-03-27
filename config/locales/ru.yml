@@ -1,0 +1,25 @@
+ru:
+  reader:
+    users:
+      edit:
+        title: "Редактирование данных читателя: "
+      show:
+        title: "Личные данные читателя: " 
+    books:
+      index:
+        title: "Все книги библиотеки:"
+    book_requests:
+      index:
+        title: "Журнал запросов читателя:" 
+    book_histories:
+      index:
+        title: "Мои книги:"              
+
+  #       attributes:
+  #       put:
+  #          first_name: 'Имя'
+  #          last_name: 'Фамилия'
+  #          email: 'Электронная почта'
+  #          birthdate: 'Дата рождения'
+
+  # hello: "Привет"
