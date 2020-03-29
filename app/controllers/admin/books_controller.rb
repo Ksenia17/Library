@@ -46,7 +46,7 @@ class Admin::BooksController < ApplicationController
   def update   
     #записать выбранный select
    if  @book.update(book_params)
-        @book.save
+
         if @book.errors.empty?
           
           redirect_to admin_book_path(@book), :notice => "Book was successfully updated"       

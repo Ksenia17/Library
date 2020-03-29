@@ -99,3 +99,4 @@ gem 'delayed_job_recurring'
 gem 'carrierwave'
 gem "mini_magick"
 gem 'bootstrap', '~> 4.4.1'
+gem "fog-aws"

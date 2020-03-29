@@ -3,7 +3,8 @@
   <p id="notice"><%= notice %></p>
 </div>
 <% end %>
-<h4>Редактирование текущей книги: </h4>
+<!-- <h4>Редактирование текущей книги: </h4> -->
+<h4><%= I18n.t('admin.books.show.title')%></h4>
 <p></p>
 
 <p>Nn/n : <%= @book.id %></p>
@@ -15,5 +16,5 @@
 
 <div class="align-btn">	
 <%= link_to "Редактирование", edit_admin_book_path(@book), class:"btn btn-outline-primary" %>
-<%= link_to 'Назад', :back, class:"btn btn-outline-secondary"%>
+<%= link_to t('common.back'), :back, class:"btn btn-outline-secondary"%>
 </div>

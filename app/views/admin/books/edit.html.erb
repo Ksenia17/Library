@@ -8,8 +8,8 @@
         </div>
         <% end %>
 
-        <h4>Редактирование текущей книги: </h4>
-
+ <!--        <h4>Редактирование текущей книги: </h4> -->
+        <h4><%= I18n.t('admin.books.edit.title')%></h4>
         <%= form_for :book, url: admin_book_path(@book), method: :put, html: {multipart: true}  do |f| %>
             
           <p>
@@ -43,6 +43,7 @@
          <!--  <p></p> -->
           <div class="actions">
             <%= f.submit "Сохранить изменения", class:"btn btn-outline-primary" %>
+            <%= link_to t('common.back'), :back, class:"btn btn-outline-secondary"%>
           </div>
 
           </p>

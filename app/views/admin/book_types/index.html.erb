@@ -5,7 +5,8 @@
 <% end %>
 <p></p>
 
-<h4>Категории книг: </h4>
+<!-- <h4>Категории книг: </h4> -->
+<h4><%= I18n.t('admin.book_types.index.title')%></h4>
 <p></p>
 <div class="table-responsive">
 	<table class="table table-striped">
@@ -33,6 +34,6 @@
  </div>
 <div class="align-btn">  	
   <%= link_to 'Добавить новую категорию',new_admin_book_type_path(@book_type), class: "btn btn-primary" %>
-  <%= link_to 'Назад', :back, class: "btn btn-outline-secondary"%>
+  <%= link_to t('common.back'), :back, class: "btn btn-outline-secondary"%>
 </div>	
 

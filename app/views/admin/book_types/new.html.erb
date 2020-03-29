@@ -5,7 +5,8 @@
 <% end %>
 <p></p>
 
-<h4>Создание новой категории книг: </h4>
+<!-- <h4>Создание новой категории книг: </h4> -->
+<h4><%= I18n.t('admin.book_types.new.title')%></h4>
 <%= form_for :book_type, url: admin_book_types_path, html: {multipart: true} do |f|     %>  	
 	<div class="form-group">
 		<%= f.label "Название:" %> 

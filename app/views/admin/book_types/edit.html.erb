@@ -5,7 +5,8 @@
 <% end %>
 <p></p>
 
-<h4>Редактирование категории книг: </h4>
+<!-- <h4>Редактирование категории книг: </h4> -->
+<h4><%= I18n.t('admin.book_types.edit.title')%></h4>
 <%= form_for :book_type, url: admin_book_type_path(@book_type), method: :put do |f|     %>  	
 	<div class="form-group">
 		<%= f.label "Название:" %> 

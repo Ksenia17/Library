@@ -1,4 +1,52 @@
 ru:
+  admin:
+    book_items:
+      index:
+        title: "Все экземпляры выбранной книги:"
+      new:
+        title: "Добавить новый экземпляр выбранной книги:"
+    book_requests:
+      index:
+        title: "Журнал событий для администратора:"
+    book_types:
+      edit:
+        title: "Редактирование категории книг:"
+      index:
+        title: "Категории книг:"
+      new:
+        title: "Создание новой категории книг:"
+      show:
+        title: "Просмотр выбранной категории книг:" 
+    books:
+      edit:
+        title: "Редактирование текущей книги:"
+      index:
+        title: "Учет и пополнение книг:"
+      new:
+        title: "Добавление новой книги:"
+      show:
+        title: "Редактирование текущей книги:"
+    fines:
+      index:
+        title: "Список штрафников :"
+    info:
+      edit:
+        title: "Редактирование данных администратора:"
+      index:
+        title: "Список администраторов:"
+      show:
+        title: "Личные данные зарегистрированного администратора:"
+    users:
+      edit:
+        title: "Редактирование данных зарегистрированного читателя:"
+      index:    
+        title: "Список уже зарегистрированных:"
+      list_wait:
+        title: "Список, ожидающих регистрацию :"
+      show:
+        title: "Личные данные зарегистрированного читателя:"
+      wait:
+        title: "Выбран читатель:"       
   reader:
     users:
       edit:
@@ -13,13 +61,16 @@ ru:
         title: "Журнал запросов читателя:" 
     book_histories:
       index:
-        title: "Мои книги:"              
-
-  #       attributes:
-  #       put:
-  #          first_name: 'Имя'
-  #          last_name: 'Фамилия'
-  #          email: 'Электронная почта'
-  #          birthdate: 'Дата рождения'
-
-  # hello: "Привет"
+        title: "Мои книги:"  
+  error: "ошибки"
+  common:
+    errors: "Эта форма содержит: "
+    fixes: "ошибок"
+    back: "Назад"
+  errors:
+    messages:
+      carrierwave_processing_error: "Невозможно изменить размер изображения."
+      carrierwave_integrity_error: "Не изображение."
+      carrierwave_download_error: "Не удалось загрузить изображение."
+      extension_whitelist_error: "Вам не разрешено загружать %{extension} файлы, разрешенные типы: %{allowed_types}"
+      extension_blacklist_error: "Вам не разрешено загружать %{extension} файлы, запрещенные типы: %{prohibited_types}"      

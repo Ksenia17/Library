@@ -7,8 +7,8 @@
             <p id="notice"><%= notice %></p>
           </div>  
           <% end %>
-          <h4>Редактирование данных зарегистрированного читателя: </h4>
-
+<!--           <h4>Редактирование данных зарегистрированного читателя: </h4> -->
+          <h4><%= I18n.t('admin.users.edit.title')%></h4>
           <%= form_for :user, url: admin_user_path(@user), method: :put  do |f| %>
                 
             <p></p>

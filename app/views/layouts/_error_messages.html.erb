@@ -4,8 +4,8 @@
       <% if @errors.any? %>
         <div id="error_explanation">
           <div class="alert alert-danger">
-            The form contains <%= pluralize(@errors.count, "error") %>
-            <h5><%= t('common.errors') %> </h5>
+<!--             The form contains <%= pluralize(@errors.count, "error") %> -->
+            <h5><%= t('common.errors') %><%= pluralize(@errors.count,  t('common.fixes')  ) %>  </h5>
             <ul>
               <% @errors.full_messages.each do |msg| %>
                 <li><%= msg %></li>  

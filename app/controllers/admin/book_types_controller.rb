@@ -6,7 +6,8 @@ class Admin::BookTypesController < ApplicationController
   layout "admin"
 
   def index
-    @book_types=BookType.all
+    # @book_types=BookType.all
+    @book_types = BookType.order('name')
   end
 
   def new

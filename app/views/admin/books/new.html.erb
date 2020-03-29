@@ -6,8 +6,8 @@
         <p id="notice"><%= notice %></p>
         <% end %>
 
-        <h4>Добавление новой книги: </h4>
-
+<!--         <h4>Добавление новой книги: </h4> -->
+        <h4><%= I18n.t('admin.books.new.title')%></h4>
         <%= form_for :book, url: admin_books_path, html: {multipart: true}   do |f| %>
          
           

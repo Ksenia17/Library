@@ -5,7 +5,8 @@
 <% end %>
 
 
-<h4>Журнал событий для администратора:</h4>
+<!-- <h4>Журнал событий для администратора:</h4> -->
+<h4><%= I18n.t('admin.book_requests.index.title')%></h4>
 <p></p>
 <div class="table-responsive">
 <table class="table table-striped">
@@ -50,6 +51,6 @@
 </table>
 <div class="align-btn">
   <%= link_to 'Архив запросов','#', class: "btn btn-primary" %>
-  <%= link_to 'Назад', :back, class: "btn btn-outline-secondary"%>
+  <%= link_to t('common.back'), :back, class: "btn btn-outline-secondary"%>
 </div>  
 
