@@ -2,19 +2,19 @@
   <div class="row">
     <div class="col-12">
 <!--       <h4>Мои книги:</h4> -->
-  <h4><%= I18n.t('reader.book_histories.index.title')%></h4>
+  <h4><%= I18n.t('reader.book_histories.title')%></h4>
       <div class="form-font">
         <div class="table-responsive">
         <table class="table table-bordered table-hover">
           <thead>
           <tr class="table-secondary">
             
-              <th>Название книги:</th>
-              <th>Категория: </th>
-              <th>Автор: </th>
-              <th>Дата издания: </th>
-              <th>Дата выдачи книги: </th>
-              <th>Дата будущего возврата книги: </th>
+              <th><%= I18n.t('reader.book_histories.name_book')%></th>
+              <th><%= I18n.t('reader.category')%></th>
+              <th><%= I18n.t('reader.author')%></th>
+              <th><%= I18n.t('reader.year_book')%></th>
+              <th><%= I18n.t('reader.date_give')%></th>
+              <th><%= I18n.t('reader.book_histories.date_return')%></th>
 
               <th></th>
           </tr>
@@ -30,7 +30,7 @@
                 <td><%= history.owned_from.to_s(:ru_datetime) %> </td>
                 
                 <td><%= history.date_fut.to_s(:krat_datetime) %> </td>
-                <td><%= button_to "Вернуть прочитанную",  return_book_reader_book_history_path(history), class: "btn btn-outline-primary" %> </td>
+                <td><%= button_to  I18n.t('reader.book_histories.read_return'), return_book_reader_book_history_path(history), class: "btn btn-outline-primary" %> </td>
 
               </tr>
             <% end %>
@@ -39,8 +39,6 @@
         </table>
 
         </div>
-
-        <!-- <button type="button" class="btn btn-primary">Взять новую книгу</button> -->
         
        </div>
       </div>

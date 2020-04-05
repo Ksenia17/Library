@@ -7,7 +7,7 @@ class Admin::BookTypesController < ApplicationController
 
   def index
     # @book_types=BookType.all
-    @book_types = BookType.order('name')
+    @book_types = BookType.all.sort{|s1, s2| s1.name <=> s2.name } 
   end
 
   def new

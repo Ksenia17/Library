@@ -1,13 +1,34 @@
 ru:
   admin:
-    book_items:
-      index:
-        title: "Все экземпляры выбранной книги:"
-      new:
-        title: "Добавить новый экземпляр выбранной книги:"
+    # book_items:
+    nomer: "N n/n : "
+    uniq_nomer: "Уникальный номер: "
+    name_book: "Название книги: "
+    category: "Категория: "
+    genre: "Жанр: "
+    author: "Автор: "
+    year_book: "Дата издания: "
+    date_give: "Дата выдачи книги: "
+    user_add: "Кто добавил: "
+    time_add: "Время добавления: "
+    but_remove: "Утилизировать"
+    but_create: "Создать новый экземпляр"
+    date_create: "Дата создания: "
+    date_delete: "Дата списания"
+    title_book_items_index: "Все экземпляры выбранной книги:"
+    title_book_items_new: "Добавить новый экземпляр выбранной книги:"
     book_requests:
       index:
         title: "Журнал событий для администратора:"
+        reader: "Читатель"
+        date_query: "Дата запроса"
+        time_query: "Время подтверждения запроса"
+        free_instance : "Наличие свободного экземпляра"
+        total_copies: "Всего экземпляров"
+        approval_query: "Подтвердить запрос на выдачу"
+        negative_query: "Отказать ввиду отсутствия"
+        personal_data: "Проверка личных данных читателя"
+        request_archive: "Архив запросов"
     book_types:
       edit:
         title: "Редактирование категории книг:"
@@ -48,20 +69,53 @@ ru:
       wait:
         title: "Выбран читатель:"       
   reader:
+    category: "Категория:"
+    author: "Автор:"
+    year_book: "Дата издания:"
+    date_give: "Дата выдачи книги:"
+    user_add: "Кто добавил:"
+    appl_process: "Ваша заявка на книгу рассматривается..."
     users:
-      edit:
-        title: "Редактирование данных читателя: "
-      show:
-        title: "Личные данные читателя: " 
+      title_edit: "Редактирование данных читателя: "
+      first_name: 'Имя:'
+      last_name: 'Фамилия:'
+      email: 'Электронная почта:'
+      birthdate: 'Дата рождения:'
+      title_show: "Личные данные читателя: "
+      nomer: "N n/n : "
+      but_edit: "Редактировать"
+      but_save: "Сохранить" 
     books:
-      index:
-        title: "Все книги библиотеки:"
+      title: "Все книги библиотеки:"
+      # category: "Категория:"
+      # author: "Автор:"
+      # year_book: "Дата издания:"
+      # user_add: "Кто добавил:"
+      # appl_process: "Ваша заявка на книгу рассматривается..."
+      book_on_hand: "Эта книга у Вас в наличии..."
+      take_book: "Взять эту книгу"
     book_requests:
-      index:
-        title: "Журнал запросов читателя:" 
+      title: "Журнал запросов читателя:"
+      nomer: "N n/n : "
+      name_book: "Название книги:"
+      # category: "Категория:"
+      # author: "Автор:"
+      # year_book: "Дата издания:"
+      # date_give: "Дата выдачи книги:"
+      date_return: "Дата будущего возврата книги:"
+      status_process: "Статус обработки заявки:" 
+      # appl_process: "Ваша заявка на книгу рассматривается..." 
+      you_gave: "Вам выдали книгу"
+      sorry_not: "Нет возможности в данный момент выдать книгу. Извините .."
     book_histories:
-      index:
-        title: "Мои книги:"  
+      title: "Мои книги:"
+      name_book: "Название книги:"
+      # category: "Категория:"
+      # author: "Автор:"
+      # year_book: "Дата издания:"
+      # date_give: "Дата выдачи книги:"
+      date_return: "Дата будущего возврата книги:" 
+      read_return: "Вернуть прочитанную"
   error: "ошибки"
   common:
     errors: "Эта форма содержит: "

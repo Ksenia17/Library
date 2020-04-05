@@ -1,39 +1,39 @@
 <div class="container-fluid">
 <!--   <h4>Редактирование данных читателя: </h4> -->
-  <h4><%= I18n.t('reader.users.edit.title')%> </h4>
+  <h4><%= I18n.t('reader.users.title_edit')%></h4>
     <div class="row">
       <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
        <div class="form-font"> 
-        <div class="form-font">
+
         <%= form_for :user, url: reader_user_path(current_user), method: :put  do |f| %>
          
           <div class="form-group">
-            <%= f.label :first_name %>
+            <%= f.label  I18n.t('reader.users.first_name')%>
             <%= f.text_field :first_name, autofocus: true, class: "form-control" %>
           </div>
            
           <div class="form-group">
-            <%= f.label :last_name %>
+            <%= f.label I18n.t('reader.users.last_name') %>
             <%= f.text_field :last_name, class: "form-control"  %>
           </div>
            
           <div class="form-group">
-            <%= f.label :email %>
+            <%= f.label  I18n.t('reader.users.email') %>
             <%= f.text_field :email, class: "form-control" %>
           </div>
            
            <div class="form-group">
-            <%= f.label :birthdate %>
+            <%= f.label I18n.t('reader.users.birthdate') %>
             <%= f.date_field :birthdate, class: "form-control" %>
           </div>
           
           
           <div class="form-group">
-            <%= f.submit "Сохранить", class: 'btn btn-outline-primary' %>
+            <%= f.submit I18n.t('reader.users.but_save'), class: 'btn btn-outline-primary' %>
             <%= link_to t('common.back'), :back, class:"btn btn-outline-secondary"%>
           </div>
         <% end %>
-       </div> 
+
       </div>  
     </div>
   </div>

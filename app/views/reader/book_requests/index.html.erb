@@ -20,21 +20,21 @@
     <div class="col-12">
 
 <!--     <h4>Журнал запросов читателя:</h4> -->
-  <h4><%= I18n.t('reader.book_requests.index.title')%></h4>
+  <h4><%= I18n.t('reader.book_requests.title')%></h4>
     <div class="form-font">
       <div class="table-responsive">
         <table class="table table-striped">
     	
         	<tr>
         		<th>N n/n</th>
-            	<th>Название книги:</th>
-            	<th>Автор:</th>
-            	<th>Категория: </th>
-            	<th>Дата издания: </th>
+            	<th><%= I18n.t('reader.book_requests.name_book')%></th>
+            	<th><%= I18n.t('reader.author')%></th>
+            	<th><%= I18n.t('reader.category')%></th>
+            	<th><%= I18n.t('reader.year_book')%></th>
             		    	
-            	<th>Статус обработки заявки:</th>
-            	<th>Дата выдачи читателю: </th> 
-            	<th>Дата будущего возврата книги: </th>   
+            	<th><%= I18n.t('reader.book_requests.status_process')%></th>
+            	<th><%= I18n.t('reader.date_give')%></th> 
+            	<th><%= I18n.t('reader.book_requests.date_return')%></th>   
 
         	</tr>
         	
@@ -49,12 +49,12 @@
         				
 
         			<% if not request.complete_time %>
-        				<td>Ваша заявка на книгу рассматривается...</td>
+        				<td><%= I18n.t('reader.appl_process')%></td>
         				<td></td>
         				<td></td>
         			<% else%>
         				<% if request.approved_flg == true %>
-                   			<td>Вам выдали книгу</td>
+                   			<td><%= I18n.t('reader.book_requests.you_gave')%> </td>
                    			 <td><%= request.book_history.try(:owned_from).try(:to_s,:ru_datetime) %></td>
         						<% if request.book_history.try(:owned_from) %>
         				     		<td><%= (request.book_history.owned_from + 7.day + 15.hour).try(:to_s,:krat_datetime) %></td>
@@ -63,7 +63,7 @@
         			 			<% end %>
 
                 		<% else%>
-        					<td>Нет возможности в данный момент выдать книгу. Извините ..</td>
+        					<td><%= I18n.t('reader.book_requests.sorry_not')%> </td>
         				  <td></td>
                   <td></td>
                 <% end %>

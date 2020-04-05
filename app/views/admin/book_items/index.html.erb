@@ -1,21 +1,21 @@
 <!-- <h4>Все экземпляры выбранной книги:</h4> -->
-<h4><%= I18n.t('admin.book_items.index.title')%></h4>
+<h4><%= I18n.t('admin.title_book_items_index')%></h4>
 <p></p>
 
-<h5>Название :"<%= @book.name   %>" </h5>
-<h5>Жанр :<%= @book.book_type.name   %> </h5>
-<h5>Автор :<%= @book.author %> </h4>
-<h5>Дата издания :<%= @book.year_book %> </h4>
-<h5>Кто добавил книгу :<%= "#{@book.user.first_name.capitalize} #{@book.user.last_name.capitalize}"  %> </h4>
+<h5><%= I18n.t('admin.name_book')%>"<%= @book.name   %>" </h5>
+<h5><%= I18n.t('admin.genre')%><%= @book.book_type.name   %> </h5>
+<h5><%= I18n.t('admin.author')%><%= @book.author %> </h4>
+<h5><%= I18n.t('admin.year_book')%><%= @book.year_book %> </h4>
+<h5><%= I18n.t('admin.user_add')%><%= "#{@book.user.first_name.capitalize} #{@book.user.last_name.capitalize}"  %> </h4>
 
 
 <div class="table-responsive">
 <table class="table table-striped">
   
   <tr>
-      <th>N n/n</th>
-      <th>Кто добавил:</th>         
-      <th>Время добавления:</th>
+      <th><%= I18n.t('admin.nomer')%></th>
+      <th><%= I18n.t('admin.user_add')%></th>         
+      <th><%= I18n.t('admin.time_add')%></th>
       <th></th>
       
       
@@ -27,7 +27,7 @@
         <td><%= "#{item.user.first_name.capitalize}  #{item.user.last_name.capitalize}" %> </td>        
        
         <td><%= item.created_at.to_s(:ru_datetime) %></td>
-        <td><%= link_to 'Утилизировать',admin_book_book_item_path(@book,item),                        method: :delete,
+        <td><%= link_to I18n.t('admin.but_remove'),admin_book_book_item_path(@book,item),                        method: :delete,
                                   data: { confirm: "Are you sure?"} %></td>
       
       </tr>
@@ -38,5 +38,5 @@
 
 </div>
 <div class="align-btn">
-<%= button_to 'Создать новый экземпляр',admin_book_book_items_path(@book), class:"btn btn-outline-primary" %>
+<%= button_to I18n.t('admin.but_create'),admin_book_book_items_path(@book), class:"btn btn-outline-primary" %>
 </div>  

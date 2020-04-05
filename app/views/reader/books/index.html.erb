@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col">
 <!--           <h4>Все книги библиотеки:</h4> -->
-        <h4><%= I18n.t('reader.books.index.title')%> </h4>  
+        <h4><%= I18n.t('reader.books.title')%> </h4>  
         </div> 
       </div>  
         <div class="row">  
@@ -12,9 +12,8 @@
         <div class="col-lg-2 col-md-4  col-sm-6 col-xs-12 ">
          <div class="card-group">
           <div class="card text-center">
-            <% if book.image? %>  <!-- card-img-top -->
+            <% if book.image? %>  
               
-<!--               image_tag book.image.url -->
               <%= image_tag(book.image.url, alt: "", class: "card-img-top text-center") %>
 
               <!-- <img class="card-img-top text-center" src=<%= book.image%> alt="Card image cap"> --> <!-- .url(:large) -->
@@ -23,20 +22,20 @@
             <!--   <h5 class="card-title">N n/n <%= book.id %></h5> -->
             <!-- <h6 class="card-title">Название книги:<%= book.name %></h6> -->
             <h6 class="card-title"><strong>"<%= book.name %>"</strong></h6>
-            <p class="card-text">Категория:<%= book.book_type.name %></p> 
-            <p class="card-text">Автор:<%= book.author %></p>
-            <p class="card-text">Дата издания:<%= book.year_book %></p>
-            <p class="card-text"><small class="text-muted"> Кто добавил:<%= "#{book.user.first_name.capitalize} #{book.user.last_name.capitalize}"%></small></p>
+            <p class="card-text"><%= I18n.t('reader.category')%> <%= book.book_type.name %></p> 
+            <p class="card-text"><%= I18n.t('reader.author')%><%= book.author %></p>
+            <p class="card-text"><%= I18n.t('reader.year_book')%><%= book.year_book %></p>
+            <p class="card-text"><small class="text-muted"><%= I18n.t('reader.user_add')%><%= "#{book.user.first_name.capitalize} #{book.user.last_name.capitalize}"%></small></p>
             
               <% if book.book_requests.sele(current_user).application.size !=0 %>
-                <p class="card-text">Ваша заявка на книгу рассматривается...</p>
+                <p class="card-text"><%= I18n.t('reader.appl_process')%> </p>
             <% else%>
               <% if book.book_requests.not_application.on_handed(current_user).size == 0 %>
 
-<!--                   <div><button type="button" class="btn btn-outline-primary"><%= button_to 'Взять эту книгу',reader_book_book_requests_path(book) %></button></div> -->
-                  <div><%= button_to 'Взять эту книгу',reader_book_book_requests_path(book),class:"btn btn-outline-primary" %></div>  
+
+                  <div><%= button_to I18n.t('reader.books.take_book'),reader_book_book_requests_path(book),class:"btn btn-outline-primary" %></div>  
                   <% else%>
-                    <p class="card-text">Эта книга у Вас в наличии...</p>
+                    <p class="card-text"><%= I18n.t('reader.books.book_on_hand')%> </p>
                   <% end%>  
             
             <% end%>    

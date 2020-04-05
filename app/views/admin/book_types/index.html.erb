@@ -18,7 +18,7 @@
 			<th></th>
 		</tr>
 		
-		<%@book_types.each do |type|%>
+		<% @book_types.each do |type|%>
 			<tr>
 			
 			<td><%= link_to type.name,admin_book_type_path(type) %></td>
