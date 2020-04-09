@@ -5,17 +5,17 @@
 <% end %>
 
 <!-- <h4>Список штрафников : </h4> -->
-<h4><%= I18n.t('admin.fines.index.title')%></h4>
+<h4><%= I18n.t('admin.fines.title_index')%></h4>
 <div class="table-responsive">
  <table class="table table-striped">
     
     <tr>
-      <th>N n/n</th>
-      <th>Читатель </th>
+      <th><%= I18n.t('admin.nomer')%></th>
+      <th><%= I18n.t('admin.reader')%></th>
      
-      <th>Электр.почта </th>
-      <th>Дата штрафа </th>
-      <th>Штраф по книге: </th>
+      <th><%= I18n.t('admin.fines.reader_email')%></th>
+      <th><%= I18n.t('admin.fines.date_fine')%></th>
+      <th><%= I18n.t('admin.fines.fine_of_book')%></th>
     </tr>
    
   
@@ -36,7 +36,7 @@
 </table>
 
 <div class="align-btn">
-  <%= button_to 'Проверка на наличие штрафа у новых читателей',admin_fines_path , class:"btn btn-primary"%>
+  <%= button_to I18n.t('admin.fines.check') ,admin_fines_path , class:"btn btn-primary"%>
 </div>
 
 

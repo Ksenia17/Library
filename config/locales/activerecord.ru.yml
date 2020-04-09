@@ -4,21 +4,25 @@ ru:
       user:
     attributes:
       user:
+      # user/role: 'admin'
         first_name: 'Имя:'
         last_name: 'Фамилия:'
         email: 'Электронная почта:'
         birthdate: 'Дата рождения:'
-      # book_type:
+
+      book_type:
+      attributes:
+      book_type:
+        name: 'Название:' 
+
+      book:
     attributes:
-        book_type:
-          name: 'Название:'      
-      # book:
-    attributes:
-        book:
-          name: 'Название:'
-          author: 'Автор:'
-          year_book: 'Дата издания:'
-          image: 'Обложка книги:'
+      book:
+        name: 'Название:'
+        author: 'Автор:'
+        year_book: 'Дата издания:'
+        image: 'Обложка книги:'
+        
     errors:
       messages:
         blank: 'не может быть пустым'      

@@ -2,33 +2,33 @@
     <div class="row">
       <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
 <!--         <h4>Редактирование данных администратора: </h4> -->
-        <h4><%= I18n.t('admin.info.edit.title')%></h4>
-<%= form_for :user, url: admin_info_path(@user), method: :put  do |f| %>
+<h4><%= I18n.t('admin.info.title_edit')%></h4>
+<%= form_for :user, url: admin_info_path(@user), method: :put,html: {multipart: true}  do |f| %>
   
-  <p>
+  
   <div class="form-group">
-    <%= f.label 'Имя:' %>
+    <%= f.label :first_name %>
     <%= f.text_field :first_name, autofocus: true, class: "form-control" %>
   </div>
-   <p></p>
+   
   <div class="form-group">
-    <%= f.label 'Фамилия:' %>
+    <%= f.label :last_name %>
     <%= f.text_field :last_name , class: "form-control" %>
   </div>
-   <p></p>
+   
   <div class="form-group">
-    <%= f.label 'Электронная почта:' %>
+    <%= f.label :email %>
     <%= f.text_field :email, class: "form-control" %>
   </div>
-   <p></p>
+  
    <div class="form-group">
-    <%= f.label 'Дата рождения:' %>
+    <%= f.label :birthdate %>
     <%= f.date_field :birthdate, class: "form-control" %>
   </div>
   
-  <p></p>
+  
   <div class="actions">
-    <%= f.submit "Сохранить изменения:", class:"btn btn-outline-primary" %>
+    <%= f.submit I18n.t('admin.save_change') , class:"btn btn-outline-primary" %>
   </div>
   </p>
 <% end %>

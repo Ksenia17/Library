@@ -11,11 +11,11 @@
            <table class="table table-striped">
               
               <tr>
-                <th>N n/n</th>
-                <th>First name </th>
-                <th>Last name </th>
-                <th>Email </th>
-                <th>Birthdate </th>
+                <th><%= I18n.t('admin.nomer')%></th>
+                <th><%= I18n.t('admin.first_name')%></th>
+                <th><%= I18n.t('admin.last_name')%></th>
+                <th><%= I18n.t('admin.email')%></th>
+                <th><%= I18n.t('admin.birthdate')%></th>
                 <th></th>
                 <th></th>
 
@@ -30,7 +30,7 @@
               <td><%= user.email%></td>
               <td><%= user.birthdate%></td>
               
-              <td><%= link_to "Подтверждение регистрации", wait_admin_user_path(user) %> </td>
+              <td><%= link_to I18n.t('admin.users.list_wait.check_regist') , wait_admin_user_path(user) %> </td>
               <td></td>
               </tr>         
              <% end %>

@@ -6,16 +6,16 @@
 <p></p>
 
 <!-- <h4>Редактирование категории книг: </h4> -->
-<h4><%= I18n.t('admin.book_types.edit.title')%></h4>
-<%= form_for :book_type, url: admin_book_type_path(@book_type), method: :put do |f|     %>  	
+<h4><%= I18n.t('admin.book_types.title_edit')%></h4>
+<%= form_for :book_type, url: admin_book_type_path(@book_type), method: :put, html: {multipart: true} do |f|     %>  	
 	<div class="form-group">
-		<%= f.label "Название:" %> 
+		<%= f.label  :name %> 
 		<%= f.text_field :name,autofocus: true, class: "form-control" %> 
 	</div>
 	<p></p>
 	<p></p>
 	<div class="actions">
-		<%=f.submit "Сохранить новую категорию книг", class:"btn btn-primary" %>
+		<%=f.submit I18n.t('admin.book_types.save_new_category'), class:"btn btn-primary" %>
 	</div>	
 
 

@@ -7,28 +7,28 @@
         <% end %>
 
 <!--         <h4>Добавление новой книги: </h4> -->
-        <h4><%= I18n.t('admin.books.new.title')%></h4>
+        <h4><%= I18n.t('admin.books.title_new')%></h4>
         <%= form_for :book, url: admin_books_path, html: {multipart: true}   do |f| %>
          
           
           <div class="form-group">
-            <%= f.label 'Название:' %>
+            <%= f.label :name %>
             <%= f.text_field :name, autofocus: true, class: "form-control" %>
           </div>
           <!--  <p></p> -->
           <div class="form-group">
-            <%= f.label 'Категория:' %>
+            <%= f.label I18n.t('admin.category') %>
             <%= f.select(:book_type_id,options_for_select(options_select_new))  %>
       
           </div>
            <!-- <p></p> -->
           <div class="form-group">
-            <%= f.label 'Автор:' %>
+            <%= f.label :author %>
             <%= f.text_field :author, class: "form-control" %>
           </div>
         <!--    <p></p> -->
            <div class="form-group">
-            <%= f.label 'Дата издания:' %>
+            <%= f.label :year_book %>
             <%= f.date_field :year_book, class: "form-control" %>
           </div>
         
@@ -39,7 +39,7 @@
          <!--  <p></p> -->
          <div class="align-btn">
           <div class="actions">
-            <%= f.submit "Сохранить новую книгу", class:"btn btn-outline-primary" %>
+            <%= f.submit I18n.t('admin.books.save_book') , class:"btn btn-outline-primary" %>
           </div>
         </div>
           

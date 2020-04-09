@@ -4,17 +4,17 @@
 </div>
 <% end %>
 <!-- <h4>Редактирование текущей книги: </h4> -->
-<h4><%= I18n.t('admin.books.show.title')%></h4>
+<h4><%= I18n.t('admin.books.title_show')%></h4>
 <p></p>
 
-<p>Nn/n : <%= @book.id %></p>
-<p>Название  : <%= @book.name%> </p>
-<p>Категория  : <%= @book.book_type.name%> </p>
-<p>Автор : <%= @book.author%></p>		
-<p>Дата издания : <%= @book.year_book%> </p>		
+<p><%= I18n.t('admin.nomer')%><%= @book.id %></p>
+<p><%= I18n.t('admin.name_book')%><%= @book.name%> </p>
+<p><%= I18n.t('admin.category')%><%= @book.book_type.name%> </p>
+<p><%= I18n.t('admin.author')%><%= @book.author%></p>		
+<p><%= I18n.t('admin.year_book')%><%= @book.year_book%> </p>		
 <p></p>	
 
 <div class="align-btn">	
-<%= link_to "Редактирование", edit_admin_book_path(@book), class:"btn btn-outline-primary" %>
+<%= link_to I18n.t('admin.fun_edit'), edit_admin_book_path(@book), class:"btn btn-outline-primary" %>
 <%= link_to t('common.back'), :back, class:"btn btn-outline-secondary"%>
 </div>

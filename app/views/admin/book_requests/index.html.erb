@@ -12,7 +12,7 @@
 <table class="table table-striped">
 	
 	<tr>
-		<th><%= I18n.t('admin.book_requests.index.reader')%></th>
+		<th><%= I18n.t('admin.reader')%></th>
     	<th><%= I18n.t('admin.name_book')%></th>
     	<th><%= I18n.t('admin.book_requests.index.date_query')%></th>
     	<th><%= I18n.t('admin.book_requests.index.time_query')%> </th>
@@ -35,8 +35,8 @@
 				<td><%= request.free_items.size %> </td>   
 				<td><%= request.book.book_items.count %> </td>
 					<td><% if not request.complete_time %> </td>
-						<td><%= button_to I18n.t('admin.book_requests.index.approval_query'),approval_admin_book_request_path(request) %> </td>
-						<td><%= button_to I18n.t('admin.book_requests.index.negative_query'),negative_admin_book_request_path(request) %> </td>
+						<td><%= button_to I18n.t('admin.book_requests.index.approval_query'),approval_admin_book_request_path(request), class: "btn btn-outline-primary" %> </td>
+						<td><%= button_to I18n.t('admin.book_requests.index.negative_query'),negative_admin_book_request_path(request), class: "btn btn-outline-primary" %> </td>
 					<td><% else%> </td>	
 						<td></td>
 						<td></td>

@@ -9,17 +9,17 @@
         <% end %>
 
  <!--        <h4>Редактирование текущей книги: </h4> -->
-        <h4><%= I18n.t('admin.books.edit.title')%></h4>
+        <h4><%= I18n.t('admin.books.title_edit')%></h4>
         <%= form_for :book, url: admin_book_path(@book), method: :put, html: {multipart: true}  do |f| %>
             
-          <p>
+          
           <div class="form-group">
             <%= f.label :name %>
             <%= f.text_field :name, autofocus: true, class: "form-control" %>
           </div>
-           <p></p>
+          
           <div class="form-group">
-            <%= f.label 'Категория:' %>
+            <%= f.label I18n.t('admin.category')%>
              
             <%= f.select(:book_type_id,options_for_select( options_select_new) )  %>    
             
@@ -42,7 +42,7 @@
 
          <!--  <p></p> -->
           <div class="actions">
-            <%= f.submit "Сохранить изменения", class:"btn btn-outline-primary" %>
+            <%= f.submit  I18n.t('admin.save_change'), class:"btn btn-outline-primary" %>
             <%= link_to t('common.back'), :back, class:"btn btn-outline-secondary"%>
           </div>
 

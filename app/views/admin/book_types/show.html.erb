@@ -7,14 +7,14 @@
 <p></p>
 
 <!-- <h4>Просмотр выбранной категории книг: </h4> -->
-<h4><%= I18n.t('admin.book_types.show.title')%></h4>
+<h4><%= I18n.t('admin.book_types.title_show')%></h4>
 <p></p>
-<p>Наименование категории: <%= @book_type.name  %></p>
+<p><%= I18n.t('admin.book_types.name_category')%><%= @book_type.name  %></p>
 <p></p>
 
 
 
 <div class="align-btn">
-<%= link_to "Редактирование",edit_admin_book_type_path(@book_type), class:"btn btn-outline-primary" %>
+<%= link_to I18n.t('admin.fun_edit'),edit_admin_book_type_path(@book_type), class:"btn btn-outline-primary" %>
 <%= link_to t('common.back'), :back, class: "btn btn-outline-secondary"%>
 </div>

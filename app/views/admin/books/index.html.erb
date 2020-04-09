@@ -2,17 +2,17 @@
 <p id="notice"> <%=  notice %> </p>
 <% end%>
 <!-- <h4>Учет и пополнение книг:</h4> -->
-<h4><%= I18n.t('admin.books.index.title')%></h4>
+<h4><%= I18n.t('admin.books.title_index')%></h4>
 <p></p>
 <div class="table-responsive">
 <table class="table table-striped">
 	
 	<tr>
-		<th>N n/n</th>
-    	<th>Название</th>
-    	<th>Категория </th>
-    	<th>Автор </th>
-    	<th>Год издания </th>
+		<th><%= I18n.t('admin.nomer')%></th>
+    	<th><%= I18n.t('admin.name_book')%></th>
+    	<th><%= I18n.t('admin.category')%></th>
+    	<th><%= I18n.t('admin.author')%></th>
+    	<th><%= I18n.t('admin.year_book')%></th>
     	<th></th>
     	<th></th>
     	<th></th>
@@ -27,9 +27,9 @@
 				<td><%= book.author %></td>
 				<td><%= book.year_book %></td>
 
-				<td><%= link_to "Вся информация о книге", admin_book_book_items_path(book) %> </td>
-				<td><%= link_to "Редактирование", edit_admin_book_path(book) %> </td>
-				<td><%= link_to "Удаление", admin_book_path(book),
+				<td><%= link_to I18n.t('admin.books.info_book'), admin_book_book_items_path(book) %> </td>
+				<td><%= link_to I18n.t('admin.fun_edit'), edit_admin_book_path(book) %> </td>
+				<td><%= link_to I18n.t('admin.fun_delete'), admin_book_path(book),
 								            method: :delete,
 								            data: { confirm: "Are you sure delete book?"} %> </td>
 
@@ -40,7 +40,7 @@
 </table>
 </div>
 <div class="align-btn">
-  <%= link_to "Добавить новую книгу", new_admin_book_path,class:"btn btn-primary" %>
+  <%= link_to I18n.t('admin.books.add_new_book'), new_admin_book_path,class:"btn btn-primary" %>
   <%= link_to t('common.back'), :back, class:"btn btn-outline-secondary"%>
 </div> 
 

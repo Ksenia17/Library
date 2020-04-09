@@ -4,16 +4,16 @@
 </div>
 <% end %>
 <!-- <h4>Список администраторов: </h4> -->
-<h4><%= I18n.t('admin.info.index.title')%></h4>
+<h4><%= I18n.t('admin.info.title_index')%></h4>
 <div class="table-responsive">
  <table class="table table-striped">
 		
     <tr>
-    	<th>N n/n</th>
-    	<th>First name </th>
-    	<th>Last name </th>
-    	<th>Email </th>
-    	<th>Birthdate </th>
+    	<th><%= I18n.t('admin.nomer')%></th>
+    	<th><%= I18n.t('admin.first_name')%></th>
+    	<th><%= I18n.t('admin.last_name')%></th>
+    	<th><%= I18n.t('admin.email')%></th>
+    	<th><%= I18n.t('admin.birthdate')%></th>
     	<th></th>
     </tr>
    
@@ -26,7 +26,7 @@
 		<td><%= user.email%></td>
 		<td><%= user.birthdate%></td>
 		
-		<td><%= link_to "Редактирование", edit_admin_info_path(user) %> </td>
+		<td><%= link_to I18n.t('admin.fun_edit'), edit_admin_info_path(user) %> </td>
 								
     </tr>		  		
    <% end %>
