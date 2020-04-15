@@ -123,4 +123,22 @@ ru:
       carrierwave_integrity_error: "Не изображение."
       carrierwave_download_error: "Не удалось загрузить изображение."
       extension_whitelist_error: "Вам не разрешено загружать %{extension} файлы, разрешенные типы: %{allowed_types}"
-      extension_blacklist_error: "Вам не разрешено загружать %{extension} файлы, запрещенные типы: %{prohibited_types}"      
+      extension_blacklist_error: "Вам не разрешено загружать %{extension} файлы, запрещенные типы: %{prohibited_types}"
+  notice:
+    user_update: "Пользователь был успешно обновлен" # "User was successfully updated"
+    new_instance: "Новый экземпляр был успешно добавлен" #"New example was successfully created"
+    registration: "Пользователь был успешно зарегистрирован"  #"User was successfully registered"
+    fine_add: "Штрафы были проверены" #"Fines were added"
+    refused: "Отказ, потому что нет свободной книги" #'Refused, because there is not free book-item'
+    processed: "Запрос успешно обработан " #"Book-request was successfully processed!"
+    new_category: "Новая категория была успешно создана" #"New category book was successfully created!"
+    update_category: "Категория книги была успешно обновлена" #Category book was successfully updated
+    not_delete_category: "Категория книг не была удалена, потому что eсть соответствующие книги" #Category book was not deleted, because were books
+    delete_category: "Категория книг была успешно удалена" #'Category book was successfully deleted'
+    new_book: "Новая книга была успешно создана" #"New book was successfully created!"
+    update_book: "Книга была успешно обновлена" #"Book was successfully updated"
+    not_delete_book: "Книга не была удалена, так как есть экземпляры" #Book was not deleted, because were books-items
+    delete_book: "Книга была успешно удалена" #Book was successfully deleted
+    update_admin: "Администратор был успешно обновлен" #Administrator was successfully updated
+
+

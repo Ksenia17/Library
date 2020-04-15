@@ -31,7 +31,7 @@ class Admin::UsersController < ApplicationController  # AdminController
      
      if  @user.update(user_params)
         if @user.errors.empty?
-          redirect_to admin_user_path(@user), :notice => "User was successfully updated"       
+          redirect_to admin_user_path(@user), :notice => I18n.t('notice.user_update')  #"User was successfully updated"       
         end  
         else
        @errors = @user.errors
@@ -49,7 +49,7 @@ class Admin::UsersController < ApplicationController  # AdminController
        
      if  @user.save
          # на стр зарегистрированных
-        redirect_to admin_users_path , :notice => "User was successfully registered" 
+        redirect_to admin_users_path , :notice =>  I18n.t('notice.registration')  
        else # на стр. неподтвержденных пользователей 
         redirect_to list_wait_admin_users_path
      end   
@@ -67,7 +67,7 @@ class Admin::UsersController < ApplicationController  # AdminController
   #  Delayed::Job.enqueue FineWorker.new,run_at:15.seconds.from_now
     fineworker = FineWorker.new
     fineworker.perfom
-    redirect_to  list_fines_admin_users_path, :notice => "Fines were added" 
+    redirect_to  list_fines_admin_users_path, :notice => I18n.t('notes.plus_fine')  
   end
 
 #  def list_fines   

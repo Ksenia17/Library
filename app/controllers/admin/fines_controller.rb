@@ -7,7 +7,7 @@ load_and_authorize_resource :fine
   def create
    fineworker = FineWorker.new
    fineworker.perfom
-   redirect_to  admin_fines_path, :notice => "Fines were added" 
+   redirect_to  admin_fines_path, :notice => I18n.t('notice.fine_add')  #"Fines were added" 
   end
 
   def index

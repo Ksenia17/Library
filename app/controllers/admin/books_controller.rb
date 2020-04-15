@@ -28,7 +28,7 @@ class Admin::BooksController < ApplicationController
       if @book.save   
 
           if @book.errors.empty?   
-            redirect_to admin_book_path(@book), :notice => "New book was successfully created!"        
+            redirect_to admin_book_path(@book), :notice => I18n.t('notice.new_book') #"New book was successfully created!"        
           end
           else
           @errors = @book.errors       
@@ -49,7 +49,7 @@ class Admin::BooksController < ApplicationController
 
         if @book.errors.empty?
           
-          redirect_to admin_book_path(@book), :notice => "Book was successfully updated"       
+          redirect_to admin_book_path(@book), :notice => I18n.t('notice.update_book') #"Book was successfully updated"       
         end  
         else
        @errors = @book.errors
@@ -65,10 +65,10 @@ class Admin::BooksController < ApplicationController
    # binding.pry
     @book_items= @book.book_items
     if not @book_items.empty?
-      redirect_to admin_books_path,:notice => "Book was not deleted, because were books-items"    
+      redirect_to admin_books_path,:notice => I18n.t('notice.not_delete_book')  #"Book was not deleted, because were books-items"    
     else 
       @book.destroy
-      redirect_to admin_books_path,:notice => "Book was successfully deleted"
+      redirect_to admin_books_path,:notice => I18n.t('notice.delete_book')  #"Book was successfully deleted"
     end
    
   end

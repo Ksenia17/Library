@@ -21,7 +21,7 @@ class Admin::BookTypesController < ApplicationController
     
       if @book_type.save   
           if @book_type.errors.empty?   #(id:@book_type.id)
-            redirect_to admin_book_type_path(@book_type), :notice => "New category book was successfully created!"        
+            redirect_to admin_book_type_path(@book_type), :notice => I18n.t('notice.new_category')  #"New category book was successfully created!"        
           end
           else
           @errors = @book_type.errors       
@@ -40,7 +40,7 @@ class Admin::BookTypesController < ApplicationController
 
   def update   
     if  @book_type.update(book_type_params)
-     redirect_to  admin_book_type_path(@book_type), :notice => 'Category book was successfully updated'
+     redirect_to  admin_book_type_path(@book_type), :notice => I18n.t('notice.update_category') #'Category book was successfully updated'
     end 
   end
 
@@ -51,12 +51,12 @@ class Admin::BookTypesController < ApplicationController
   @books = @book_type.books # лучше через ассоциацию
   #binding.pry
   if not @books.empty?
-    redirect_to admin_book_types_path, :notice => 'Category book was not deleted, because were books'
+    redirect_to admin_book_types_path, :notice => I18n.t('notice.not_delete_category') #'Category book was not deleted, because were books'
   else
     
     @book_type.destroy 
    
-    redirect_to admin_book_types_path, :notice => 'Category book was successfully deleted'
+    redirect_to admin_book_types_path, :notice =>  I18n.t('notice.delete_category') #'Category book was successfully deleted'
   end  
   
               

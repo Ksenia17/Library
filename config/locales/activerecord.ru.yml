@@ -1,33 +1,30 @@
 ru:
   activerecord:
-    models:
-      user:
     attributes:
       user:
-      # user/role: 'admin'
-        first_name: 'Имя:'
-        last_name: 'Фамилия:'
-        email: 'Электронная почта:'
-        birthdate: 'Дата рождения:'
+        first_name: 'Имя: '
+        last_name: 'Фамилия: '
+        email: 'Электронная почта: '
+        birthdate: 'Дата рождения: '
+        level: 'Уровень читателя: '
 
-      book_type:
-      attributes:
       book_type:
         name: 'Название:' 
 
-      book:
-    attributes:
       book:
         name: 'Название:'
         author: 'Автор:'
         year_book: 'Дата издания:'
         image: 'Обложка книги:'
-        
+
     errors:
       messages:
-        blank: 'не может быть пустым'      
+        blank: 'не может быть пустым'
+        invalid: 'неправильный формат записи' 
+        too_short: 'пароль слишком мал, < 6'     
 
-        
+
+
       
 
 

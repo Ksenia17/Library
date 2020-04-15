@@ -14,6 +14,7 @@ module Lib
     config.active_job.queue_adapter = :delayed_job
     config.assets.initialize_on_precompile = false
     config.time_zone = 'Kyiv'
+    config.i18n.available_locales = [:ru, :en]
     config.i18n.default_locale = :ru
     #config.action_controller.permit_all_parameters = false
     # Settings in config/environments/* take precedence over those specified here.

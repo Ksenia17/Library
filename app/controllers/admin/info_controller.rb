@@ -28,7 +28,7 @@ class Admin::InfoController < ApplicationController
      
      if  @user.update(user_params)
         if @user.errors.empty?
-          redirect_to admin_info_path(@user), :notice => "Administrator was successfully updated"               
+          redirect_to admin_info_path(@user), :notice => I18n.t('notice.update_admin')  #"Administrator was successfully updated"               
         end       
        else
         @errors = @user.errors

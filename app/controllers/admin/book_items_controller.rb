@@ -15,7 +15,7 @@ class Admin::BookItemsController < ApplicationController
 
 
      if @book_item.save 
-      redirect_to admin_book_book_item_path(book_id: @book.id, id: @book_item.id),:notice => "New example was successfully created"  # update  # update
+      redirect_to admin_book_book_item_path(book_id: @book.id, id: @book_item.id),:notice => I18n.t('notice.new_instance') # "New example was successfully created"  # update  # update
      end
 
 

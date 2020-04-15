@@ -21,7 +21,7 @@ def update
      if @user.update(user_params)
        if @user.errors.empty?
         
-        redirect_to reader_user_path(current_user), :notice => "Пользователь был успешно обновлен"  # "User was successfully updated" 
+        redirect_to reader_user_path(current_user), :notice => I18n.t('notice.user_update') # "Пользователь был успешно обновлен"  # "User was successfully updated" 
         end
      else
        @errors = @user.errors
