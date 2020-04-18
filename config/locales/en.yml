@@ -1,36 +1,155 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  admin:
+    # book_items:
+    nomer: "N n/n : "
+    uniq_nomer: "Unique nomer: "
+    name_book: "Name book: "
+    category: "Category: "
+    genre: "Genre: "
+    author: "Author: "
+    year_book: "Publication date: "
+    date_give: "Book issue date: "
+    user_add: "Who added: "
+    time_add: "Add time: "
+    but_remove: "Dispose of"
+    but_create: "Create a new instance"
+    date_create: "Date of creation: "
+    date_delete: "Write-off date"
+    title_book_items_index: "All copies of the selected book:"
+    title_book_items_new: "Add a new copy of the selected book:"
+    fun_edit: "Editing"
+    fun_delete: "Deletion"
+    save_change: "Save changes"
+    reader: "Reader"
+    first_name: 'First_name: '
+    last_name: 'Last_name: '
+    email: 'Email: '
+    birthdate: 'Birthdate: '
+    level: "Level: "
+    book_requests:
+      index:
+        title: "Event log for administrator"
+        date_query: "Request date"
+        time_query: "Request confirmation time"
+        free_instance : "Free instance"
+        total_copies: "Total copies"
+        approval_query: "Confirm issuance request"
+        negative_query: "Refuse due to absence" 
+        personal_data: "Reader personal data verification" 
+        request_archive: "Request archive" 
+    book_types:
+      title_types_index: "Book categories" 
+      name_category: "Category name" 
+      operation: "Action:"
+      add_new:  "Add new category" 
+      title_edit: "Book category editing"  
+      label_name: "Title" 
+      save_new_category: "Save new book category" 
+      title_new: "Create a new book category" 
+      title_show: "View selected book category"  
+    books:
+      title_index: "Accounting and replenishment of books" 
+      info_book: "All book info" 
+      add_new_book: "Add new book" 
+      title_edit: "Editing the current book" 
+      title_new: "Adding a new book" 
+      save_book: "Save new book" 
+      title_show: "View current book" 
+    fines:
+      title_index: "List of fines"
+      reader_email: "Email"
+      date_fine: "Fine date"
+      fine_of_book: "Fine on the book"
+      check: "Penalty check for new readers"
+    info:
+      title_edit: "Editing admin data:"
+      title_index: "Admin list"
+      title_show: "Registered admin personal information:"
+    users:
+      edit:
+        title: "Editing registered reader data:"
+      index:    
+        title: "List already registered"
+      list_wait:
+        title: "Registration pending list"
+        check_regist: "Confirmation of registration"
+      show:
+        title: "Registered reader personal information:"
+      wait:
+        title: "Reader selected:"
+        check: "Confirm registration"        
+  reader:
+    category: "Category:"
+    author: "Author:"
+    year_book: "Publication date" 
+    date_give: "Book issue date" 
+    user_add: "Who added" 
+    appl_process:  "Your book application is being reviewed..." 
+    users:
+      title_edit: "Editing reader data: "
+      first_name: 'First_name:'
+      last_name: 'Last_name:'
+      email: 'Email:'
+      birthdate: 'Birthdate:'
+      title_show: "Reader’s personal information: "
+      nomer: "N n/n : "
+      but_edit: "Edit"
+      but_save: "Save" 
+    books:
+      title: "All library books:"
+      book_on_hand: "This book is in your possession..."
+      take_book: "Take this book"
+    book_requests:
+      title: "Reader query log:"
+      nomer: "N n/n : "
+      name_book: "Name of the book:"
+      date_return: "Book return date:"
+      status_process: "Application processing status:"
+      you_gave: "You were given a book"
+      sorry_not: "There is no way to give out a book at the moment. Sorry.."
+    book_histories:
+      title: "My books:"
+      name_book: "Name of the book:"
+      date_return: "Book return date:" 
+      read_return: "Return read"
+  error: "mistakes"
+  common:
+    errors: "This form contains: "
+    fixes: "mistakes"
+    back: "Back"
+    logo: "Subscription"
+    rus: "Rus"
+    eng:  "Eng"
+    input: "Sign in"
+    registr: "Registration"
+    output: "Sign out" 
+    for_reader: "Reader Information"
+    for_admin: "Information for administrators only"
+    do_registr: "Sign up"
+    autoriz: "Authorization"    
+  errors:
+    messages:
+      carrierwave_processing_error: "Cannot resize image."
+      carrierwave_integrity_error: "Not an image."
+      carrierwave_download_error: "Couldn't download image."
+      extension_whitelist_error: "You are not allowed to upload %{extension} files, allowed types: %{allowed_types}"
+      extension_blacklist_error: "You are not allowed to upload %{extension} files, prohibited types: %{prohibited_types}"    
+  notice:
+    user_update: "User was successfully updated"
+    new_instance: "New example was successfully created"
+    registration: "User was successfully registered"
+    fine_add: "Fines were added"
+    refused: "Refused, because there is not free book-item"
+    processed: "Book-request was successfully processed!"
+    new_category: "New category book was successfully created!"
+    update_category: Category book was successfully updated
+    not_delete_category: "Category book was not deleted, because were books"
+    delete_category: "Category book was successfully deleted"
+    new_book: "New book was successfully created!"
+    update_book: "Book was successfully updated"
+    not_delete_book: "Book was not deleted, because were books-items"
+    delete_book: "Book was successfully deleted"
+    update_admin: "Administrator was successfully updated"
   unauthorized:
     default: "Default error message text."
     manage:
@@ -38,11 +157,3 @@ en:
       user: "Not allowed to manage other user accounts."
     update:
       project: "Not allowed to update this project."
-  errors:
-    messages:
-      carrierwave_processing_error: "Cannot resize image."
-      carrierwave_integrity_error: "Not an image."
-      carrierwave_download_error: "Couldn't download image."
-      extension_whitelist_error: "You are not allowed to upload %{extension} files, allowed types: %{allowed_types}"
-      extension_blacklist_error: "You are not allowed to upload %{extension} files, prohibited types: %{prohibited_types}"
-    

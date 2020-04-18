@@ -3,7 +3,7 @@
 <!--   <div class="col-4"> -->
     <div class="form_sign">
 
-        <h2>Регистрация</h2>
+        <h2><%= I18n.t('common.registr') %></h2>
 
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= devise_error_messages! %>
@@ -40,7 +40,7 @@
         </div>
 
         <div class="actions">
-        <%= f.submit "Зарегистрироваться", class: "btn btn-primary" %>
+        <%= f.submit I18n.t('common.do_registr'), class: "btn btn-primary" %>
         </div>
         <% end %>
 
